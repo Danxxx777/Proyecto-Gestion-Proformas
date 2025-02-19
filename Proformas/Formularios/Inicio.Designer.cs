@@ -43,7 +43,7 @@
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(294, 219);
+            guna2Button1.Location = new Point(272, 328);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(180, 45);
@@ -52,7 +52,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(465, 90);
+            button1.Location = new Point(301, 253);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -66,7 +66,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(guna2Button1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Inicio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
         }
