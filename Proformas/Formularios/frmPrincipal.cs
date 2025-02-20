@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proformas.Formularios
 {
-    public partial class frmInterfazPrincipal: Form
+    public partial class frmPrincipal: Form
     {
-        public frmInterfazPrincipal()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
