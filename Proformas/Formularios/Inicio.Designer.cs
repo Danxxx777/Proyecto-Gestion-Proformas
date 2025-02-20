@@ -39,65 +39,73 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            gtbUsuario = new Guna.UI2.WinForms.Guna2TextBox();
+            gtbcontraseña = new Guna.UI2.WinForms.Guna2TextBox();
             guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             pictureBox2 = new PictureBox();
             guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             guna2CustomGradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // guna2TextBox1
+            // gtbUsuario
             // 
-            guna2TextBox1.AutoValidate = AutoValidate.EnablePreventFocusChange;
-            guna2TextBox1.BackColor = Color.Transparent;
-            guna2TextBox1.BorderColor = Color.Black;
-            guna2TextBox1.BorderRadius = 15;
-            guna2TextBox1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            guna2TextBox1.BorderThickness = 0;
-            guna2TextBox1.CustomizableEdges = customizableEdges1;
-            guna2TextBox1.DefaultText = "Usuario";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(52, 69);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2TextBox1.Size = new Size(200, 32);
-            guna2TextBox1.TabIndex = 0;
+            gtbUsuario.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            gtbUsuario.BackColor = Color.Transparent;
+            gtbUsuario.BorderColor = Color.Black;
+            gtbUsuario.BorderRadius = 15;
+            gtbUsuario.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            gtbUsuario.BorderThickness = 0;
+            gtbUsuario.CustomizableEdges = customizableEdges1;
+            gtbUsuario.DefaultText = "Usuario";
+            gtbUsuario.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            gtbUsuario.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            gtbUsuario.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            gtbUsuario.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            gtbUsuario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            gtbUsuario.Font = new Font("Segoe UI", 9F);
+            gtbUsuario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            gtbUsuario.Location = new Point(57, 73);
+            gtbUsuario.Name = "gtbUsuario";
+            gtbUsuario.PlaceholderText = "";
+            gtbUsuario.SelectedText = "";
+            gtbUsuario.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            gtbUsuario.Size = new Size(200, 32);
+            gtbUsuario.TabIndex = 1;
+            gtbUsuario.Enter += gtbUsuario_Enter;
+            gtbUsuario.Leave += gtbUsuario_Leave;
             // 
-            // guna2TextBox2
+            // gtbcontraseña
             // 
-            guna2TextBox2.BorderColor = Color.Black;
-            guna2TextBox2.BorderRadius = 15;
-            guna2TextBox2.CustomizableEdges = customizableEdges3;
-            guna2TextBox2.DefaultText = "Contraseña";
-            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Font = new Font("Segoe UI", 9F);
-            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(52, 121);
-            guna2TextBox2.Name = "guna2TextBox2";
-            guna2TextBox2.PlaceholderText = "";
-            guna2TextBox2.SelectedText = "";
-            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2TextBox2.Size = new Size(200, 36);
-            guna2TextBox2.TabIndex = 1;
+            gtbcontraseña.BorderColor = Color.Black;
+            gtbcontraseña.BorderRadius = 15;
+            gtbcontraseña.CustomizableEdges = customizableEdges3;
+            gtbcontraseña.DefaultText = "Contraseña";
+            gtbcontraseña.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            gtbcontraseña.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            gtbcontraseña.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            gtbcontraseña.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            gtbcontraseña.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            gtbcontraseña.Font = new Font("Segoe UI", 9F);
+            gtbcontraseña.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            gtbcontraseña.Location = new Point(57, 131);
+            gtbcontraseña.Name = "gtbcontraseña";
+            gtbcontraseña.PlaceholderText = "";
+            gtbcontraseña.SelectedText = "";
+            gtbcontraseña.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            gtbcontraseña.Size = new Size(200, 36);
+            gtbcontraseña.TabIndex = 2;
+            gtbcontraseña.Enter += gtbcontraseña_Enter;
+            gtbcontraseña.Leave += gtbcontraseña_Leave;
             // 
             // guna2GradientButton1
             // 
@@ -113,11 +121,11 @@
             guna2GradientButton1.FillColor2 = Color.FromArgb(11, 84, 144);
             guna2GradientButton1.Font = new Font("Segoe UI", 9F);
             guna2GradientButton1.ForeColor = Color.White;
-            guna2GradientButton1.Location = new Point(84, 174);
+            guna2GradientButton1.Location = new Point(82, 182);
             guna2GradientButton1.Name = "guna2GradientButton1";
             guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2GradientButton1.Size = new Size(139, 45);
-            guna2GradientButton1.TabIndex = 2;
+            guna2GradientButton1.TabIndex = 3;
             guna2GradientButton1.Text = "Iniciar";
             // 
             // guna2CustomGradientPanel1
@@ -131,7 +139,7 @@
             guna2CustomGradientPanel1.Location = new Point(-1, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2CustomGradientPanel1.Size = new Size(617, 45);
+            guna2CustomGradientPanel1.Size = new Size(567, 45);
             guna2CustomGradientPanel1.TabIndex = 3;
             // 
             // pictureBox2
@@ -144,15 +152,16 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
             // 
             // guna2CustomGradientPanel2
             // 
             guna2CustomGradientPanel2.BackColor = Color.Transparent;
+            guna2CustomGradientPanel2.Controls.Add(pictureBox4);
+            guna2CustomGradientPanel2.Controls.Add(pictureBox3);
             guna2CustomGradientPanel2.Controls.Add(label1);
             guna2CustomGradientPanel2.Controls.Add(guna2GradientButton1);
-            guna2CustomGradientPanel2.Controls.Add(guna2TextBox2);
-            guna2CustomGradientPanel2.Controls.Add(guna2TextBox1);
+            guna2CustomGradientPanel2.Controls.Add(gtbcontraseña);
+            guna2CustomGradientPanel2.Controls.Add(gtbUsuario);
             guna2CustomGradientPanel2.CustomizableEdges = customizableEdges9;
             guna2CustomGradientPanel2.FillColor = Color.Indigo;
             guna2CustomGradientPanel2.FillColor2 = Color.FromArgb(64, 0, 64);
@@ -161,8 +170,31 @@
             guna2CustomGradientPanel2.Location = new Point(118, 131);
             guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2CustomGradientPanel2.Size = new Size(311, 246);
+            guna2CustomGradientPanel2.Size = new Size(318, 246);
             guna2CustomGradientPanel2.TabIndex = 5;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(11, 131);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(40, 36);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 5;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(11, 69);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(40, 36);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 4;
+            pictureBox3.TabStop = false;
             // 
             // label1
             // 
@@ -171,7 +203,7 @@
             label1.Location = new Point(64, 28);
             label1.Name = "label1";
             label1.Size = new Size(181, 25);
-            label1.TabIndex = 3;
+            label1.TabIndex = 0;
             label1.Text = "Inicio de Sesión";
             // 
             // pictureBox1
@@ -183,7 +215,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // Inicio
             // 
@@ -201,19 +232,23 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             guna2CustomGradientPanel2.ResumeLayout(false);
             guna2CustomGradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox gtbUsuario;
+        private Guna.UI2.WinForms.Guna2TextBox gtbcontraseña;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
     }
 }
