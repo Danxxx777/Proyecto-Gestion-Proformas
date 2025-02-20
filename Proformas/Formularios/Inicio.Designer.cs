@@ -43,14 +43,14 @@
             gtbcontraseña = new Guna.UI2.WinForms.Guna2TextBox();
             guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            pictureBox2 = new PictureBox();
+            pbxCerrar = new PictureBox();
             guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -130,7 +130,7 @@
             // 
             // guna2CustomGradientPanel1
             // 
-            guna2CustomGradientPanel1.Controls.Add(pictureBox2);
+            guna2CustomGradientPanel1.Controls.Add(pbxCerrar);
             guna2CustomGradientPanel1.CustomizableEdges = customizableEdges7;
             guna2CustomGradientPanel1.FillColor = Color.Indigo;
             guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(64, 0, 64);
@@ -142,16 +142,17 @@
             guna2CustomGradientPanel1.Size = new Size(567, 45);
             guna2CustomGradientPanel1.TabIndex = 3;
             // 
-            // pictureBox2
+            // pbxCerrar
             // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(512, 6);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(40, 36);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
+            pbxCerrar.BackColor = Color.Transparent;
+            pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
+            pbxCerrar.Location = new Point(512, 6);
+            pbxCerrar.Name = "pbxCerrar";
+            pbxCerrar.Size = new Size(40, 36);
+            pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxCerrar.TabIndex = 0;
+            pbxCerrar.TabStop = false;
+            pbxCerrar.Click += pbxCerrar_Click;
             // 
             // guna2CustomGradientPanel2
             // 
@@ -167,7 +168,7 @@
             guna2CustomGradientPanel2.FillColor2 = Color.FromArgb(64, 0, 64);
             guna2CustomGradientPanel2.FillColor3 = Color.DarkViolet;
             guna2CustomGradientPanel2.FillColor4 = Color.DeepSkyBlue;
-            guna2CustomGradientPanel2.Location = new Point(118, 131);
+            guna2CustomGradientPanel2.Location = new Point(126, 131);
             guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2CustomGradientPanel2.Size = new Size(318, 246);
@@ -229,7 +230,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             guna2CustomGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxCerrar).EndInit();
             guna2CustomGradientPanel2.ResumeLayout(false);
             guna2CustomGradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -246,7 +247,7 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox pbxCerrar;
         private Label label1;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
