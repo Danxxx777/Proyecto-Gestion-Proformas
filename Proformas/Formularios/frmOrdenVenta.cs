@@ -15,7 +15,19 @@ namespace Proformas.Formularios
         public frmOrdenVenta()
         {
             InitializeComponent();
+
+            {
+                // Configurar el DataGridView
+             
+               
+               
+
+
+               
+
+            }
         }
+        
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
@@ -25,6 +37,11 @@ namespace Proformas.Formularios
         private void frmOrdenVenta_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbxCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
