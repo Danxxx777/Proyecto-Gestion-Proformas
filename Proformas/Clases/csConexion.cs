@@ -18,8 +18,11 @@ namespace Proformas
         public DataSet ds = new DataSet();
         public SqlDataAdapter da;
         //Data Source=DESKTOP-VK5KHQR;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True
+        //Data Source=DESKTOP-VK5KHQR;Initial Catalog=BDProformas;Integrated Security=True
+
         //Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True
-        private string _connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        //Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True
+        private string _connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
 
 
 
@@ -28,7 +31,7 @@ namespace Proformas
         public Conexion()
         {
             //Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True
-            Conectar = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True");
+            Conectar = new SqlConnection("Data Source=DESKTOP-VK5KHQR;Initial Catalog=BDProformas;Integrated Security=True");
             Conectar = new SqlConnection(_connectionString);
             Conectar.Open();
 

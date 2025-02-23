@@ -77,5 +77,86 @@ namespace Proformas.Formularios
         {
 
         }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+            splitContainer1.Panel2.Controls.Clear();
+
+            // Crear instancia del formulario que deseas mostrar
+            frmClientes frm = new frmClientes();
+
+            // Para que el formulario se “anide” dentro del Panel2:
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al Panel2
+            splitContainer1.Panel2.Controls.Add(frm);
+
+            // Mostrar el formulario
+            frm.Show();
+        }
+
+        private void btnBodegas_Click(object sender, EventArgs e)
+        {
+            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+            splitContainer1.Panel2.Controls.Clear();
+
+            // Crear instancia del formulario que deseas mostrar
+            frmBodegas frm = new frmBodegas();
+
+            // Para que el formulario se “anide” dentro del Panel2:
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al Panel2
+            splitContainer1.Panel2.Controls.Add(frm);
+
+            // Mostrar el formulario
+            frm.Show();
+        }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+            splitContainer1.Panel2.Controls.Clear();
+
+            // Crear instancia del formulario que deseas mostrar
+            frmProveedores frm = new frmProveedores();
+
+            // Para que el formulario se “anide” dentro del Panel2:
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al Panel2
+            splitContainer1.Panel2.Controls.Add(frm);
+
+            // Mostrar el formulario
+            frm.Show();
+        }
+
+        private void btnEmpresa_Click(object sender, EventArgs e)
+        {
+            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+            splitContainer1.Panel2.Controls.Clear();
+
+            // Crear instancia del formulario que deseas mostrar
+            frmEmpresa frm = new frmEmpresa();
+
+            // Para que el formulario se “anide” dentro del Panel2:
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al Panel2
+            splitContainer1.Panel2.Controls.Add(frm);
+
+            // Mostrar el formulario
+            frm.Show();
+
+        }
     }
 }

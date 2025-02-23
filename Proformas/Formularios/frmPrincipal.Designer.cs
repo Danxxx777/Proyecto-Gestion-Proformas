@@ -105,12 +105,13 @@
             btnProveedor.FillColor2 = Color.FromArgb(11, 84, 144);
             btnProveedor.Font = new Font("Segoe UI", 9F);
             btnProveedor.ForeColor = Color.White;
-            btnProveedor.Location = new Point(30, 356);
+            btnProveedor.Location = new Point(30, 362);
             btnProveedor.Name = "btnProveedor";
             btnProveedor.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnProveedor.Size = new Size(119, 46);
             btnProveedor.TabIndex = 52;
             btnProveedor.Text = "Proveedores";
+            btnProveedor.Click += btnProveedor_Click;
             // 
             // btnBodegas
             // 
@@ -132,6 +133,7 @@
             btnBodegas.Size = new Size(119, 46);
             btnBodegas.TabIndex = 52;
             btnBodegas.Text = "Bodegas";
+            btnBodegas.Click += btnBodegas_Click;
             // 
             // btnCliente
             // 
@@ -147,12 +149,13 @@
             btnCliente.FillColor2 = Color.FromArgb(11, 84, 144);
             btnCliente.Font = new Font("Segoe UI", 9F);
             btnCliente.ForeColor = Color.White;
-            btnCliente.Location = new Point(30, 262);
+            btnCliente.Location = new Point(30, 258);
             btnCliente.Name = "btnCliente";
             btnCliente.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnCliente.Size = new Size(119, 46);
             btnCliente.TabIndex = 52;
             btnCliente.Text = "Clientes";
+            btnCliente.Click += btnCliente_Click;
             // 
             // btnProductos
             // 
@@ -189,12 +192,13 @@
             btnEmpresa.FillColor2 = Color.FromArgb(11, 84, 144);
             btnEmpresa.Font = new Font("Segoe UI", 9F);
             btnEmpresa.ForeColor = Color.White;
-            btnEmpresa.Location = new Point(30, 401);
+            btnEmpresa.Location = new Point(30, 414);
             btnEmpresa.Name = "btnEmpresa";
             btnEmpresa.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnEmpresa.Size = new Size(119, 46);
             btnEmpresa.TabIndex = 52;
             btnEmpresa.Text = "Empresa";
+            btnEmpresa.Click += btnEmpresa_Click;
             // 
             // guna2GradientButton2
             // 
@@ -210,7 +214,7 @@
             guna2GradientButton2.FillColor2 = Color.FromArgb(11, 84, 144);
             guna2GradientButton2.Font = new Font("Segoe UI", 9F);
             guna2GradientButton2.ForeColor = Color.White;
-            guna2GradientButton2.Location = new Point(30, 159);
+            guna2GradientButton2.Location = new Point(30, 156);
             guna2GradientButton2.Name = "guna2GradientButton2";
             guna2GradientButton2.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2GradientButton2.Size = new Size(119, 46);
@@ -231,7 +235,7 @@
             btnOrdenVenta.FillColor2 = Color.FromArgb(11, 84, 144);
             btnOrdenVenta.Font = new Font("Segoe UI", 9F);
             btnOrdenVenta.ForeColor = Color.White;
-            btnOrdenVenta.Location = new Point(30, 106);
+            btnOrdenVenta.Location = new Point(30, 94);
             btnOrdenVenta.Name = "btnOrdenVenta";
             btnOrdenVenta.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnOrdenVenta.Size = new Size(119, 57);
@@ -276,7 +280,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1205, 9);
+            pictureBox1.Location = new Point(1083, 15);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(54, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -306,7 +310,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1475, 739);
+            ClientSize = new Size(1333, 739);
             Controls.Add(splitContainer1);
             FormBorderStyle = FormBorderStyle.None;
             IsMdiContainer = true;
