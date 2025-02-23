@@ -45,6 +45,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             lblClientes = new Label();
             pbxCerrar = new PictureBox();
@@ -60,6 +66,12 @@
             dataGridView2 = new DataGridView();
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            label4 = new Label();
+            label3 = new Label();
+            guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
+            label2 = new Label();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -88,11 +100,11 @@
             // 
             lblClientes.AutoSize = true;
             lblClientes.Font = new Font("Mongolian Baiti", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblClientes.Location = new Point(378, 11);
+            lblClientes.Location = new Point(275, 11);
             lblClientes.Name = "lblClientes";
-            lblClientes.Size = new Size(71, 25);
+            lblClientes.Size = new Size(320, 25);
             lblClientes.TabIndex = 1;
-            lblClientes.Text = "Tipos";
+            lblClientes.Text = "Tipos de Servicios/Productos";
             // 
             // pbxCerrar
             // 
@@ -108,7 +120,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(391, 68);
+            pictureBox3.Location = new Point(770, 137);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(40, 35);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -118,7 +130,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(488, 68);
+            pictureBox2.Location = new Point(774, 211);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(40, 35);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -128,7 +140,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(296, 68);
+            pictureBox1.Location = new Point(772, 63);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(40, 35);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -138,7 +150,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(32, 227);
+            dataGridView1.Location = new Point(32, 337);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(301, 181);
             dataGridView1.TabIndex = 36;
@@ -160,7 +172,7 @@
             gtbUsuario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             gtbUsuario.Font = new Font("Segoe UI", 9F);
             gtbUsuario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            gtbUsuario.Location = new Point(129, 180);
+            gtbUsuario.Location = new Point(129, 290);
             gtbUsuario.Name = "gtbUsuario";
             gtbUsuario.PlaceholderText = "";
             gtbUsuario.SelectedText = "";
@@ -182,7 +194,7 @@
             btnBuscar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnBuscar.Font = new Font("Segoe UI", 9F);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(32, 180);
+            btnBuscar.Location = new Point(32, 290);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnBuscar.Size = new Size(63, 32);
@@ -203,7 +215,7 @@
             Editar.FillColor2 = Color.FromArgb(11, 84, 144);
             Editar.Font = new Font("Segoe UI", 9F);
             Editar.ForeColor = Color.White;
-            Editar.Location = new Point(377, 109);
+            Editar.Location = new Point(756, 178);
             Editar.Name = "Editar";
             Editar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             Editar.Size = new Size(71, 27);
@@ -224,7 +236,7 @@
             btnEliminar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnEliminar.Font = new Font("Segoe UI", 9F);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(470, 109);
+            btnEliminar.Location = new Point(756, 252);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnEliminar.Size = new Size(71, 27);
@@ -245,7 +257,7 @@
             btnAgregar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnAgregar.Font = new Font("Segoe UI", 9F);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(280, 109);
+            btnAgregar.Location = new Point(756, 104);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnAgregar.Size = new Size(71, 27);
@@ -255,7 +267,7 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(422, 227);
+            dataGridView2.Location = new Point(422, 337);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.Size = new Size(415, 181);
             dataGridView2.TabIndex = 43;
@@ -277,7 +289,7 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(523, 180);
+            guna2TextBox1.Location = new Point(523, 290);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PlaceholderText = "";
             guna2TextBox1.SelectedText = "";
@@ -299,19 +311,130 @@
             guna2GradientButton1.FillColor2 = Color.FromArgb(11, 84, 144);
             guna2GradientButton1.Font = new Font("Segoe UI", 9F);
             guna2GradientButton1.ForeColor = Color.White;
-            guna2GradientButton1.Location = new Point(422, 180);
+            guna2GradientButton1.Location = new Point(422, 290);
             guna2GradientButton1.Name = "guna2GradientButton1";
             guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2GradientButton1.Size = new Size(63, 32);
             guna2GradientButton1.TabIndex = 41;
             guna2GradientButton1.Text = "Buscar";
             // 
+            // guna2TextBox4
+            // 
+            guna2TextBox4.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox4.BackColor = Color.Transparent;
+            guna2TextBox4.BorderColor = Color.Black;
+            guna2TextBox4.BorderRadius = 15;
+            guna2TextBox4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox4.BorderThickness = 0;
+            guna2TextBox4.CustomizableEdges = customizableEdges17;
+            guna2TextBox4.DefaultText = "";
+            guna2TextBox4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox4.Font = new Font("Segoe UI", 9F);
+            guna2TextBox4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox4.Location = new Point(198, 189);
+            guna2TextBox4.Name = "guna2TextBox4";
+            guna2TextBox4.PlaceholderText = "";
+            guna2TextBox4.SelectedText = "";
+            guna2TextBox4.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2TextBox4.Size = new Size(396, 32);
+            guna2TextBox4.TabIndex = 49;
+            // 
+            // guna2TextBox2
+            // 
+            guna2TextBox2.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox2.BackColor = Color.Transparent;
+            guna2TextBox2.BorderColor = Color.Black;
+            guna2TextBox2.BorderRadius = 15;
+            guna2TextBox2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox2.BorderThickness = 0;
+            guna2TextBox2.CustomizableEdges = customizableEdges19;
+            guna2TextBox2.DefaultText = "";
+            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Font = new Font("Segoe UI", 9F);
+            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Location = new Point(319, 137);
+            guna2TextBox2.Name = "guna2TextBox2";
+            guna2TextBox2.PlaceholderText = "";
+            guna2TextBox2.SelectedText = "";
+            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2TextBox2.Size = new Size(275, 32);
+            guna2TextBox2.TabIndex = 48;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(32, 137);
+            label4.Name = "label4";
+            label4.Size = new Size(165, 20);
+            label4.TabIndex = 47;
+            label4.Text = "Nombre SubTipo:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(32, 194);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 20);
+            label3.TabIndex = 46;
+            label3.Text = "Descripción:";
+            // 
+            // guna2TextBox5
+            // 
+            guna2TextBox5.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox5.BackColor = Color.Transparent;
+            guna2TextBox5.BorderColor = Color.Black;
+            guna2TextBox5.BorderRadius = 15;
+            guna2TextBox5.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox5.BorderThickness = 0;
+            guna2TextBox5.CustomizableEdges = customizableEdges21;
+            guna2TextBox5.DefaultText = "";
+            guna2TextBox5.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox5.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox5.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox5.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox5.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox5.Font = new Font("Segoe UI", 9F);
+            guna2TextBox5.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox5.Location = new Point(319, 82);
+            guna2TextBox5.Name = "guna2TextBox5";
+            guna2TextBox5.PlaceholderText = "";
+            guna2TextBox5.SelectedText = "";
+            guna2TextBox5.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2TextBox5.Size = new Size(275, 32);
+            guna2TextBox5.TabIndex = 45;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(32, 84);
+            label2.Name = "label2";
+            label2.Size = new Size(271, 20);
+            label2.TabIndex = 44;
+            label2.Text = "Nombre de Servicio/Producto:";
+            // 
             // frmTiposPS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(858, 442);
+            ClientSize = new Size(858, 542);
+            Controls.Add(guna2TextBox4);
+            Controls.Add(guna2TextBox2);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(guna2TextBox5);
+            Controls.Add(label2);
             Controls.Add(dataGridView2);
             Controls.Add(guna2TextBox1);
             Controls.Add(guna2GradientButton1);
@@ -338,6 +461,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -357,5 +481,11 @@
         private DataGridView dataGridView2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Label label4;
+        private Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Label label2;
     }
 }
