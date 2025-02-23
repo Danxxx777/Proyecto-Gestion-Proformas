@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+using Microsoft.Data.SqlClient;
 
 
 namespace Proformas
