@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Proformas.Formularios
 {
-    public partial class frmClientes: Form
+    public partial class frmClientes : Form
     {
         public frmClientes()
         {
             InitializeComponent();
         }
+
     }
 }

@@ -41,6 +41,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             lblClientes = new Label();
             pbxCerrar = new PictureBox();
@@ -53,6 +59,12 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            label1 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -80,7 +92,7 @@
             // 
             lblClientes.AutoSize = true;
             lblClientes.Font = new Font("Mongolian Baiti", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblClientes.Location = new Point(396, 14);
+            lblClientes.Location = new Point(270, 11);
             lblClientes.Name = "lblClientes";
             lblClientes.Size = new Size(98, 25);
             lblClientes.TabIndex = 1;
@@ -90,7 +102,7 @@
             // 
             pbxCerrar.BackColor = Color.Transparent;
             pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
-            pbxCerrar.Location = new Point(701, 3);
+            pbxCerrar.Location = new Point(612, 6);
             pbxCerrar.Name = "pbxCerrar";
             pbxCerrar.Size = new Size(40, 36);
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -111,7 +123,7 @@
             btnAgregar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnAgregar.Font = new Font("Segoe UI", 9F);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(76, 113);
+            btnAgregar.Location = new Point(555, 87);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnAgregar.Size = new Size(71, 45);
@@ -132,7 +144,7 @@
             btnEliminar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnEliminar.Font = new Font("Segoe UI", 9F);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(76, 249);
+            btnEliminar.Location = new Point(555, 223);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnEliminar.Size = new Size(71, 45);
@@ -153,7 +165,7 @@
             Editar.FillColor2 = Color.FromArgb(11, 84, 144);
             Editar.Font = new Font("Segoe UI", 9F);
             Editar.ForeColor = Color.White;
-            Editar.Location = new Point(76, 178);
+            Editar.Location = new Point(555, 152);
             Editar.Name = "Editar";
             Editar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             Editar.Size = new Size(71, 45);
@@ -174,7 +186,7 @@
             btnBuscar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnBuscar.Font = new Font("Segoe UI", 9F);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(391, 93);
+            btnBuscar.Location = new Point(284, 293);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnBuscar.Size = new Size(63, 32);
@@ -198,7 +210,7 @@
             gtbUsuario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             gtbUsuario.Font = new Font("Segoe UI", 9F);
             gtbUsuario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            gtbUsuario.Location = new Point(185, 93);
+            gtbUsuario.Location = new Point(49, 293);
             gtbUsuario.Name = "gtbUsuario";
             gtbUsuario.PlaceholderText = "";
             gtbUsuario.SelectedText = "";
@@ -209,7 +221,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(188, 144);
+            dataGridView1.Location = new Point(49, 340);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(519, 150);
             dataGridView1.TabIndex = 15;
@@ -217,7 +229,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(30, 120);
+            pictureBox1.Location = new Point(509, 94);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(40, 35);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -227,7 +239,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(30, 257);
+            pictureBox2.Location = new Point(509, 231);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(40, 35);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -237,19 +249,130 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(30, 184);
+            pictureBox3.Location = new Point(509, 158);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(40, 35);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
             // 
+            // guna2TextBox1
+            // 
+            guna2TextBox1.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox1.BackColor = Color.Transparent;
+            guna2TextBox1.BorderColor = Color.Black;
+            guna2TextBox1.BorderRadius = 15;
+            guna2TextBox1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox1.BorderThickness = 0;
+            guna2TextBox1.CustomizableEdges = customizableEdges13;
+            guna2TextBox1.DefaultText = "";
+            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Font = new Font("Segoe UI", 9F);
+            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Location = new Point(246, 112);
+            guna2TextBox1.Name = "guna2TextBox1";
+            guna2TextBox1.PlaceholderText = "";
+            guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2TextBox1.Size = new Size(200, 32);
+            guna2TextBox1.TabIndex = 19;
+            // 
+            // guna2TextBox2
+            // 
+            guna2TextBox2.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox2.BackColor = Color.Transparent;
+            guna2TextBox2.BorderColor = Color.Black;
+            guna2TextBox2.BorderRadius = 15;
+            guna2TextBox2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox2.BorderThickness = 0;
+            guna2TextBox2.CustomizableEdges = customizableEdges15;
+            guna2TextBox2.DefaultText = "";
+            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Font = new Font("Segoe UI", 9F);
+            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Location = new Point(246, 170);
+            guna2TextBox2.Name = "guna2TextBox2";
+            guna2TextBox2.PlaceholderText = "";
+            guna2TextBox2.SelectedText = "";
+            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2TextBox2.Size = new Size(200, 32);
+            guna2TextBox2.TabIndex = 20;
+            // 
+            // guna2TextBox3
+            // 
+            guna2TextBox3.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox3.BackColor = Color.Transparent;
+            guna2TextBox3.BorderColor = Color.Black;
+            guna2TextBox3.BorderRadius = 15;
+            guna2TextBox3.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox3.BorderThickness = 0;
+            guna2TextBox3.CustomizableEdges = customizableEdges17;
+            guna2TextBox3.DefaultText = "";
+            guna2TextBox3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox3.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox3.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox3.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox3.Font = new Font("Segoe UI", 9F);
+            guna2TextBox3.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox3.Location = new Point(246, 223);
+            guna2TextBox3.Name = "guna2TextBox3";
+            guna2TextBox3.PlaceholderText = "";
+            guna2TextBox3.SelectedText = "";
+            guna2TextBox3.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2TextBox3.Size = new Size(200, 32);
+            guna2TextBox3.TabIndex = 21;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(49, 182);
+            label1.Name = "label1";
+            label1.Size = new Size(178, 20);
+            label1.TabIndex = 23;
+            label1.Text = "Correo Electronico:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(49, 235);
+            label3.Name = "label3";
+            label3.Size = new Size(178, 20);
+            label3.TabIndex = 24;
+            label3.Text = "Nro. Identificación:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(49, 121);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 20);
+            label2.TabIndex = 25;
+            label2.Text = "Nombres:";
+            // 
             // frmClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(751, 350);
+            ClientSize = new Size(659, 524);
+            Controls.Add(label2);
+            Controls.Add(label3);
+            Controls.Add(label1);
+            Controls.Add(guna2TextBox3);
+            Controls.Add(guna2TextBox2);
+            Controls.Add(guna2TextBox1);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -272,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -288,5 +412,11 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Label label1;
+        private Label label3;
+        private Label label2;
     }
 }
