@@ -23,5 +23,10 @@ namespace Proformas.Formularios
             frmbdgas.Show();
             this.Hide();
         }
+
+        private void pbxCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
