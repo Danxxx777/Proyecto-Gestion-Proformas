@@ -127,6 +127,7 @@
             guna2GradientButton1.Size = new Size(139, 45);
             guna2GradientButton1.TabIndex = 3;
             guna2GradientButton1.Text = "Iniciar";
+            guna2GradientButton1.Click += btnLogin_Click;
             // 
             // guna2CustomGradientPanel1
             // 

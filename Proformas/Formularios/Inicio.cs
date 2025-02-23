@@ -1,4 +1,11 @@
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using Microsoft.Data.Sql;
+using Microsoft.Data.SqlClient;
+using Proformas.Formularios;
 
 namespace Proformas
 {
@@ -42,7 +49,6 @@ namespace Proformas
                 gtbcontraseña.Text = "";
                 gtbcontraseña.PasswordChar = '*';
             }
-
         }
 
         private void gtbcontraseña_Leave(object sender, EventArgs e)
@@ -57,6 +63,78 @@ namespace Proformas
         private void pbxCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+          
+            Conexion miConexion = new Conexion();
+
+         
+            string usuario = gtbUsuario.Text;
+            string contraseña = gtbcontraseña.Text;
+
+    
+            bool esValido = miConexion.ValidarLogin(usuario, contraseña);
+
+            if (esValido)
+            {
+                MessageBox.Show("Login exitoso", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+              
+                frmPrincipal principal = new frmPrincipal();
+
+               
+                principal.FormClosed += (s, args) => this.Close();
+
+              
+                principal.Show();
+
+               
+                principal.BringToFront();
+                principal.Activate();
+                principal.Focus();
+                principal.WindowState = FormWindowState.Normal; 
+
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+        private bool ValidarUsuario(string usuario, string contraseña)
+        {
+            bool esValido = false;
+
+            string connectionString = "Server=Ryzen7\\SQLEXPRESS;Database=BDProformas;Trusted_Connection=True;";
+
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña";
+                    using (SqlCommand cmd = new SqlCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@Usuario", usuario);
+                        cmd.Parameters.AddWithValue("@Contraseña", contraseña);
+
+                        int count = (int)cmd.ExecuteScalar();
+                        esValido = (count > 0);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al conectar con la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return esValido;
         }
     }
 }
