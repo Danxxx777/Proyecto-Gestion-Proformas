@@ -43,6 +43,14 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             lblClientes = new Label();
             pbxCerrar = new PictureBox();
@@ -57,6 +65,14 @@
             btnAgregar = new Guna.UI2.WinForms.Guna2GradientButton();
             cmbTipoProducto = new Guna.UI2.WinForms.Guna2ComboBox();
             label1 = new Label();
+            label2 = new Label();
+            guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -77,14 +93,14 @@
             guna2CustomGradientPanel1.Location = new Point(0, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel1.Size = new Size(857, 53);
+            guna2CustomGradientPanel1.Size = new Size(840, 53);
             guna2CustomGradientPanel1.TabIndex = 6;
             // 
             // lblClientes
             // 
             lblClientes.AutoSize = true;
             lblClientes.Font = new Font("Mongolian Baiti", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblClientes.Location = new Point(263, 9);
+            lblClientes.Location = new Point(311, 9);
             lblClientes.Name = "lblClientes";
             lblClientes.Size = new Size(117, 25);
             lblClientes.TabIndex = 1;
@@ -94,7 +110,7 @@
             // 
             pbxCerrar.BackColor = Color.Transparent;
             pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
-            pbxCerrar.Location = new Point(629, 3);
+            pbxCerrar.Location = new Point(788, 9);
             pbxCerrar.Name = "pbxCerrar";
             pbxCerrar.Size = new Size(40, 36);
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -134,9 +150,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(33, 229);
+            dataGridView1.Location = new Point(419, 143);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(595, 181);
+            dataGridView1.Size = new Size(372, 181);
             dataGridView1.TabIndex = 24;
             // 
             // gtbUsuario
@@ -156,7 +172,7 @@
             gtbUsuario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             gtbUsuario.Font = new Font("Segoe UI", 9F);
             gtbUsuario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            gtbUsuario.Location = new Point(33, 181);
+            gtbUsuario.Location = new Point(419, 92);
             gtbUsuario.Name = "gtbUsuario";
             gtbUsuario.PlaceholderText = "";
             gtbUsuario.SelectedText = "";
@@ -178,7 +194,7 @@
             btnBuscar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnBuscar.Font = new Font("Segoe UI", 9F);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(263, 181);
+            btnBuscar.Location = new Point(639, 92);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnBuscar.Size = new Size(63, 32);
@@ -262,28 +278,176 @@
             cmbTipoProducto.ForeColor = Color.FromArgb(68, 88, 112);
             cmbTipoProducto.IntegralHeight = false;
             cmbTipoProducto.ItemHeight = 30;
-            cmbTipoProducto.Location = new Point(415, 177);
+            cmbTipoProducto.Location = new Point(180, 360);
             cmbTipoProducto.Name = "cmbTipoProducto";
             cmbTipoProducto.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cmbTipoProducto.Size = new Size(164, 36);
+            cmbTipoProducto.Size = new Size(188, 36);
             cmbTipoProducto.TabIndex = 28;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(353, 190);
+            label1.Location = new Point(34, 369);
             label1.Name = "label1";
             label1.Size = new Size(56, 20);
             label1.TabIndex = 2;
             label1.Text = "Tipo:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(33, 175);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 20);
+            label2.TabIndex = 34;
+            label2.Text = "Nombres:";
+            // 
+            // guna2TextBox5
+            // 
+            guna2TextBox5.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox5.BackColor = Color.Transparent;
+            guna2TextBox5.BorderColor = Color.Black;
+            guna2TextBox5.BorderRadius = 15;
+            guna2TextBox5.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox5.BorderThickness = 0;
+            guna2TextBox5.CustomizableEdges = customizableEdges15;
+            guna2TextBox5.DefaultText = "";
+            guna2TextBox5.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox5.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox5.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox5.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox5.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox5.Font = new Font("Segoe UI", 9F);
+            guna2TextBox5.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox5.Location = new Point(180, 163);
+            guna2TextBox5.Name = "guna2TextBox5";
+            guna2TextBox5.PlaceholderText = "";
+            guna2TextBox5.SelectedText = "";
+            guna2TextBox5.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2TextBox5.Size = new Size(200, 32);
+            guna2TextBox5.TabIndex = 35;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(34, 223);
+            label3.Name = "label3";
+            label3.Size = new Size(69, 20);
+            label3.TabIndex = 36;
+            label3.Text = "Precio:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(34, 275);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 20);
+            label4.TabIndex = 37;
+            label4.Text = "Stock:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Mongolian Baiti", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(33, 316);
+            label5.Name = "label5";
+            label5.Size = new Size(117, 20);
+            label5.TabIndex = 38;
+            label5.Text = "Descripción:";
+            // 
+            // guna2TextBox1
+            // 
+            guna2TextBox1.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox1.BackColor = Color.Transparent;
+            guna2TextBox1.BorderColor = Color.Black;
+            guna2TextBox1.BorderRadius = 15;
+            guna2TextBox1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox1.BorderThickness = 0;
+            guna2TextBox1.CustomizableEdges = customizableEdges17;
+            guna2TextBox1.DefaultText = "";
+            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Font = new Font("Segoe UI", 9F);
+            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Location = new Point(180, 263);
+            guna2TextBox1.Name = "guna2TextBox1";
+            guna2TextBox1.PlaceholderText = "";
+            guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2TextBox1.Size = new Size(200, 32);
+            guna2TextBox1.TabIndex = 39;
+            // 
+            // guna2TextBox4
+            // 
+            guna2TextBox4.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox4.BackColor = Color.Transparent;
+            guna2TextBox4.BorderColor = Color.Black;
+            guna2TextBox4.BorderRadius = 15;
+            guna2TextBox4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox4.BorderThickness = 0;
+            guna2TextBox4.CustomizableEdges = customizableEdges19;
+            guna2TextBox4.DefaultText = "";
+            guna2TextBox4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox4.Font = new Font("Segoe UI", 9F);
+            guna2TextBox4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox4.Location = new Point(180, 213);
+            guna2TextBox4.Name = "guna2TextBox4";
+            guna2TextBox4.PlaceholderText = "";
+            guna2TextBox4.SelectedText = "";
+            guna2TextBox4.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2TextBox4.Size = new Size(200, 32);
+            guna2TextBox4.TabIndex = 40;
+            // 
+            // guna2TextBox2
+            // 
+            guna2TextBox2.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            guna2TextBox2.BackColor = Color.Transparent;
+            guna2TextBox2.BorderColor = Color.Black;
+            guna2TextBox2.BorderRadius = 15;
+            guna2TextBox2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            guna2TextBox2.BorderThickness = 0;
+            guna2TextBox2.CustomizableEdges = customizableEdges21;
+            guna2TextBox2.DefaultText = "";
+            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Font = new Font("Segoe UI", 9F);
+            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Location = new Point(180, 311);
+            guna2TextBox2.Name = "guna2TextBox2";
+            guna2TextBox2.PlaceholderText = "";
+            guna2TextBox2.SelectedText = "";
+            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2TextBox2.Size = new Size(200, 32);
+            guna2TextBox2.TabIndex = 41;
             // 
             // frmProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(684, 450);
+            ClientSize = new Size(840, 422);
+            Controls.Add(guna2TextBox2);
+            Controls.Add(guna2TextBox4);
+            Controls.Add(guna2TextBox1);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(guna2TextBox5);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(cmbTipoProducto);
             Controls.Add(pictureBox3);
@@ -327,5 +491,13 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnAgregar;
         private Guna.UI2.WinForms.Guna2ComboBox cmbTipoProducto;
         private Label label1;
+        private Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
     }
 }
