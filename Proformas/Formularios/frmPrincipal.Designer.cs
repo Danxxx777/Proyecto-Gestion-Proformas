@@ -60,6 +60,7 @@
             pbxCerrar = new PictureBox();
             pictureBox1 = new PictureBox();
             splitContainer1 = new SplitContainer();
+            lblNombre = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnSucursale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -316,11 +317,23 @@
             // 
             splitContainer1.Panel2.BackgroundImage = Properties.Resources.Purple_Blue_Gradient_Modern_Metaverse_Futuristic_Presentation;
             splitContainer1.Panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            splitContainer1.Panel2.Controls.Add(lblNombre);
             splitContainer1.Panel2.Controls.Add(pictureBox1);
             splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
             splitContainer1.Size = new Size(1464, 727);
             splitContainer1.SplitterDistance = 188;
             splitContainer1.TabIndex = 30;
+            // 
+            // lblNombre
+            // 
+            lblNombre.BackColor = Color.Transparent;
+            lblNombre.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombre.ForeColor = Color.Transparent;
+            lblNombre.Location = new Point(536, 475);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(24, 27);
+            lblNombre.TabIndex = 29;
+            lblNombre.Text = "...";
             // 
             // frmPrincipal
             // 
@@ -342,6 +355,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
@@ -362,5 +376,6 @@
         private SplitContainer splitContainer1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblNombre;
     }
 }

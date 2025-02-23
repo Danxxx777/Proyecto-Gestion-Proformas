@@ -80,6 +80,42 @@ namespace Proformas
             return esValido;
         }
 
+        public string ObtenerNombreUsuario(string usuario, string contraseña)
+        {
+            string nombreUsuario = null;
+            string query = @"
+        SELECT v.Nombre 
+        FROM Usuarios u 
+        INNER JOIN Vendedor v ON u.UsuarioID = v.UsuarioID 
+        WHERE u.Usuario = @Usuario AND u.Contraseña = @Contraseña";
+
+            using (SqlConnection con = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False")) // Reemplaza con tu cadena de conexión
+            {
+                try
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Usuario", usuario);
+                        cmd.Parameters.AddWithValue("@Contraseña", contraseña);
+
+                        object resultado = cmd.ExecuteScalar();
+                        if (resultado != null)
+                        {
+                            nombreUsuario = resultado.ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al obtener el nombre del usuario: " + ex.Message);
+                }
+            }
+            return nombreUsuario;
+        }
+
+
+
 
 
     }

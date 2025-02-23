@@ -15,10 +15,11 @@ namespace Proformas.Formularios
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
+        public frmPrincipal(string nombreUsuario)
         {
 
             InitializeComponent();
+            lblNombre.Text = nombreUsuario;
 
             Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
 
@@ -33,8 +34,14 @@ namespace Proformas.Formularios
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resultado = MessageBox.Show("¿Está seguro que desea salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Cierra toda la aplicación correctamente
+            }
         }
+
 
         private void btnProformasPrincipal_Click(object sender, EventArgs e)
         {
@@ -99,6 +106,13 @@ namespace Proformas.Formularios
 
 
             this.StartPosition = FormStartPosition.CenterScreen;
+
+
+            Form login = Application.OpenForms["Login"]; // Busca el formulario de login por su nombre
+            if (login != null)
+            {
+                login.Close(); // Cierra el login solo cuando el principal ya está activo
+            }
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
@@ -183,7 +197,12 @@ namespace Proformas.Formularios
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resultado = MessageBox.Show("¿Está seguro que desea salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Cierra toda la aplicación correctamente
+            }
         }
 
         private void btnProductos_Click(object sender, EventArgs e)

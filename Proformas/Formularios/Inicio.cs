@@ -67,35 +67,30 @@ namespace Proformas
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-          
+            // Instancia de la clase Conexion
             Conexion miConexion = new Conexion();
 
-         
-            string usuario = gtbUsuario.Text;
-            string contraseña = gtbcontraseña.Text;
+            // Obtener los valores de los TextBox
+            string usuario = gtbUsuario.Text.Trim();
+            string contraseña = gtbcontraseña.Text.Trim();
 
-    
-            bool esValido = miConexion.ValidarLogin(usuario, contraseña);
+            // Validar las credenciales y obtener el nombre del usuario
+            string nombreUsuario = miConexion.ObtenerNombreUsuario(usuario, contraseña);
 
-            if (esValido)
+            if (!string.IsNullOrEmpty(nombreUsuario))
             {
                 MessageBox.Show("Login exitoso", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-              
-                frmPrincipal principal = new frmPrincipal();
+                // Crear una instancia del formulario principal con el nombre del usuario
+                frmPrincipal principal = new frmPrincipal(nombreUsuario);
+                principal.Show(); // Mostrar el formulario principal
 
-               
-                principal.FormClosed += (s, args) => this.Close();
-
-              
-                principal.Show();
-
-               
-                principal.BringToFront();
-                principal.Activate();
+                // Establecer el foco en el formulario principal
                 principal.Focus();
-                principal.WindowState = FormWindowState.Normal; 
+                principal.BringToFront();
+                principal.WindowState = FormWindowState.Normal;
 
+                // Ocultar el formulario de login en lugar de cerrarlo inmediatamente
                 this.Hide();
             }
             else
@@ -103,6 +98,10 @@ namespace Proformas
                 MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
 
 
 
