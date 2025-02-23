@@ -21,6 +21,14 @@ namespace Proformas.Formularios
             InitializeComponent();
             //btnProformasPrincipal.FlatStyle = FlatStyle.Flat;
             //btnProformasPrincipal.FlatAppearance.BorderSize = 0;
+            // Obtener el tamaño de la pantalla
+            Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
+
+            // Ajustar el tamaño del formulario al tamaño de la pantalla
+            this.Size = new Size(screenSize.Width, screenSize.Height);
+
+            // Centrar el formulario en la pantalla
+            this.StartPosition = FormStartPosition.CenterScreen;
 
 
         }
@@ -75,7 +83,24 @@ namespace Proformas.Formularios
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
+            Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
 
+            // Ajustar el tamaño del formulario al tamaño de la pantalla
+            this.Size = new Size(screenSize.Width, screenSize.Height);
+
+            // Centrar el formulario en la pantalla
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
+
+            // Ajustar el tamaño del formulario al tamaño de la pantalla
+            this.Size = new Size(screenSize.Width, screenSize.Height);
+
+            // Centrar el formulario en la pantalla
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
