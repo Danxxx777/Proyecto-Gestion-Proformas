@@ -57,8 +57,10 @@
             btnOrdenVenta = new Guna.UI2.WinForms.Guna2GradientButton();
             btnProformasPrincipal = new Guna.UI2.WinForms.Guna2GradientButton();
             pbxCerrar = new PictureBox();
+            pictureBox1 = new PictureBox();
             btnSucursale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnSucursale
@@ -263,12 +265,25 @@
             pbxCerrar.TabIndex = 0;
             pbxCerrar.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(761, -2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(40, 36);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 28;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(btnSucursale);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmPrincipal";
@@ -276,6 +291,7 @@
             Text = "frmPrincipal";
             btnSucursale.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -291,5 +307,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnCliente;
         private Guna.UI2.WinForms.Guna2GradientButton btnProductos;
         private Guna.UI2.WinForms.Guna2GradientButton btnEmpresa;
+        private PictureBox pictureBox1;
     }
 }
