@@ -28,26 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             pbxCerrar = new PictureBox();
+            btnAgregar = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             SuspendLayout();
             // 
             // guna2CustomGradientPanel1
             // 
+            guna2CustomGradientPanel1.Controls.Add(btnAgregar);
             guna2CustomGradientPanel1.Controls.Add(pbxCerrar);
-            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges1;
+            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges3;
             guna2CustomGradientPanel1.FillColor = Color.Indigo;
             guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(64, 0, 64);
             guna2CustomGradientPanel1.FillColor3 = Color.DarkViolet;
             guna2CustomGradientPanel1.FillColor4 = Color.DeepSkyBlue;
             guna2CustomGradientPanel1.Location = new Point(-3, -2);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2CustomGradientPanel1.Size = new Size(147, 455);
             guna2CustomGradientPanel1.TabIndex = 4;
             // 
@@ -61,6 +65,27 @@
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxCerrar.TabIndex = 0;
             pbxCerrar.TabStop = false;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.BorderRadius = 15;
+            btnAgregar.BorderThickness = 1;
+            btnAgregar.CustomizableEdges = customizableEdges1;
+            btnAgregar.DisabledState.BorderColor = Color.DarkGray;
+            btnAgregar.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnAgregar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnAgregar.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            btnAgregar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAgregar.FillColor = Color.FromArgb(68, 3, 121);
+            btnAgregar.FillColor2 = Color.FromArgb(11, 84, 144);
+            btnAgregar.Font = new Font("Segoe UI", 9F);
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.Location = new Point(32, 63);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnAgregar.Size = new Size(71, 27);
+            btnAgregar.TabIndex = 52;
+            btnAgregar.Text = "Agregar";
             // 
             // frmPrincipal
             // 
@@ -82,5 +107,6 @@
 
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private PictureBox pbxCerrar;
+        private Guna.UI2.WinForms.Guna2GradientButton btnAgregar;
     }
 }
