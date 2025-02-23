@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -44,12 +46,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnSucursale = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnProformasPrincipal = new Guna.UI2.WinForms.Guna2GradientButton();
             btnProveedor = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -57,12 +56,10 @@
             btnCliente = new Guna.UI2.WinForms.Guna2GradientButton();
             btnProductos = new Guna.UI2.WinForms.Guna2GradientButton();
             btnEmpresa = new Guna.UI2.WinForms.Guna2GradientButton();
-            guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             btnOrdenVenta = new Guna.UI2.WinForms.Guna2GradientButton();
             pbxCerrar = new PictureBox();
             pictureBox1 = new PictureBox();
             splitContainer1 = new SplitContainer();
-            guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             btnSucursale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -82,28 +79,49 @@
             btnSucursale.Controls.Add(btnCliente);
             btnSucursale.Controls.Add(btnProductos);
             btnSucursale.Controls.Add(btnEmpresa);
-            btnSucursale.Controls.Add(guna2GradientButton2);
             btnSucursale.Controls.Add(btnOrdenVenta);
             btnSucursale.Controls.Add(pbxCerrar);
-            btnSucursale.CustomizableEdges = customizableEdges19;
+            btnSucursale.CustomizableEdges = customizableEdges17;
             btnSucursale.FillColor = Color.Indigo;
             btnSucursale.FillColor2 = Color.FromArgb(64, 0, 64);
             btnSucursale.FillColor3 = Color.DarkViolet;
             btnSucursale.FillColor4 = Color.DeepSkyBlue;
             btnSucursale.Location = new Point(3, 3);
             btnSucursale.Name = "btnSucursale";
-            btnSucursale.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnSucursale.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnSucursale.Size = new Size(182, 712);
             btnSucursale.TabIndex = 4;
+            // 
+            // guna2GradientButton1
+            // 
+            guna2GradientButton1.BorderRadius = 15;
+            guna2GradientButton1.BorderThickness = 1;
+            guna2GradientButton1.CustomizableEdges = customizableEdges1;
+            guna2GradientButton1.DisabledState.BorderColor = Color.DarkGray;
+            guna2GradientButton1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2GradientButton1.FillColor = Color.FromArgb(68, 3, 121);
+            guna2GradientButton1.FillColor2 = Color.FromArgb(11, 84, 144);
+            guna2GradientButton1.Font = new Font("Segoe UI", 9F);
+            guna2GradientButton1.ForeColor = Color.White;
+            guna2GradientButton1.Location = new Point(30, 578);
+            guna2GradientButton1.Name = "guna2GradientButton1";
+            guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientButton1.Size = new Size(119, 46);
+            guna2GradientButton1.TabIndex = 53;
+            guna2GradientButton1.Text = "Cerrar Sesión";
+            guna2GradientButton1.Click += guna2GradientButton1_Click;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Book Antiqua", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLightLight;
             guna2HtmlLabel1.Location = new Point(51, 38);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(78, 34);
+            guna2HtmlLabel1.Size = new Size(74, 33);
             guna2HtmlLabel1.TabIndex = 29;
             guna2HtmlLabel1.Text = "Menú";
             // 
@@ -144,7 +162,7 @@
             btnProveedor.FillColor2 = Color.FromArgb(11, 84, 144);
             btnProveedor.Font = new Font("Segoe UI", 9F);
             btnProveedor.ForeColor = Color.White;
-            btnProveedor.Location = new Point(30, 533);
+            btnProveedor.Location = new Point(30, 453);
             btnProveedor.Name = "btnProveedor";
             btnProveedor.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnProveedor.Size = new Size(119, 46);
@@ -166,7 +184,7 @@
             btnBodegas.FillColor2 = Color.FromArgb(11, 84, 144);
             btnBodegas.Font = new Font("Segoe UI", 9F);
             btnBodegas.ForeColor = Color.White;
-            btnBodegas.Location = new Point(30, 470);
+            btnBodegas.Location = new Point(30, 391);
             btnBodegas.Name = "btnBodegas";
             btnBodegas.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnBodegas.Size = new Size(119, 46);
@@ -188,7 +206,7 @@
             btnCliente.FillColor2 = Color.FromArgb(11, 84, 144);
             btnCliente.Font = new Font("Segoe UI", 9F);
             btnCliente.ForeColor = Color.White;
-            btnCliente.Location = new Point(30, 399);
+            btnCliente.Location = new Point(30, 330);
             btnCliente.Name = "btnCliente";
             btnCliente.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnCliente.Size = new Size(119, 46);
@@ -210,12 +228,13 @@
             btnProductos.FillColor2 = Color.FromArgb(11, 84, 144);
             btnProductos.Font = new Font("Segoe UI", 9F);
             btnProductos.ForeColor = Color.White;
-            btnProductos.Location = new Point(30, 337);
+            btnProductos.Location = new Point(30, 267);
             btnProductos.Name = "btnProductos";
             btnProductos.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnProductos.Size = new Size(119, 46);
             btnProductos.TabIndex = 52;
             btnProductos.Text = "Productos";
+            btnProductos.Click += btnProductos_Click;
             // 
             // btnEmpresa
             // 
@@ -231,7 +250,7 @@
             btnEmpresa.FillColor2 = Color.FromArgb(11, 84, 144);
             btnEmpresa.Font = new Font("Segoe UI", 9F);
             btnEmpresa.ForeColor = Color.White;
-            btnEmpresa.Location = new Point(30, 594);
+            btnEmpresa.Location = new Point(30, 516);
             btnEmpresa.Name = "btnEmpresa";
             btnEmpresa.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnEmpresa.Size = new Size(119, 46);
@@ -239,32 +258,11 @@
             btnEmpresa.Text = "Empresa";
             btnEmpresa.Click += btnEmpresa_Click;
             // 
-            // guna2GradientButton2
-            // 
-            guna2GradientButton2.BorderRadius = 15;
-            guna2GradientButton2.BorderThickness = 1;
-            guna2GradientButton2.CustomizableEdges = customizableEdges15;
-            guna2GradientButton2.DisabledState.BorderColor = Color.DarkGray;
-            guna2GradientButton2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2GradientButton2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2GradientButton2.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            guna2GradientButton2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2GradientButton2.FillColor = Color.FromArgb(68, 3, 121);
-            guna2GradientButton2.FillColor2 = Color.FromArgb(11, 84, 144);
-            guna2GradientButton2.Font = new Font("Segoe UI", 9F);
-            guna2GradientButton2.ForeColor = Color.White;
-            guna2GradientButton2.Location = new Point(30, 272);
-            guna2GradientButton2.Name = "guna2GradientButton2";
-            guna2GradientButton2.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2GradientButton2.Size = new Size(119, 46);
-            guna2GradientButton2.TabIndex = 52;
-            guna2GradientButton2.Text = "Sucursales";
-            // 
             // btnOrdenVenta
             // 
             btnOrdenVenta.BorderRadius = 15;
             btnOrdenVenta.BorderThickness = 1;
-            btnOrdenVenta.CustomizableEdges = customizableEdges17;
+            btnOrdenVenta.CustomizableEdges = customizableEdges15;
             btnOrdenVenta.DisabledState.BorderColor = Color.DarkGray;
             btnOrdenVenta.DisabledState.CustomBorderColor = Color.DarkGray;
             btnOrdenVenta.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -276,7 +274,7 @@
             btnOrdenVenta.ForeColor = Color.White;
             btnOrdenVenta.Location = new Point(30, 195);
             btnOrdenVenta.Name = "btnOrdenVenta";
-            btnOrdenVenta.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnOrdenVenta.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnOrdenVenta.Size = new Size(119, 57);
             btnOrdenVenta.TabIndex = 52;
             btnOrdenVenta.Text = "Orden de Venta";
@@ -324,28 +322,6 @@
             splitContainer1.SplitterDistance = 188;
             splitContainer1.TabIndex = 30;
             // 
-            // guna2GradientButton1
-            // 
-            guna2GradientButton1.BorderRadius = 15;
-            guna2GradientButton1.BorderThickness = 1;
-            guna2GradientButton1.CustomizableEdges = customizableEdges1;
-            guna2GradientButton1.DisabledState.BorderColor = Color.DarkGray;
-            guna2GradientButton1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2GradientButton1.FillColor = Color.FromArgb(68, 3, 121);
-            guna2GradientButton1.FillColor2 = Color.FromArgb(11, 84, 144);
-            guna2GradientButton1.Font = new Font("Segoe UI", 9F);
-            guna2GradientButton1.ForeColor = Color.White;
-            guna2GradientButton1.Location = new Point(30, 663);
-            guna2GradientButton1.Name = "guna2GradientButton1";
-            guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2GradientButton1.Size = new Size(119, 46);
-            guna2GradientButton1.TabIndex = 53;
-            guna2GradientButton1.Text = "Cerrar Sesión";
-            guna2GradientButton1.Click += guna2GradientButton1_Click;
-            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -376,7 +352,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel btnSucursale;
         private PictureBox pbxCerrar;
         private Guna.UI2.WinForms.Guna2GradientButton btnProformasPrincipal;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2GradientButton btnOrdenVenta;
         private Guna.UI2.WinForms.Guna2GradientButton btnProveedor;
         private Guna.UI2.WinForms.Guna2GradientButton btnBodegas;

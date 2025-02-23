@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Proformas.Formularios
 {
-    public partial class frmVendedor: Form
+    public partial class frmVendedor : Form
     {
         public frmVendedor()
         {
             InitializeComponent();
+        }
+
+        private void pbxCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

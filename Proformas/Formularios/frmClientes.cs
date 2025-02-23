@@ -17,5 +17,9 @@ namespace Proformas.Formularios
             InitializeComponent();
         }
 
+        private void pbxCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

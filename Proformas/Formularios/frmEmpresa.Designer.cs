@@ -45,8 +45,9 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Location = new Point(188, 75);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(3, 2);
+            guna2HtmlLabel1.Size = new Size(0, 0);
             guna2HtmlLabel1.TabIndex = 0;
+            guna2HtmlLabel1.Text = null;
             // 
             // guna2HtmlLabel2
             // 
@@ -56,6 +57,7 @@
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(3, 2);
             guna2HtmlLabel2.TabIndex = 1;
+            guna2HtmlLabel2.Text = null;
             guna2HtmlLabel2.Click += guna2HtmlLabel2_Click;
             // 
             // guna2CustomGradientPanel1
@@ -93,6 +95,7 @@
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxCerrar.TabIndex = 0;
             pbxCerrar.TabStop = false;
+            pbxCerrar.Click += pbxCerrar_Click;
             // 
             // frmEmpresa
             // 

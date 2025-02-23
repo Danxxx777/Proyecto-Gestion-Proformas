@@ -19,13 +19,13 @@ namespace Proformas.Formularios
         {
 
             InitializeComponent();
-           
+
             Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
 
-           
+
             this.Size = new Size(screenSize.Width, screenSize.Height);
 
-           
+
             this.StartPosition = FormStartPosition.CenterScreen;
 
 
@@ -38,41 +38,41 @@ namespace Proformas.Formularios
 
         private void btnProformasPrincipal_Click(object sender, EventArgs e)
         {
-          
+
             splitContainer1.Panel2.Controls.Clear();
 
-            
+
             frmProformas frm = new frmProformas();
 
-            
+
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-     
+
             splitContainer1.Panel2.Controls.Add(frm);
 
-       
+
             frm.Show();
         }
 
         private void btnOrdenVenta_Click(object sender, EventArgs e)
         {
-         
+
             splitContainer1.Panel2.Controls.Clear();
 
-         
+
             frmOrdenVenta frm = new frmOrdenVenta();
 
-           
+
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-          
+
             splitContainer1.Panel2.Controls.Add(frm);
 
-      
+
             frm.Show();
         }
 
@@ -86,7 +86,7 @@ namespace Proformas.Formularios
 
             this.Size = new Size(screenSize.Width, screenSize.Height);
 
-      
+
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -94,16 +94,16 @@ namespace Proformas.Formularios
         {
             Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
 
-         
+
             this.Size = new Size(screenSize.Width, screenSize.Height);
 
-      
+
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-       
+
             splitContainer1.Panel2.Controls.Clear();
 
 
@@ -117,7 +117,7 @@ namespace Proformas.Formularios
 
             splitContainer1.Panel2.Controls.Add(frm);
 
-   
+
             frm.Show();
         }
 
@@ -137,39 +137,39 @@ namespace Proformas.Formularios
 
             splitContainer1.Panel2.Controls.Add(frm);
 
-  
+
             frm.Show();
         }
 
         private void btnProveedor_Click(object sender, EventArgs e)
         {
-         
+
             splitContainer1.Panel2.Controls.Clear();
 
-        
+
             frmProveedores frm = new frmProveedores();
 
-         
+
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-   
+
             splitContainer1.Panel2.Controls.Add(frm);
 
-     
+
             frm.Show();
         }
 
         private void btnEmpresa_Click(object sender, EventArgs e)
         {
-         
+
             splitContainer1.Panel2.Controls.Clear();
 
-        
+
             frmEmpresa frm = new frmEmpresa();
 
-        
+
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
@@ -184,6 +184,24 @@ namespace Proformas.Formularios
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            splitContainer1.Panel2.Controls.Clear();
+
+
+            frmProductos frm = new frmProductos();
+
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+
+            splitContainer1.Panel2.Controls.Add(frm);
+
+            frm.Show();
         }
     }
 }

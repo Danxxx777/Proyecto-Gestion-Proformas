@@ -116,6 +116,7 @@
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxCerrar.TabIndex = 0;
             pbxCerrar.TabStop = false;
+            pbxCerrar.Click += pbxCerrar_Click;
             // 
             // pictureBox3
             // 

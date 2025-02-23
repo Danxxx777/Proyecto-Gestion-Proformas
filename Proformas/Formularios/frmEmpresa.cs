@@ -21,5 +21,10 @@ namespace Proformas.Formularios
         {
 
         }
+
+        private void pbxCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
