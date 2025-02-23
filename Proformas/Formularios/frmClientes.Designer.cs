@@ -73,14 +73,14 @@
             guna2CustomGradientPanel1.Location = new Point(-5, -2);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel1.Size = new Size(972, 53);
+            guna2CustomGradientPanel1.Size = new Size(857, 53);
             guna2CustomGradientPanel1.TabIndex = 5;
             // 
             // pbxCerrar
             // 
             pbxCerrar.BackColor = Color.Transparent;
             pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
-            pbxCerrar.Location = new Point(791, 3);
+            pbxCerrar.Location = new Point(746, 3);
             pbxCerrar.Name = "pbxCerrar";
             pbxCerrar.Size = new Size(40, 36);
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -211,7 +211,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(188, 144);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(612, 150);
+            dataGridView1.Size = new Size(543, 150);
             dataGridView1.TabIndex = 15;
             // 
             // pictureBox1
@@ -249,7 +249,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(852, 350);
+            ClientSize = new Size(793, 350);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
