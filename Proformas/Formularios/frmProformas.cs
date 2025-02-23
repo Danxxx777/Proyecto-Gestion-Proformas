@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Proformas.Formularios
 {
-    public partial class frmProformas: Form
+    public partial class frmProformas : Form
     {
         public frmProformas()
         {
             InitializeComponent();
+        }
+
+        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
