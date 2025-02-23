@@ -19,15 +19,13 @@ namespace Proformas.Formularios
         {
 
             InitializeComponent();
-            //btnProformasPrincipal.FlatStyle = FlatStyle.Flat;
-            //btnProformasPrincipal.FlatAppearance.BorderSize = 0;
-            // Obtener el tamaño de la pantalla
+           
             Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
 
-            // Ajustar el tamaño del formulario al tamaño de la pantalla
+           
             this.Size = new Size(screenSize.Width, screenSize.Height);
 
-            // Centrar el formulario en la pantalla
+           
             this.StartPosition = FormStartPosition.CenterScreen;
 
 
@@ -40,41 +38,41 @@ namespace Proformas.Formularios
 
         private void btnProformasPrincipal_Click(object sender, EventArgs e)
         {
-            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+          
             splitContainer1.Panel2.Controls.Clear();
 
-            // Crear instancia del formulario que deseas mostrar
+            
             frmProformas frm = new frmProformas();
 
-            // Para que el formulario se “anide” dentro del Panel2:
+            
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            // Agregar el formulario al Panel2
+     
             splitContainer1.Panel2.Controls.Add(frm);
 
-            // Mostrar el formulario
+       
             frm.Show();
         }
 
         private void btnOrdenVenta_Click(object sender, EventArgs e)
         {
-            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+         
             splitContainer1.Panel2.Controls.Clear();
 
-            // Crear instancia del formulario que deseas mostrar
+         
             frmOrdenVenta frm = new frmOrdenVenta();
 
-            // Para que el formulario se “anide” dentro del Panel2:
+           
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            // Agregar el formulario al Panel2
+          
             splitContainer1.Panel2.Controls.Add(frm);
 
-            // Mostrar el formulario
+      
             frm.Show();
         }
 
@@ -85,10 +83,10 @@ namespace Proformas.Formularios
         {
             Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
 
-            // Ajustar el tamaño del formulario al tamaño de la pantalla
+
             this.Size = new Size(screenSize.Width, screenSize.Height);
 
-            // Centrar el formulario en la pantalla
+      
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -96,92 +94,96 @@ namespace Proformas.Formularios
         {
             Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
 
-            // Ajustar el tamaño del formulario al tamaño de la pantalla
+         
             this.Size = new Size(screenSize.Width, screenSize.Height);
 
-            // Centrar el formulario en la pantalla
+      
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+       
             splitContainer1.Panel2.Controls.Clear();
 
-            // Crear instancia del formulario que deseas mostrar
+
             frmClientes frm = new frmClientes();
 
-            // Para que el formulario se “anide” dentro del Panel2:
+
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            // Agregar el formulario al Panel2
+
             splitContainer1.Panel2.Controls.Add(frm);
 
-            // Mostrar el formulario
+   
             frm.Show();
         }
 
         private void btnBodegas_Click(object sender, EventArgs e)
         {
-            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+
             splitContainer1.Panel2.Controls.Clear();
 
-            // Crear instancia del formulario que deseas mostrar
+
             frmBodegas frm = new frmBodegas();
 
-            // Para que el formulario se “anide” dentro del Panel2:
+
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            // Agregar el formulario al Panel2
+
             splitContainer1.Panel2.Controls.Add(frm);
 
-            // Mostrar el formulario
+  
             frm.Show();
         }
 
         private void btnProveedor_Click(object sender, EventArgs e)
         {
-            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+         
             splitContainer1.Panel2.Controls.Clear();
 
-            // Crear instancia del formulario que deseas mostrar
+        
             frmProveedores frm = new frmProveedores();
 
-            // Para que el formulario se “anide” dentro del Panel2:
+         
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            // Agregar el formulario al Panel2
+   
             splitContainer1.Panel2.Controls.Add(frm);
 
-            // Mostrar el formulario
+     
             frm.Show();
         }
 
         private void btnEmpresa_Click(object sender, EventArgs e)
         {
-            // Primero, limpiar el Panel2 de cualquier control que esté abierto
+         
             splitContainer1.Panel2.Controls.Clear();
 
-            // Crear instancia del formulario que deseas mostrar
+        
             frmEmpresa frm = new frmEmpresa();
 
-            // Para que el formulario se “anide” dentro del Panel2:
+        
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            // Agregar el formulario al Panel2
+
             splitContainer1.Panel2.Controls.Add(frm);
 
-            // Mostrar el formulario
             frm.Show();
 
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
