@@ -299,6 +299,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.BackgroundImage = Properties.Resources.Purple_Blue_Gradient_Modern_Metaverse_Futuristic_Presentation;
+            splitContainer1.Panel2.BackgroundImageLayout = ImageLayout.Stretch;
             splitContainer1.Panel2.Controls.Add(pictureBox1);
             splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
             splitContainer1.Size = new Size(1464, 727);

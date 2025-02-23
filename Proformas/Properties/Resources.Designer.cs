@@ -59,5 +59,15 @@ namespace Proformas.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Purple_Blue_Gradient_Modern_Metaverse_Futuristic_Presentation {
+            get {
+                object obj = ResourceManager.GetObject("Purple Blue Gradient Modern Metaverse Futuristic Presentation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
