@@ -48,7 +48,7 @@
             guna2CustomGradientPanel1.Location = new Point(-3, -2);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel1.Size = new Size(223, 455);
+            guna2CustomGradientPanel1.Size = new Size(147, 455);
             guna2CustomGradientPanel1.TabIndex = 4;
             // 
             // pbxCerrar

@@ -42,13 +42,13 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            lblClientes = new Label();
             pbxCerrar = new PictureBox();
             btnAgregar = new Guna.UI2.WinForms.Guna2GradientButton();
             btnEliminar = new Guna.UI2.WinForms.Guna2GradientButton();
             Editar = new Guna.UI2.WinForms.Guna2GradientButton();
             btnBuscar = new Guna.UI2.WinForms.Guna2GradientButton();
             gtbUsuario = new Guna.UI2.WinForms.Guna2TextBox();
-            lblClientes = new Label();
             dataGridView1 = new DataGridView();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -76,11 +76,21 @@
             guna2CustomGradientPanel1.Size = new Size(857, 53);
             guna2CustomGradientPanel1.TabIndex = 5;
             // 
+            // lblClientes
+            // 
+            lblClientes.AutoSize = true;
+            lblClientes.Font = new Font("Mongolian Baiti", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblClientes.Location = new Point(396, 14);
+            lblClientes.Name = "lblClientes";
+            lblClientes.Size = new Size(98, 25);
+            lblClientes.TabIndex = 1;
+            lblClientes.Text = "Clientes";
+            // 
             // pbxCerrar
             // 
             pbxCerrar.BackColor = Color.Transparent;
             pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
-            pbxCerrar.Location = new Point(746, 3);
+            pbxCerrar.Location = new Point(701, 3);
             pbxCerrar.Name = "pbxCerrar";
             pbxCerrar.Size = new Size(40, 36);
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -196,22 +206,12 @@
             gtbUsuario.Size = new Size(200, 32);
             gtbUsuario.TabIndex = 14;
             // 
-            // lblClientes
-            // 
-            lblClientes.AutoSize = true;
-            lblClientes.Font = new Font("Mongolian Baiti", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblClientes.Location = new Point(396, 14);
-            lblClientes.Name = "lblClientes";
-            lblClientes.Size = new Size(98, 25);
-            lblClientes.TabIndex = 1;
-            lblClientes.Text = "Clientes";
-            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(188, 144);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(543, 150);
+            dataGridView1.Size = new Size(519, 150);
             dataGridView1.TabIndex = 15;
             // 
             // pictureBox1
@@ -249,7 +249,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(793, 350);
+            ClientSize = new Size(751, 350);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
