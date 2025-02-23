@@ -26,14 +26,40 @@ namespace Proformas.Formularios
             InitializeComponent();
 
             // Evento para detectar cambios en el txtfiltroCedula
-            txtCedula.TextChanged += TxtFiltroCedula_TextChanged;
-            this.WindowState = FormWindowState.Maximized;
+            this.Load += frmOrdenVenta_Load;
+
+
+
         }
 
         private void frmOrdenVenta_Load(object sender, EventArgs e)
         {
             // Opcional: Cargar datos adicionales en el ComboBox si es necesario
+            //txtCedula.TextChanged += TxtFiltroCedula_TextChanged;
         }
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // 🔹 Bloquea caracteres no numéricos
+            }
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string texto = txtCedula.Text.Trim();
+
+            if (texto.Length == 10 && EsNumerico(texto))
+            {
+                BuscarClientePorCedula();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cédula válida (10 dígitos numéricos).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LimpiarCampos();
+            }
+        }
+
+
 
         private void pbxCerrar_Click(object sender, EventArgs e)
         {
@@ -42,7 +68,11 @@ namespace Proformas.Formularios
 
         private void TxtFiltroCedula_TextChanged(object sender, EventArgs e)
         {
-            if (txtCedula.Text.Length == 10 && EsNumerico(txtCedula.Text))
+            // txtCedula.TextChanged -= TxtFiltroCedula_TextChanged;  // 🔴 COMENTADO
+
+            string texto = txtCedula.Text.Trim();
+
+            if (texto.Length == 10 && EsNumerico(texto))
             {
                 BuscarClientePorCedula();
             }
@@ -50,9 +80,13 @@ namespace Proformas.Formularios
             {
                 LimpiarCampos();
             }
+
+            // txtCedula.TextChanged += TxtFiltroCedula_TextChanged;  // 🔴 COMENTADO
         }
 
-        private void BuscarClientePorCedula()
+
+
+        private async void BuscarClientePorCedula()
         {
             string cedula = txtCedula.Text.Trim();
             string query = "SELECT Nombre, Correo, FechaRegistro, Estado FROM Clientes WHERE NumeroIdentificacion = @cedula";
@@ -61,22 +95,21 @@ namespace Proformas.Formularios
             {
                 using (SqlConnection conn = new SqlConnection(conexion.ConnectionString))
                 {
-                    conn.Open();
+                    await conn.OpenAsync(); // 🔹 Abrimos la conexión en modo asíncrono
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@cedula", cedula);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync()) // 🔹 Leer datos en segundo plano
                         {
-                            if (reader.Read()) // Si se encuentra un cliente
+                            if (await reader.ReadAsync()) // 🔹 Si se encuentra un cliente
                             {
-                                txtCedula.Text = cedula;
-                                txtNombre.Text = reader["Nombre"].ToString();
-                                txtCorreo.Text = reader["Correo"].ToString();
-                                txtTelefono.Text = Convert.ToDateTime(reader["FechaRegistro"]).ToString("yyyy-MM-dd"); // Convertimos FechaRegistro
-                                txtEstado1.Text = reader["Estado"].ToString();
+                                txtCedula.Invoke((MethodInvoker)(() => txtCedula.Text = cedula));
+                                txtNombre.Invoke((MethodInvoker)(() => txtNombre.Text = reader["Nombre"].ToString()));
+                                txtCorreo.Invoke((MethodInvoker)(() => txtCorreo.Text = reader["Correo"].ToString()));
+                                txtTelefono.Invoke((MethodInvoker)(() => txtTelefono.Text = Convert.ToDateTime(reader["FechaRegistro"]).ToString("yyyy-MM-dd")));
+                                txtEstado1.Invoke((MethodInvoker)(() => txtEstado1.Text = reader["Estado"].ToString()));
 
-                                // Opcional: Llenar el ComboBox con valores relacionados
-                                CargarProformas(cedula);
+                                await CargarProformasAsync(cedula); // 🔹 Llamamos la carga de proformas en segundo plano
                             }
                             else
                             {
@@ -94,22 +127,24 @@ namespace Proformas.Formularios
         }
 
 
-        private void CargarProformas(string cedula)
+
+
+        private async Task CargarProformasAsync(string cedula)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(conexion.ConnectionString))
                 {
-                    conn.Open();
+                    await conn.OpenAsync(); // 🔹 Abrimos la conexión en segundo plano
 
-                    // 🔹 Primero, obtener ClienteID desde Clientes usando la cédula
+                    // Obtener ClienteID
                     string queryClienteID = "SELECT ClienteID FROM Clientes WHERE NumeroIdentificacion = @cedula";
-                    int clienteID = -1; // Valor predeterminado si no encuentra el ClienteID
+                    int clienteID = -1;
 
                     using (SqlCommand cmdCliente = new SqlCommand(queryClienteID, conn))
                     {
                         cmdCliente.Parameters.AddWithValue("@cedula", cedula);
-                        object result = cmdCliente.ExecuteScalar(); // Devuelve un único valor
+                        object result = await cmdCliente.ExecuteScalarAsync(); // 🔹 Obtener ClienteID en segundo plano
 
                         if (result != null)
                         {
@@ -117,25 +152,24 @@ namespace Proformas.Formularios
                         }
                         else
                         {
-                            cmbProformas.Items.Clear();
+                            cmbProformas.Invoke((MethodInvoker)(() => cmbProformas.Items.Clear()));
                             MessageBox.Show("No se encontró ClienteID para esta cédula.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return; // Sale del método si no encontró un ClienteID
+                            return;
                         }
                     }
 
-                    // 🔹 Ahora, buscar Proformas usando ClienteID
+                    // Obtener Proformas
                     string queryProformas = "SELECT ProformaID FROM Proformas WHERE ClienteID = @ClienteID";
-
                     using (SqlCommand cmdProformas = new SqlCommand(queryProformas, conn))
                     {
                         cmdProformas.Parameters.AddWithValue("@ClienteID", clienteID);
-                        using (SqlDataReader reader = cmdProformas.ExecuteReader())
+                        using (SqlDataReader reader = await cmdProformas.ExecuteReaderAsync()) // 🔹 Leer en segundo plano
                         {
-                            cmbProformas.Items.Clear(); // Limpiar el ComboBox antes de llenarlo
+                            cmbProformas.Invoke((MethodInvoker)(() => cmbProformas.Items.Clear()));
 
-                            while (reader.Read())
+                            while (await reader.ReadAsync()) // 🔹 Leer cada resultado en segundo plano
                             {
-                                cmbProformas.Items.Add(reader["ProformaID"].ToString());
+                                cmbProformas.Invoke((MethodInvoker)(() => cmbProformas.Items.Add(reader["ProformaID"].ToString())));
                             }
 
                             if (cmbProformas.Items.Count == 0)
@@ -151,8 +185,9 @@ namespace Proformas.Formularios
                 MessageBox.Show("Error al cargar proformas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
-        
+
+
+
         private bool EsNumerico(string texto)
         {
             return long.TryParse(texto, out _);

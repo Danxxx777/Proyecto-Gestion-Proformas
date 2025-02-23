@@ -58,9 +58,14 @@
             btnProformasPrincipal = new Guna.UI2.WinForms.Guna2GradientButton();
             pbxCerrar = new PictureBox();
             pictureBox1 = new PictureBox();
+            splitContainer1 = new SplitContainer();
             btnSucursale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
             SuspendLayout();
             // 
             // btnSucursale
@@ -79,10 +84,10 @@
             btnSucursale.FillColor2 = Color.FromArgb(64, 0, 64);
             btnSucursale.FillColor3 = Color.DarkViolet;
             btnSucursale.FillColor4 = Color.DeepSkyBlue;
-            btnSucursale.Location = new Point(-3, -2);
+            btnSucursale.Location = new Point(3, 3);
             btnSucursale.Name = "btnSucursale";
             btnSucursale.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnSucursale.Size = new Size(147, 455);
+            btnSucursale.Size = new Size(182, 712);
             btnSucursale.TabIndex = 4;
             // 
             // btnProveedor
@@ -103,7 +108,7 @@
             btnProveedor.Location = new Point(30, 356);
             btnProveedor.Name = "btnProveedor";
             btnProveedor.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnProveedor.Size = new Size(85, 27);
+            btnProveedor.Size = new Size(119, 46);
             btnProveedor.TabIndex = 52;
             btnProveedor.Text = "Proveedores";
             // 
@@ -124,7 +129,7 @@
             btnBodegas.Location = new Point(30, 310);
             btnBodegas.Name = "btnBodegas";
             btnBodegas.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnBodegas.Size = new Size(85, 27);
+            btnBodegas.Size = new Size(119, 46);
             btnBodegas.TabIndex = 52;
             btnBodegas.Text = "Bodegas";
             // 
@@ -145,7 +150,7 @@
             btnCliente.Location = new Point(30, 262);
             btnCliente.Name = "btnCliente";
             btnCliente.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnCliente.Size = new Size(85, 27);
+            btnCliente.Size = new Size(119, 46);
             btnCliente.TabIndex = 52;
             btnCliente.Text = "Clientes";
             // 
@@ -166,7 +171,7 @@
             btnProductos.Location = new Point(30, 208);
             btnProductos.Name = "btnProductos";
             btnProductos.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnProductos.Size = new Size(85, 27);
+            btnProductos.Size = new Size(119, 46);
             btnProductos.TabIndex = 52;
             btnProductos.Text = "Productos";
             // 
@@ -187,7 +192,7 @@
             btnEmpresa.Location = new Point(30, 401);
             btnEmpresa.Name = "btnEmpresa";
             btnEmpresa.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnEmpresa.Size = new Size(85, 27);
+            btnEmpresa.Size = new Size(119, 46);
             btnEmpresa.TabIndex = 52;
             btnEmpresa.Text = "Empresa";
             // 
@@ -208,7 +213,7 @@
             guna2GradientButton2.Location = new Point(30, 159);
             guna2GradientButton2.Name = "guna2GradientButton2";
             guna2GradientButton2.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2GradientButton2.Size = new Size(85, 27);
+            guna2GradientButton2.Size = new Size(119, 46);
             guna2GradientButton2.TabIndex = 52;
             guna2GradientButton2.Text = "Sucursales";
             // 
@@ -229,9 +234,10 @@
             btnOrdenVenta.Location = new Point(30, 106);
             btnOrdenVenta.Name = "btnOrdenVenta";
             btnOrdenVenta.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnOrdenVenta.Size = new Size(85, 38);
+            btnOrdenVenta.Size = new Size(119, 57);
             btnOrdenVenta.TabIndex = 52;
             btnOrdenVenta.Text = "Orden de Venta";
+            btnOrdenVenta.Click += btnOrdenVenta_Click;
             // 
             // btnProformasPrincipal
             // 
@@ -250,9 +256,10 @@
             btnProformasPrincipal.Location = new Point(30, 33);
             btnProformasPrincipal.Name = "btnProformasPrincipal";
             btnProformasPrincipal.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnProformasPrincipal.Size = new Size(85, 36);
+            btnProformasPrincipal.Size = new Size(119, 55);
             btnProformasPrincipal.TabIndex = 52;
             btnProformasPrincipal.Text = "Proformas";
+            btnProformasPrincipal.Click += btnProformasPrincipal_Click;
             // 
             // pbxCerrar
             // 
@@ -269,29 +276,50 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(761, -2);
+            pictureBox1.Location = new Point(1205, 9);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 36);
+            pictureBox1.Size = new Size(54, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 28;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Location = new Point(12, 12);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(btnSucursale);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(pictureBox1);
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
+            splitContainer1.Size = new Size(1464, 727);
+            splitContainer1.SplitterDistance = 188;
+            splitContainer1.TabIndex = 30;
             // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox1);
-            Controls.Add(btnSucursale);
+            ClientSize = new Size(1475, 739);
+            Controls.Add(splitContainer1);
             FormBorderStyle = FormBorderStyle.None;
+            IsMdiContainer = true;
             Name = "frmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmPrincipal";
             btnSucursale.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -308,5 +336,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnProductos;
         private Guna.UI2.WinForms.Guna2GradientButton btnEmpresa;
         private PictureBox pictureBox1;
+        private SplitContainer splitContainer1;
     }
 }
