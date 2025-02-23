@@ -623,6 +623,7 @@
             Name = "frmOrdenVenta";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmOrdenVenta";
+            WindowState = FormWindowState.Maximized;
             Load += frmOrdenVenta_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDetalleProfroma).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).EndInit();
