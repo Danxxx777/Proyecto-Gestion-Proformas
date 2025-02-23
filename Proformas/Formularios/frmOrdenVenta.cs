@@ -27,6 +27,7 @@ namespace Proformas.Formularios
 
             // Evento para detectar cambios en el txtfiltroCedula
             txtCedula.TextChanged += TxtFiltroCedula_TextChanged;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void frmOrdenVenta_Load(object sender, EventArgs e)
