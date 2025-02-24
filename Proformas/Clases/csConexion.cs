@@ -23,17 +23,18 @@ namespace Proformas
         //Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True
         //Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True
         //private string _connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
-        private string _connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
-
+        //private string _connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        private string _connectionString = "Data Source=DESKTOP-I3081F1\\SQLEXPRESS;Initial Catalog=Proformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
 
 
 
 
         public Conexion()
         {
-           
+
             //Conectar = new SqlConnection("Data Source=DESKTOP-VK5KHQR;Initial Catalog=BDProformas;Integrated Security=True");
-            Conectar = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False");
+            Conectar = new SqlConnection("Data Source=DESKTOP-I3081F1\\SQLEXPRESS;Initial Catalog=Proformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");
+            //Conectar = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False");
             Conectar = new SqlConnection(_connectionString);
             Conectar.Open();
 
@@ -85,10 +86,10 @@ namespace Proformas
             string nombreUsuario = null;
             int vendedorID = -1; // Valor por defecto para identificar errores
             string query = @"
-        SELECT v.VendedorID, v.Nombre 
-        FROM Usuarios u 
-        INNER JOIN Vendedor v ON u.UsuarioID = v.UsuarioID 
-        WHERE u.Usuario = @Usuario AND u.Contraseña = @Contraseña";
+            SELECT v.VendedorID, v.Nombre 
+                FROM Usuarios u 
+                INNER JOIN Vendedor v ON u.UsuarioID = v.UsuarioID 
+                WHERE u.Usuario = @Usuario AND u.Contraseña = @Contraseña";
 
             using (SqlConnection con = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False"))
             {
@@ -102,7 +103,7 @@ namespace Proformas
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read()) // Si hay resultados
+                            if (reader.Read()) 
                             {
                                 vendedorID = Convert.ToInt32(reader["VendedorID"]);
                                 nombreUsuario = reader["Nombre"].ToString();
@@ -118,13 +119,6 @@ namespace Proformas
 
             return (nombreUsuario, vendedorID);
         }
-
-
-
-
-
-
-
 
     }
 }
