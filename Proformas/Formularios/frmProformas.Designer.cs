@@ -324,6 +324,7 @@
             btnRegistrar.Size = new Size(139, 45);
             btnRegistrar.TabIndex = 20;
             btnRegistrar.Text = "Registrar";
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // dgvProductos
             // 

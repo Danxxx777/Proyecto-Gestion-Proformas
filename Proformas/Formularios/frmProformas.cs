@@ -117,17 +117,21 @@ namespace Proformas.Formularios
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            string numeroProforma = txtNproformas.Text;
-            string cedula = txtNcedula.Text;
-            string nombreCliente = txtNcliente.Text;
-            string numeroIdentificacion = txtNcedula.Text;
-            string correo = txtCorreoP.Text;
-            string telefono = txtEstado.Text;
-            string tipoCliente = txtTcliente.Text;
+            string cedula = txtNcedula.Text.Trim();
+            string nombreCliente = txtNcliente.Text.Trim();
+            string correo = txtCorreoP.Text.Trim();
+            string tipoCliente = txtTcliente.Text.Trim();
+            string estado = txtEstado.Text.Trim();
+            DateTime fechaRegistro = DateTime.Now; // Se toma la fecha actual
 
-            if (string.IsNullOrWhiteSpace(numeroProforma) || string.IsNullOrWhiteSpace(nombreCliente))
+            // 🔹 Validar que los campos esenciales no estén vacíos
+            if (string.IsNullOrWhiteSpace(cedula) ||
+                string.IsNullOrWhiteSpace(nombreCliente) ||
+                string.IsNullOrWhiteSpace(correo) ||
+                string.IsNullOrWhiteSpace(tipoCliente) ||
+                string.IsNullOrWhiteSpace(estado))
             {
-                MessageBox.Show("Por favor, complete los campos obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -138,34 +142,49 @@ namespace Proformas.Formularios
 
                 try
                 {
-                    string queryProforma = "INSERT INTO Proformas (ClienteID, TotalProforma, FechaCotizacion, Estatus) VALUES (@ClienteID, @TotalProforma, GETDATE(), 'Pendiente'); SELECT SCOPE_IDENTITY();";
-                    SqlCommand cmdProforma = new SqlCommand(queryProforma, conn, transaction);
-                    cmdProforma.Parameters.AddWithValue("@ClienteID", numeroIdentificacion);
-                    cmdProforma.Parameters.AddWithValue("@TotalProforma", Convert.ToDecimal(txtTotalfinal.Text));
-                    int proformaID = Convert.ToInt32(cmdProforma.ExecuteScalar());
+                    int clienteID;
 
-                    foreach (DataGridViewRow row in dgvDproductos.Rows)
+                    // 🔹 Verificar si el cliente ya existe
+                    string queryVerificarCliente = "SELECT ClienteID FROM Clientes WHERE NumeroIdentificacion = @Cedula";
+                    using (SqlCommand cmdVerificar = new SqlCommand(queryVerificarCliente, conn, transaction))
                     {
-                        if (row.Cells["ProductoID"].Value != null)
+                        cmdVerificar.Parameters.AddWithValue("@Cedula", cedula);
+                        object resultado = cmdVerificar.ExecuteScalar();
+
+                        if (resultado != null) // Cliente ya existe
                         {
-                            string queryDetalle = "INSERT INTO DetalleProforma (ProformaID, ProductoID, Cantidad, PrecioUnitario, Total) VALUES (@ProformaID, @ProductoID, @Cantidad, @PrecioUnitario, @Total)";
-                            SqlCommand cmdDetalle = new SqlCommand(queryDetalle, conn, transaction);
-                            cmdDetalle.Parameters.AddWithValue("@ProformaID", proformaID);
-                            cmdDetalle.Parameters.AddWithValue("@ProductoID", row.Cells["ProductoID"].Value);
-                            cmdDetalle.Parameters.AddWithValue("@Cantidad", row.Cells["Cantidad"].Value);
-                            cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", row.Cells["PrecioUnitario"].Value);
-                            cmdDetalle.Parameters.AddWithValue("@Total", row.Cells["Total"].Value);
-                            cmdDetalle.ExecuteNonQuery();
+                            MessageBox.Show("El cliente ya está registrado en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            transaction.Commit();
+                            return;
                         }
                     }
 
+                    // 🔹 Insertar Cliente porque no existe
+                    string queryInsertarCliente = "INSERT INTO Clientes (NumeroIdentificacion, Nombre, Correo, TipoCliente, FechaRegistro, Estado) " +
+                                                  "VALUES (@Cedula, @Nombre, @Correo, @TipoCliente, @FechaRegistro, @Estado);";
+
+                    using (SqlCommand cmdInsertCliente = new SqlCommand(queryInsertarCliente, conn, transaction))
+                    {
+                        cmdInsertCliente.Parameters.AddWithValue("@Cedula", cedula);
+                        cmdInsertCliente.Parameters.AddWithValue("@Nombre", nombreCliente);
+                        cmdInsertCliente.Parameters.AddWithValue("@Correo", correo);
+                        cmdInsertCliente.Parameters.AddWithValue("@TipoCliente", tipoCliente);
+                        cmdInsertCliente.Parameters.AddWithValue("@FechaRegistro", fechaRegistro);
+                        cmdInsertCliente.Parameters.AddWithValue("@Estado", estado);
+
+                        cmdInsertCliente.ExecuteNonQuery();
+                    }
+
                     transaction.Commit();
-                    MessageBox.Show("Proforma registrada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cliente registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 🔹 Limpiar los campos después de guardar
+                    LimpiarFormulario();
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
-                    MessageBox.Show("Error al registrar la proforma: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al registrar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
