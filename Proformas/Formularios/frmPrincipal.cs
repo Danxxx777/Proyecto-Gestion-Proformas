@@ -15,10 +15,14 @@ namespace Proformas.Formularios
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal(string nombreUsuario)
+        private string nombreUsuario;
+        private int vendedorID;
+        public frmPrincipal(string nombreUsuario, int vendedorID)
         {
 
             InitializeComponent();
+            this.nombreUsuario = nombreUsuario;
+            this.vendedorID = vendedorID;
             lblNombre.Text = nombreUsuario;
 
             Rectangle screenSize = Screen.PrimaryScreen.WorkingArea;
@@ -48,18 +52,21 @@ namespace Proformas.Formularios
 
             splitContainer1.Panel2.Controls.Clear();
 
+            // Verificar que los valores no sean nulos o incorrectos
+            if (string.IsNullOrEmpty(nombreUsuario) || vendedorID <= 0)
+            {
+                MessageBox.Show("No hay usuario autenticado. Inicia sesión primero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            frmProformas frm = new frmProformas();
-
+            // Crear instancia del formulario y pasarle los valores correctos
+            frmProformas frm = new frmProformas(nombreUsuario, vendedorID);
 
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-
             splitContainer1.Panel2.Controls.Add(frm);
-
-
             frm.Show();
         }
 

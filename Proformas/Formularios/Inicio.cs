@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -42,21 +42,21 @@ namespace Proformas
             }
         }
 
-        private void gtbcontrase�a_Enter(object sender, EventArgs e)
+        private void gtbcontraseña_Enter(object sender, EventArgs e)
         {
-            if (gtbcontrase�a.Text == "Contrase�a")
+            if (gtbcontraseña.Text == "Contraseña")
             {
-                gtbcontrase�a.Text = "";
-                gtbcontrase�a.PasswordChar = '*';
+                gtbcontraseña.Text = "";
+                gtbcontraseña.PasswordChar = '*';
             }
         }
 
-        private void gtbcontrase�a_Leave(object sender, EventArgs e)
+        private void gtbcontraseña_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(gtbcontrase�a.Text))
+            if (string.IsNullOrWhiteSpace(gtbcontraseña.Text))
             {
-                gtbcontrase�a.Text = "Contrase�a";
-                gtbcontrase�a.PasswordChar = '\0';
+                gtbcontraseña.Text = "Contraseña";
+                gtbcontraseña.PasswordChar = '\0';
             }
         }
 
@@ -72,30 +72,25 @@ namespace Proformas
 
             // Obtener los valores de los TextBox
             string usuario = gtbUsuario.Text.Trim();
-            string contrase�a = gtbcontrase�a.Text.Trim();
+            string contraseña = gtbcontraseña.Text.Trim();
 
-            // Validar las credenciales y obtener el nombre del usuario
-            string nombreUsuario = miConexion.ObtenerNombreUsuario(usuario, contrase�a);
+            // Obtener los datos del usuario y el ID del vendedor
+            var datosUsuario = miConexion.ObtenerDatosUsuario(usuario, contraseña);
+            string nombreUsuario = datosUsuario.nombreUsuario;
+            int vendedorID = datosUsuario.vendedorID;
 
             if (!string.IsNullOrEmpty(nombreUsuario))
             {
                 MessageBox.Show("Login exitoso", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Crear una instancia del formulario principal con el nombre del usuario
-                frmPrincipal principal = new frmPrincipal(nombreUsuario);
-                principal.Show(); // Mostrar el formulario principal
-
-                // Establecer el foco en el formulario principal
-                principal.Focus();
-                principal.BringToFront();
-                principal.WindowState = FormWindowState.Normal;
-
-                // Ocultar el formulario de login en lugar de cerrarlo inmediatamente
-                this.Hide();
+                // 🔹 Crear una instancia de frmPrincipal y pasarle los datos del usuario
+                frmPrincipal principal = new frmPrincipal(nombreUsuario, vendedorID);
+                principal.Show(); // Abrir el formulario principal
+                this.Hide(); // Ocultar el formulario de login
             }
             else
             {
-                MessageBox.Show("Usuario o contrase�a incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -106,7 +101,7 @@ namespace Proformas
 
 
 
-        private bool ValidarUsuario(string usuario, string contrase�a)
+        private bool ValidarUsuario(string usuario, string contraseña)
         {
             bool esValido = false;
 
@@ -117,11 +112,11 @@ namespace Proformas
                 try
                 {
                     conexion.Open();
-                    string query = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario AND Contrase�a = @Contrase�a";
+                    string query = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña";
                     using (SqlCommand cmd = new SqlCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@Usuario", usuario);
-                        cmd.Parameters.AddWithValue("@Contrase�a", contrase�a);
+                        cmd.Parameters.AddWithValue("@Contraseña", contraseña);
 
                         int count = (int)cmd.ExecuteScalar();
                         esValido = (count > 0);

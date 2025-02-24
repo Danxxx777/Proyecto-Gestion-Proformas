@@ -80,16 +80,17 @@ namespace Proformas
             return esValido;
         }
 
-        public string ObtenerNombreUsuario(string usuario, string contraseña)
+        public (string nombreUsuario, int vendedorID) ObtenerDatosUsuario(string usuario, string contraseña)
         {
             string nombreUsuario = null;
+            int vendedorID = -1; // Valor por defecto para identificar errores
             string query = @"
-        SELECT v.Nombre 
+        SELECT v.VendedorID, v.Nombre 
         FROM Usuarios u 
         INNER JOIN Vendedor v ON u.UsuarioID = v.UsuarioID 
         WHERE u.Usuario = @Usuario AND u.Contraseña = @Contraseña";
 
-            using (SqlConnection con = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False")) // Reemplaza con tu cadena de conexión
+            using (SqlConnection con = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False"))
             {
                 try
                 {
@@ -99,20 +100,27 @@ namespace Proformas
                         cmd.Parameters.AddWithValue("@Usuario", usuario);
                         cmd.Parameters.AddWithValue("@Contraseña", contraseña);
 
-                        object resultado = cmd.ExecuteScalar();
-                        if (resultado != null)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            nombreUsuario = resultado.ToString();
+                            if (reader.Read()) // Si hay resultados
+                            {
+                                vendedorID = Convert.ToInt32(reader["VendedorID"]);
+                                nombreUsuario = reader["Nombre"].ToString();
+                            }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al obtener el nombre del usuario: " + ex.Message);
+                    MessageBox.Show("Error al obtener el usuario y vendedor: " + ex.Message);
                 }
             }
-            return nombreUsuario;
+
+            return (nombreUsuario, vendedorID);
         }
+
+
+
 
 
 
