@@ -453,6 +453,7 @@
             Name = "frmTiposPS";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmTiposPS";
+            Load += frmTiposPS_Load;
             guna2CustomGradientPanel1.ResumeLayout(false);
             guna2CustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).EndInit();

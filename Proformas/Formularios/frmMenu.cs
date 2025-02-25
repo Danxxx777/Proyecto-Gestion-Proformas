@@ -10,21 +10,17 @@ using System.Windows.Forms;
 
 namespace Proformas.Formularios
 {
-    public partial class frmTiposPS : Form
+    public partial class frmMenu : Form
     {
-        public frmTiposPS()
+        public frmMenu()
         {
             InitializeComponent();
         }
 
-        private void pbxCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void frmTiposPS_Load(object sender, EventArgs e)
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
         {
 
         }
+        
     }
 }
