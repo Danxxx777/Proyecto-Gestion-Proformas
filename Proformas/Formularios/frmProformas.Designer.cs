@@ -140,7 +140,7 @@
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel6.Location = new Point(445, 173);
+            guna2HtmlLabel6.Location = new Point(338, 173);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(54, 22);
             guna2HtmlLabel6.TabIndex = 8;
@@ -182,7 +182,7 @@
             txtNproformas.PlaceholderText = "";
             txtNproformas.SelectedText = "";
             txtNproformas.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtNproformas.Size = new Size(200, 36);
+            txtNproformas.Size = new Size(133, 36);
             txtNproformas.TabIndex = 12;
             txtNproformas.Visible = false;
             // 
@@ -202,7 +202,7 @@
             txtNcliente.PlaceholderText = "";
             txtNcliente.SelectedText = "";
             txtNcliente.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtNcliente.Size = new Size(200, 36);
+            txtNcliente.Size = new Size(116, 36);
             txtNcliente.TabIndex = 13;
             // 
             // guna2DateTimePicker1
@@ -212,7 +212,7 @@
             guna2DateTimePicker1.FillColor = Color.FromArgb(192, 192, 255);
             guna2DateTimePicker1.Font = new Font("Segoe UI", 9F);
             guna2DateTimePicker1.Format = DateTimePickerFormat.Long;
-            guna2DateTimePicker1.Location = new Point(929, 13);
+            guna2DateTimePicker1.Location = new Point(429, 12);
             guna2DateTimePicker1.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             guna2DateTimePicker1.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             guna2DateTimePicker1.Name = "guna2DateTimePicker1";
@@ -233,7 +233,7 @@
             Fvencimiento.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             Fvencimiento.Name = "Fvencimiento";
             Fvencimiento.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            Fvencimiento.Size = new Size(212, 36);
+            Fvencimiento.Size = new Size(146, 36);
             Fvencimiento.TabIndex = 14;
             Fvencimiento.Value = new DateTime(2025, 2, 22, 19, 25, 57, 89);
             // 
@@ -248,7 +248,7 @@
             txtCorreoP.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCorreoP.Font = new Font("Segoe UI", 9F);
             txtCorreoP.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCorreoP.Location = new Point(539, 159);
+            txtCorreoP.Location = new Point(432, 159);
             txtCorreoP.Name = "txtCorreoP";
             txtCorreoP.PlaceholderText = "";
             txtCorreoP.SelectedText = "";
@@ -272,7 +272,7 @@
             txtTcliente.PlaceholderText = "";
             txtTcliente.SelectedText = "";
             txtTcliente.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtTcliente.Size = new Size(200, 36);
+            txtTcliente.Size = new Size(116, 36);
             txtTcliente.TabIndex = 18;
             // 
             // guna2HtmlLabel1
@@ -301,7 +301,7 @@
             txtNcedula.PlaceholderText = "";
             txtNcedula.SelectedText = "";
             txtNcedula.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtNcedula.Size = new Size(200, 36);
+            txtNcedula.Size = new Size(116, 36);
             txtNcedula.TabIndex = 19;
             // 
             // btnRegistrar
@@ -318,7 +318,7 @@
             btnRegistrar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnRegistrar.Font = new Font("Segoe UI", 9F);
             btnRegistrar.ForeColor = Color.White;
-            btnRegistrar.Location = new Point(808, 278);
+            btnRegistrar.Location = new Point(406, 278);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnRegistrar.Size = new Size(139, 45);
@@ -352,7 +352,7 @@
             dgvProductos.Location = new Point(18, 413);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.RowHeadersVisible = false;
-            dgvProductos.Size = new Size(385, 137);
+            dgvProductos.Size = new Size(252, 137);
             dgvProductos.TabIndex = 21;
             dgvProductos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvProductos.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -391,7 +391,7 @@
             // 
             guna2HtmlLabel10.BackColor = Color.Transparent;
             guna2HtmlLabel10.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel10.Location = new Point(495, 369);
+            guna2HtmlLabel10.Location = new Point(358, 369);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             guna2HtmlLabel10.Size = new Size(148, 22);
             guna2HtmlLabel10.TabIndex = 23;
@@ -420,10 +420,10 @@
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
             dgvDproductos.DefaultCellStyle = dataGridViewCellStyle6;
             dgvDproductos.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDproductos.Location = new Point(495, 413);
+            dgvDproductos.Location = new Point(358, 413);
             dgvDproductos.Name = "dgvDproductos";
             dgvDproductos.RowHeadersVisible = false;
-            dgvDproductos.Size = new Size(459, 137);
+            dgvDproductos.Size = new Size(205, 137);
             dgvDproductos.TabIndex = 24;
             dgvDproductos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvDproductos.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -452,7 +452,7 @@
             // 
             guna2HtmlLabel11.BackColor = Color.Transparent;
             guna2HtmlLabel11.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel11.Location = new Point(1027, 413);
+            guna2HtmlLabel11.Location = new Point(740, 403);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(65, 22);
             guna2HtmlLabel11.TabIndex = 25;
@@ -462,7 +462,7 @@
             // 
             guna2HtmlLabel12.BackColor = Color.Transparent;
             guna2HtmlLabel12.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel12.Location = new Point(1027, 457);
+            guna2HtmlLabel12.Location = new Point(740, 447);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             guna2HtmlLabel12.Size = new Size(76, 22);
             guna2HtmlLabel12.TabIndex = 26;
@@ -472,7 +472,7 @@
             // 
             guna2HtmlLabel13.BackColor = Color.Transparent;
             guna2HtmlLabel13.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel13.Location = new Point(1027, 507);
+            guna2HtmlLabel13.Location = new Point(740, 497);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             guna2HtmlLabel13.Size = new Size(77, 22);
             guna2HtmlLabel13.TabIndex = 27;
@@ -482,7 +482,7 @@
             // 
             guna2HtmlLabel14.BackColor = Color.Transparent;
             guna2HtmlLabel14.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel14.Location = new Point(1028, 544);
+            guna2HtmlLabel14.Location = new Point(741, 534);
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             guna2HtmlLabel14.Size = new Size(76, 22);
             guna2HtmlLabel14.TabIndex = 28;
@@ -492,7 +492,7 @@
             // 
             txtSubtotal.BackColor = Color.Transparent;
             txtSubtotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtSubtotal.Location = new Point(1118, 413);
+            txtSubtotal.Location = new Point(831, 403);
             txtSubtotal.Name = "txtSubtotal";
             txtSubtotal.Size = new Size(34, 22);
             txtSubtotal.TabIndex = 29;
@@ -502,7 +502,7 @@
             // 
             txtIva.BackColor = Color.Transparent;
             txtIva.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtIva.Location = new Point(1118, 457);
+            txtIva.Location = new Point(831, 447);
             txtIva.Name = "txtIva";
             txtIva.Size = new Size(34, 22);
             txtIva.TabIndex = 30;
@@ -512,7 +512,7 @@
             // 
             lblinfoDescuento.BackColor = Color.Transparent;
             lblinfoDescuento.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblinfoDescuento.Location = new Point(1118, 507);
+            lblinfoDescuento.Location = new Point(831, 497);
             lblinfoDescuento.Name = "lblinfoDescuento";
             lblinfoDescuento.Size = new Size(34, 22);
             lblinfoDescuento.TabIndex = 31;
@@ -522,7 +522,7 @@
             // 
             txtTotalfinal.BackColor = Color.Transparent;
             txtTotalfinal.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtTotalfinal.Location = new Point(1118, 544);
+            txtTotalfinal.Location = new Point(831, 534);
             txtTotalfinal.Name = "txtTotalfinal";
             txtTotalfinal.Size = new Size(34, 22);
             txtTotalfinal.TabIndex = 32;
@@ -532,7 +532,7 @@
             // 
             guna2HtmlLabel19.BackColor = Color.Transparent;
             guna2HtmlLabel19.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel19.Location = new Point(1172, 535);
+            guna2HtmlLabel19.Location = new Point(885, 525);
             guna2HtmlLabel19.Name = "guna2HtmlLabel19";
             guna2HtmlLabel19.Size = new Size(12, 22);
             guna2HtmlLabel19.TabIndex = 33;
@@ -542,7 +542,7 @@
             // 
             guna2HtmlLabel20.BackColor = Color.Transparent;
             guna2HtmlLabel20.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel20.Location = new Point(1172, 413);
+            guna2HtmlLabel20.Location = new Point(885, 403);
             guna2HtmlLabel20.Name = "guna2HtmlLabel20";
             guna2HtmlLabel20.Size = new Size(12, 22);
             guna2HtmlLabel20.TabIndex = 34;
@@ -552,7 +552,7 @@
             // 
             guna2HtmlLabel21.BackColor = Color.Transparent;
             guna2HtmlLabel21.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel21.Location = new Point(1172, 457);
+            guna2HtmlLabel21.Location = new Point(885, 447);
             guna2HtmlLabel21.Name = "guna2HtmlLabel21";
             guna2HtmlLabel21.Size = new Size(12, 22);
             guna2HtmlLabel21.TabIndex = 35;
@@ -562,7 +562,7 @@
             // 
             guna2HtmlLabel22.BackColor = Color.Transparent;
             guna2HtmlLabel22.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel22.Location = new Point(1181, 507);
+            guna2HtmlLabel22.Location = new Point(894, 497);
             guna2HtmlLabel22.Name = "guna2HtmlLabel22";
             guna2HtmlLabel22.Size = new Size(12, 22);
             guna2HtmlLabel22.TabIndex = 36;
@@ -572,7 +572,7 @@
             // 
             pbxCerrar.BackColor = Color.Transparent;
             pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
-            pbxCerrar.Location = new Point(1205, 12);
+            pbxCerrar.Location = new Point(690, 12);
             pbxCerrar.Name = "pbxCerrar";
             pbxCerrar.Size = new Size(40, 36);
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -591,7 +591,7 @@
             txtDescuento1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDescuento1.Font = new Font("Segoe UI", 9F);
             txtDescuento1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDescuento1.Location = new Point(1016, 330);
+            txtDescuento1.Location = new Point(729, 320);
             txtDescuento1.Name = "txtDescuento1";
             txtDescuento1.PlaceholderText = "";
             txtDescuento1.SelectedText = "";
@@ -603,7 +603,7 @@
             // 
             guna2HtmlLabel15.BackColor = Color.Transparent;
             guna2HtmlLabel15.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel15.Location = new Point(900, 344);
+            guna2HtmlLabel15.Location = new Point(613, 334);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(77, 22);
             guna2HtmlLabel15.TabIndex = 39;
@@ -623,7 +623,7 @@
             btnDescuento.FillColor2 = Color.FromArgb(11, 84, 144);
             btnDescuento.Font = new Font("Segoe UI", 9F);
             btnDescuento.ForeColor = Color.White;
-            btnDescuento.Location = new Point(860, 605);
+            btnDescuento.Location = new Point(573, 595);
             btnDescuento.Name = "btnDescuento";
             btnDescuento.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btnDescuento.Size = new Size(139, 45);
@@ -645,7 +645,7 @@
             btnGuardarProforma.FillColor2 = Color.FromArgb(11, 84, 144);
             btnGuardarProforma.Font = new Font("Segoe UI", 9F);
             btnGuardarProforma.ForeColor = Color.White;
-            btnGuardarProforma.Location = new Point(1077, 605);
+            btnGuardarProforma.Location = new Point(790, 595);
             btnGuardarProforma.Name = "btnGuardarProforma";
             btnGuardarProforma.ShadowDecoration.CustomizableEdges = customizableEdges22;
             btnGuardarProforma.Size = new Size(139, 45);
@@ -664,7 +664,7 @@
             txtEstado.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEstado.Font = new Font("Segoe UI", 9F);
             txtEstado.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEstado.Location = new Point(539, 223);
+            txtEstado.Location = new Point(432, 223);
             txtEstado.Name = "txtEstado";
             txtEstado.PlaceholderText = "";
             txtEstado.SelectedText = "";
@@ -676,7 +676,7 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel5.Location = new Point(445, 229);
+            guna2HtmlLabel5.Location = new Point(338, 229);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(50, 22);
             guna2HtmlLabel5.TabIndex = 7;
@@ -696,7 +696,7 @@
             btnBuscarCliente.FillColor2 = Color.FromArgb(11, 84, 144);
             btnBuscarCliente.Font = new Font("Segoe UI", 9F);
             btnBuscarCliente.ForeColor = Color.White;
-            btnBuscarCliente.Location = new Point(798, 173);
+            btnBuscarCliente.Location = new Point(406, 77);
             btnBuscarCliente.Name = "btnBuscarCliente";
             btnBuscarCliente.ShadowDecoration.CustomizableEdges = customizableEdges26;
             btnBuscarCliente.Size = new Size(139, 45);
@@ -707,7 +707,7 @@
             // lblVendedorID
             // 
             lblVendedorID.AutoSize = true;
-            lblVendedorID.Location = new Point(847, 17);
+            lblVendedorID.Location = new Point(315, 12);
             lblVendedorID.Name = "lblVendedorID";
             lblVendedorID.Size = new Size(22, 15);
             lblVendedorID.TabIndex = 43;

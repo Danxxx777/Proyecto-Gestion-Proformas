@@ -45,14 +45,12 @@
             btnProductos = new Button();
             pnlSubmenuProformas = new Panel();
             btnOV = new Button();
-            btnEditar = new Button();
-            btnNProforma = new Button();
             btnProformas = new Button();
             pnlSubmenuClientes = new Panel();
-            btnProveedor = new Button();
-            btnVendedor = new Button();
-            btnUsuario = new Button();
-            btnCliente = new Button();
+            btnProveedor = new FontAwesome.Sharp.IconButton();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            btnUsuario = new FontAwesome.Sharp.IconButton();
+            btnClientes = new FontAwesome.Sharp.IconButton();
             btnUsuarios = new Button();
             panel2 = new Panel();
             pnlNose = new Panel();
@@ -81,7 +79,7 @@
             pnlPrincipal.ForeColor = Color.FromArgb(11, 7, 17);
             pnlPrincipal.Location = new Point(0, 0);
             pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(208, 749);
+            pnlPrincipal.Size = new Size(208, 561);
             pnlPrincipal.TabIndex = 0;
             pnlPrincipal.Paint += panel1_Paint;
             // 
@@ -94,9 +92,9 @@
             pnlSubmenuProductos.Controls.Add(button14);
             pnlSubmenuProductos.Controls.Add(button15);
             pnlSubmenuProductos.Dock = DockStyle.Top;
-            pnlSubmenuProductos.Location = new Point(0, 522);
+            pnlSubmenuProductos.Location = new Point(0, 519);
             pnlSubmenuProductos.Name = "pnlSubmenuProductos";
-            pnlSubmenuProductos.Size = new Size(208, 139);
+            pnlSubmenuProductos.Size = new Size(191, 139);
             pnlSubmenuProductos.TabIndex = 8;
             // 
             // button8
@@ -111,7 +109,7 @@
             button8.Location = new Point(0, 100);
             button8.Name = "button8";
             button8.Padding = new Padding(35, 0, 0, 0);
-            button8.Size = new Size(208, 25);
+            button8.Size = new Size(191, 25);
             button8.TabIndex = 5;
             button8.Text = "x3";
             button8.TextAlign = ContentAlignment.MiddleLeft;
@@ -129,7 +127,7 @@
             button2.Location = new Point(0, 75);
             button2.Name = "button2";
             button2.Padding = new Padding(35, 0, 0, 0);
-            button2.Size = new Size(208, 25);
+            button2.Size = new Size(191, 25);
             button2.TabIndex = 4;
             button2.Text = "x3";
             button2.TextAlign = ContentAlignment.MiddleLeft;
@@ -147,7 +145,7 @@
             button13.Location = new Point(0, 50);
             button13.Name = "button13";
             button13.Padding = new Padding(35, 0, 0, 0);
-            button13.Size = new Size(208, 25);
+            button13.Size = new Size(191, 25);
             button13.TabIndex = 3;
             button13.Text = "x3";
             button13.TextAlign = ContentAlignment.MiddleLeft;
@@ -165,7 +163,7 @@
             button14.Location = new Point(0, 25);
             button14.Name = "button14";
             button14.Padding = new Padding(35, 0, 0, 0);
-            button14.Size = new Size(208, 25);
+            button14.Size = new Size(191, 25);
             button14.TabIndex = 2;
             button14.Text = "x2";
             button14.TextAlign = ContentAlignment.MiddleLeft;
@@ -183,7 +181,7 @@
             button15.Location = new Point(0, 0);
             button15.Name = "button15";
             button15.Padding = new Padding(35, 0, 0, 0);
-            button15.Size = new Size(208, 25);
+            button15.Size = new Size(191, 25);
             button15.TabIndex = 1;
             button15.Text = "YA VEO";
             button15.TextAlign = ContentAlignment.MiddleLeft;
@@ -197,10 +195,10 @@
             bntProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             bntProductos.FlatStyle = FlatStyle.Flat;
             bntProductos.ForeColor = Color.Gainsboro;
-            bntProductos.Location = new Point(0, 477);
+            bntProductos.Location = new Point(0, 474);
             bntProductos.Name = "bntProductos";
             bntProductos.Padding = new Padding(10, 0, 0, 0);
-            bntProductos.Size = new Size(208, 45);
+            bntProductos.Size = new Size(191, 45);
             bntProductos.TabIndex = 7;
             bntProductos.Text = "Productos";
             bntProductos.TextAlign = ContentAlignment.MiddleLeft;
@@ -214,9 +212,9 @@
             pnlSubmenuProducto.Controls.Add(btnServicios);
             pnlSubmenuProducto.Controls.Add(btnAgregarProducto);
             pnlSubmenuProducto.Dock = DockStyle.Top;
-            pnlSubmenuProducto.Location = new Point(0, 342);
+            pnlSubmenuProducto.Location = new Point(0, 339);
             pnlSubmenuProducto.Name = "pnlSubmenuProducto";
-            pnlSubmenuProducto.Size = new Size(208, 135);
+            pnlSubmenuProducto.Size = new Size(191, 135);
             pnlSubmenuProducto.TabIndex = 6;
             // 
             // btnSucursales
@@ -231,7 +229,7 @@
             btnSucursales.Location = new Point(0, 100);
             btnSucursales.Name = "btnSucursales";
             btnSucursales.Padding = new Padding(35, 0, 0, 0);
-            btnSucursales.Size = new Size(208, 25);
+            btnSucursales.Size = new Size(191, 25);
             btnSucursales.TabIndex = 7;
             btnSucursales.Text = "Sucursales";
             btnSucursales.TextAlign = ContentAlignment.MiddleLeft;
@@ -250,7 +248,7 @@
             btnBodegas.Location = new Point(0, 75);
             btnBodegas.Name = "btnBodegas";
             btnBodegas.Padding = new Padding(35, 0, 0, 0);
-            btnBodegas.Size = new Size(208, 25);
+            btnBodegas.Size = new Size(191, 25);
             btnBodegas.TabIndex = 6;
             btnBodegas.Text = "Bodegas";
             btnBodegas.TextAlign = ContentAlignment.MiddleLeft;
@@ -269,7 +267,7 @@
             btnTipos.Location = new Point(0, 50);
             btnTipos.Name = "btnTipos";
             btnTipos.Padding = new Padding(35, 0, 0, 0);
-            btnTipos.Size = new Size(208, 25);
+            btnTipos.Size = new Size(191, 25);
             btnTipos.TabIndex = 3;
             btnTipos.Text = "Tipos";
             btnTipos.TextAlign = ContentAlignment.MiddleLeft;
@@ -288,7 +286,7 @@
             btnServicios.Location = new Point(0, 25);
             btnServicios.Name = "btnServicios";
             btnServicios.Padding = new Padding(35, 0, 0, 0);
-            btnServicios.Size = new Size(208, 25);
+            btnServicios.Size = new Size(191, 25);
             btnServicios.TabIndex = 2;
             btnServicios.Text = "Servicios";
             btnServicios.TextAlign = ContentAlignment.MiddleLeft;
@@ -307,7 +305,7 @@
             btnAgregarProducto.Location = new Point(0, 0);
             btnAgregarProducto.Name = "btnAgregarProducto";
             btnAgregarProducto.Padding = new Padding(35, 0, 0, 0);
-            btnAgregarProducto.Size = new Size(208, 25);
+            btnAgregarProducto.Size = new Size(191, 25);
             btnAgregarProducto.TabIndex = 1;
             btnAgregarProducto.Text = "Agregar/Editar";
             btnAgregarProducto.TextAlign = ContentAlignment.MiddleLeft;
@@ -322,10 +320,10 @@
             btnProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnProductos.FlatStyle = FlatStyle.Flat;
             btnProductos.ForeColor = Color.Gainsboro;
-            btnProductos.Location = new Point(0, 297);
+            btnProductos.Location = new Point(0, 294);
             btnProductos.Name = "btnProductos";
             btnProductos.Padding = new Padding(10, 0, 0, 0);
-            btnProductos.Size = new Size(208, 45);
+            btnProductos.Size = new Size(191, 45);
             btnProductos.TabIndex = 5;
             btnProductos.Text = "Productos";
             btnProductos.TextAlign = ContentAlignment.MiddleLeft;
@@ -335,70 +333,30 @@
             // pnlSubmenuProformas
             // 
             pnlSubmenuProformas.Controls.Add(btnOV);
-            pnlSubmenuProformas.Controls.Add(btnEditar);
-            pnlSubmenuProformas.Controls.Add(btnNProforma);
             pnlSubmenuProformas.Dock = DockStyle.Top;
-            pnlSubmenuProformas.Location = new Point(0, 214);
+            pnlSubmenuProformas.Location = new Point(0, 253);
             pnlSubmenuProformas.Name = "pnlSubmenuProformas";
-            pnlSubmenuProformas.Size = new Size(208, 83);
+            pnlSubmenuProformas.Size = new Size(191, 41);
             pnlSubmenuProformas.TabIndex = 4;
             // 
             // btnOV
             // 
-            btnOV.BackColor = Color.FromArgb(36, 33, 40);
+            btnOV.BackColor = Color.FromArgb(11, 7, 17);
             btnOV.Dock = DockStyle.Top;
             btnOV.FlatAppearance.BorderSize = 0;
             btnOV.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
             btnOV.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnOV.FlatStyle = FlatStyle.Flat;
             btnOV.ForeColor = Color.Gainsboro;
-            btnOV.Location = new Point(0, 50);
+            btnOV.Location = new Point(0, 0);
             btnOV.Name = "btnOV";
-            btnOV.Padding = new Padding(35, 0, 0, 0);
-            btnOV.Size = new Size(208, 25);
+            btnOV.Padding = new Padding(10, 0, 0, 0);
+            btnOV.Size = new Size(191, 40);
             btnOV.TabIndex = 3;
             btnOV.Text = "Orden de Venta ";
             btnOV.TextAlign = ContentAlignment.MiddleLeft;
             btnOV.UseVisualStyleBackColor = false;
             btnOV.Click += btnOV_Click;
-            // 
-            // btnEditar
-            // 
-            btnEditar.BackColor = Color.FromArgb(36, 33, 40);
-            btnEditar.Dock = DockStyle.Top;
-            btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnEditar.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.ForeColor = Color.Gainsboro;
-            btnEditar.Location = new Point(0, 25);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new Padding(35, 0, 0, 0);
-            btnEditar.Size = new Size(208, 25);
-            btnEditar.TabIndex = 2;
-            btnEditar.Text = "Editar Proforma";
-            btnEditar.TextAlign = ContentAlignment.MiddleLeft;
-            btnEditar.UseVisualStyleBackColor = false;
-            btnEditar.Click += btnEditar_Click;
-            // 
-            // btnNProforma
-            // 
-            btnNProforma.BackColor = Color.FromArgb(36, 33, 40);
-            btnNProforma.Dock = DockStyle.Top;
-            btnNProforma.FlatAppearance.BorderSize = 0;
-            btnNProforma.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnNProforma.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnNProforma.FlatStyle = FlatStyle.Flat;
-            btnNProforma.ForeColor = Color.Gainsboro;
-            btnNProforma.Location = new Point(0, 0);
-            btnNProforma.Name = "btnNProforma";
-            btnNProforma.Padding = new Padding(35, 0, 0, 0);
-            btnNProforma.Size = new Size(208, 25);
-            btnNProforma.TabIndex = 1;
-            btnNProforma.Text = "Agregar/Editar";
-            btnNProforma.TextAlign = ContentAlignment.MiddleLeft;
-            btnNProforma.UseVisualStyleBackColor = false;
-            btnNProforma.Click += btnNProforma_Click;
             // 
             // btnProformas
             // 
@@ -408,10 +366,10 @@
             btnProformas.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnProformas.FlatStyle = FlatStyle.Flat;
             btnProformas.ForeColor = Color.Gainsboro;
-            btnProformas.Location = new Point(0, 169);
+            btnProformas.Location = new Point(0, 208);
             btnProformas.Name = "btnProformas";
             btnProformas.Padding = new Padding(10, 0, 0, 0);
-            btnProformas.Size = new Size(208, 45);
+            btnProformas.Size = new Size(191, 45);
             btnProformas.TabIndex = 3;
             btnProformas.Text = "Proformas";
             btnProformas.TextAlign = ContentAlignment.MiddleLeft;
@@ -421,90 +379,98 @@
             // pnlSubmenuClientes
             // 
             pnlSubmenuClientes.Controls.Add(btnProveedor);
-            pnlSubmenuClientes.Controls.Add(btnVendedor);
+            pnlSubmenuClientes.Controls.Add(iconButton2);
             pnlSubmenuClientes.Controls.Add(btnUsuario);
-            pnlSubmenuClientes.Controls.Add(btnCliente);
+            pnlSubmenuClientes.Controls.Add(btnClientes);
             pnlSubmenuClientes.Dock = DockStyle.Top;
             pnlSubmenuClientes.Location = new Point(0, 60);
             pnlSubmenuClientes.Name = "pnlSubmenuClientes";
-            pnlSubmenuClientes.Size = new Size(208, 109);
+            pnlSubmenuClientes.Size = new Size(191, 148);
             pnlSubmenuClientes.TabIndex = 1;
             // 
             // btnProveedor
             // 
-            btnProveedor.BackColor = Color.FromArgb(36, 33, 40);
+            btnProveedor.BackColor = Color.FromArgb(31, 30, 68);
             btnProveedor.Dock = DockStyle.Top;
-            btnProveedor.FlatAppearance.BorderSize = 0;
-            btnProveedor.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnProveedor.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnProveedor.FlatStyle = FlatStyle.Flat;
             btnProveedor.ForeColor = Color.Gainsboro;
-            btnProveedor.Location = new Point(0, 75);
+            btnProveedor.IconChar = FontAwesome.Sharp.IconChar.PersonRays;
+            btnProveedor.IconColor = Color.Black;
+            btnProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnProveedor.IconSize = 30;
+            btnProveedor.Location = new Point(0, 105);
+            btnProveedor.Margin = new Padding(10, 3, 10, 3);
             btnProveedor.Name = "btnProveedor";
-            btnProveedor.Padding = new Padding(35, 0, 0, 0);
-            btnProveedor.Size = new Size(208, 25);
-            btnProveedor.TabIndex = 4;
-            btnProveedor.Text = "Proveedores";
-            btnProveedor.TextAlign = ContentAlignment.MiddleLeft;
+            btnProveedor.Size = new Size(191, 35);
+            btnProveedor.TabIndex = 7;
+            btnProveedor.Text = "Proveedor";
+            btnProveedor.TextAlign = ContentAlignment.MiddleRight;
+            btnProveedor.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnProveedor.UseMnemonic = false;
             btnProveedor.UseVisualStyleBackColor = false;
-            btnProveedor.Click += btnProveedor_Click;
+            btnProveedor.Click += btnProveedor_Click_1;
             // 
-            // btnVendedor
+            // iconButton2
             // 
-            btnVendedor.BackColor = Color.FromArgb(36, 33, 40);
-            btnVendedor.Dock = DockStyle.Top;
-            btnVendedor.FlatAppearance.BorderSize = 0;
-            btnVendedor.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnVendedor.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnVendedor.FlatStyle = FlatStyle.Flat;
-            btnVendedor.ForeColor = Color.Gainsboro;
-            btnVendedor.Location = new Point(0, 50);
-            btnVendedor.Name = "btnVendedor";
-            btnVendedor.Padding = new Padding(35, 0, 0, 0);
-            btnVendedor.Size = new Size(208, 25);
-            btnVendedor.TabIndex = 3;
-            btnVendedor.Text = "Vendedores";
-            btnVendedor.TextAlign = ContentAlignment.MiddleLeft;
-            btnVendedor.UseVisualStyleBackColor = false;
-            btnVendedor.Click += btnVendedor_Click;
+            iconButton2.BackColor = Color.FromArgb(31, 30, 68);
+            iconButton2.Dock = DockStyle.Top;
+            iconButton2.ForeColor = Color.Gainsboro;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.PersonChalkboard;
+            iconButton2.IconColor = Color.Black;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 30;
+            iconButton2.Location = new Point(0, 70);
+            iconButton2.Margin = new Padding(10, 3, 10, 3);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(191, 35);
+            iconButton2.TabIndex = 6;
+            iconButton2.Text = "Vendedor";
+            iconButton2.TextAlign = ContentAlignment.MiddleRight;
+            iconButton2.TextImageRelation = TextImageRelation.TextBeforeImage;
+            iconButton2.UseMnemonic = false;
+            iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
             // 
             // btnUsuario
             // 
-            btnUsuario.BackColor = Color.FromArgb(36, 33, 40);
+            btnUsuario.BackColor = Color.FromArgb(31, 30, 68);
             btnUsuario.Dock = DockStyle.Top;
-            btnUsuario.FlatAppearance.BorderSize = 0;
-            btnUsuario.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnUsuario.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnUsuario.FlatStyle = FlatStyle.Flat;
             btnUsuario.ForeColor = Color.Gainsboro;
-            btnUsuario.Location = new Point(0, 25);
+            btnUsuario.IconChar = FontAwesome.Sharp.IconChar.PersonCircleExclamation;
+            btnUsuario.IconColor = Color.Black;
+            btnUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnUsuario.IconSize = 30;
+            btnUsuario.Location = new Point(0, 35);
+            btnUsuario.Margin = new Padding(10, 3, 10, 3);
             btnUsuario.Name = "btnUsuario";
-            btnUsuario.Padding = new Padding(35, 0, 0, 0);
-            btnUsuario.Size = new Size(208, 25);
-            btnUsuario.TabIndex = 2;
+            btnUsuario.Size = new Size(191, 35);
+            btnUsuario.TabIndex = 5;
             btnUsuario.Text = "Usuarios";
-            btnUsuario.TextAlign = ContentAlignment.MiddleLeft;
+            btnUsuario.TextAlign = ContentAlignment.MiddleRight;
+            btnUsuario.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnUsuario.UseMnemonic = false;
             btnUsuario.UseVisualStyleBackColor = false;
-            btnUsuario.Click += btnUsuario_Click;
+            btnUsuario.Click += iconButton1_Click;
             // 
-            // btnCliente
+            // btnClientes
             // 
-            btnCliente.BackColor = Color.FromArgb(36, 33, 40);
-            btnCliente.Dock = DockStyle.Top;
-            btnCliente.FlatAppearance.BorderSize = 0;
-            btnCliente.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnCliente.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnCliente.FlatStyle = FlatStyle.Flat;
-            btnCliente.ForeColor = Color.Gainsboro;
-            btnCliente.Location = new Point(0, 0);
-            btnCliente.Name = "btnCliente";
-            btnCliente.Padding = new Padding(35, 0, 0, 0);
-            btnCliente.Size = new Size(208, 25);
-            btnCliente.TabIndex = 1;
-            btnCliente.Text = "Clientes";
-            btnCliente.TextAlign = ContentAlignment.MiddleLeft;
-            btnCliente.UseVisualStyleBackColor = false;
-            btnCliente.Click += btnAgregarQuitar_Click;
+            btnClientes.BackColor = Color.FromArgb(31, 30, 68);
+            btnClientes.Dock = DockStyle.Top;
+            btnClientes.ForeColor = Color.Gainsboro;
+            btnClientes.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            btnClientes.IconColor = Color.Black;
+            btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClientes.IconSize = 30;
+            btnClientes.Location = new Point(0, 0);
+            btnClientes.Margin = new Padding(4, 3, 10, 3);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(191, 35);
+            btnClientes.TabIndex = 0;
+            btnClientes.Text = "Clientes";
+            btnClientes.TextAlign = ContentAlignment.MiddleRight;
+            btnClientes.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnClientes.UseMnemonic = false;
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click_1;
             // 
             // btnUsuarios
             // 
@@ -517,7 +483,7 @@
             btnUsuarios.Location = new Point(0, 15);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Padding = new Padding(10, 0, 0, 0);
-            btnUsuarios.Size = new Size(208, 45);
+            btnUsuarios.Size = new Size(191, 45);
             btnUsuarios.TabIndex = 1;
             btnUsuarios.Text = "Agregar";
             btnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
@@ -530,25 +496,25 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(208, 15);
+            panel2.Size = new Size(191, 15);
             panel2.TabIndex = 2;
             // 
             // pnlNose
             // 
             pnlNose.BackColor = Color.FromArgb(32, 30, 50);
             pnlNose.Dock = DockStyle.Bottom;
-            pnlNose.Location = new Point(208, 680);
+            pnlNose.Location = new Point(208, 456);
             pnlNose.Name = "pnlNose";
-            pnlNose.Size = new Size(726, 69);
+            pnlNose.Size = new Size(726, 105);
             pnlNose.TabIndex = 1;
+            pnlNose.Paint += pnlNose_Paint;
             // 
             // pnlForm
             // 
             pnlForm.BackColor = Color.FromArgb(32, 30, 50);
-            pnlForm.Dock = DockStyle.Fill;
             pnlForm.Location = new Point(208, 0);
             pnlForm.Name = "pnlForm";
-            pnlForm.Size = new Size(726, 680);
+            pnlForm.Size = new Size(726, 459);
             pnlForm.TabIndex = 2;
             // 
             // frmMenu
@@ -556,7 +522,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(934, 749);
+            ClientSize = new Size(934, 561);
             Controls.Add(pnlForm);
             Controls.Add(pnlNose);
             Controls.Add(pnlPrincipal);
@@ -577,9 +543,6 @@
         private Panel pnlSubmenuClientes;
         private Button btnUsuarios;
         private Panel panel2;
-        private Button btnVendedor;
-        private Button btnUsuario;
-        private Button btnCliente;
         private Panel pnlSubmenuProductos;
         private Button button13;
         private Button button14;
@@ -593,14 +556,15 @@
         private Button btnProformas;
         private Panel pnlSubmenuProformas;
         private Button btnOV;
-        private Button btnEditar;
-        private Button btnNProforma;
-        private Button btnProveedor;
         private Button btnSucursales;
         private Button btnBodegas;
         private Button button8;
         private Button button2;
         private Panel pnlNose;
         private Panel pnlForm;
+        private FontAwesome.Sharp.IconButton btnClientes;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnUsuario;
+        private FontAwesome.Sharp.IconButton btnProveedor;
     }
 }

@@ -47,12 +47,6 @@ namespace Proformas.Formularios
                 subMenu.Visible = false;
         }
 
-
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -62,33 +56,34 @@ namespace Proformas.Formularios
         {
             showSubMenu(pnlSubmenuClientes);
         }
-        private void btnAgregarQuitar_Click(object sender, EventArgs e)
+        private void btnClientes_Click_1(object sender, EventArgs e)
         {
             openChildForm(new frmClientes());
             //codigo
             hideSubMenu();
         }
 
-        private void btnUsuario_Click(object sender, EventArgs e)
+        private void iconButton1_Click(object sender, EventArgs e)
         {
             //openChildForm(new frmUsuarios());
             //codigo
             hideSubMenu();
         }
 
-        private void btnVendedor_Click(object sender, EventArgs e)
+        private void iconButton2_Click(object sender, EventArgs e)
         {
             openChildForm(new frmVendedor());
             //codigo
             hideSubMenu();
         }
 
-        private void btnProveedor_Click(object sender, EventArgs e)
+        private void btnProveedor_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new frmProveedores());
             //codigo
             hideSubMenu();
         }
-#endregion
+        #endregion
         #region Proformas
         private void btnProformas_Click(object sender, EventArgs e)
         {
@@ -97,22 +92,18 @@ namespace Proformas.Formularios
 
         private void btnNProforma_Click(object sender, EventArgs e)
         {
-            //codigo
-            hideSubMenu();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
+            //openChildForm(new frmProformas());
             //codigo
             hideSubMenu();
         }
 
         private void btnOV_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmOrdenVenta());
             //codigo
             hideSubMenu();
         }
-#endregion
+        #endregion
         #region Productos
         private void btnProductos_Click(object sender, EventArgs e)
         {
@@ -121,30 +112,36 @@ namespace Proformas.Formularios
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmProductos());
             //codigo
             hideSubMenu();
         }
 
         private void btnServicios_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmTiposPS());
             //codigo
             hideSubMenu();
         }
 
         private void btnTipos_Click(object sender, EventArgs e)
         {
+            //nuevo formulario por crear
             //codigo
             hideSubMenu();
         }
 
         private void btnBodegas_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmBodegas());
             //codigo
             hideSubMenu();
         }
 
         private void btnSucursales_Click(object sender, EventArgs e)
         {
+            //por hacer
+            //openChildForm(new frmSucursales());
             //codigo
             hideSubMenu();
         }
@@ -162,6 +159,12 @@ namespace Proformas.Formularios
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void pnlNose_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }
 #endregion

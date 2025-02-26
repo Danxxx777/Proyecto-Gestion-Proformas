@@ -111,7 +111,7 @@
             // 
             pbxCerrar.BackColor = Color.Transparent;
             pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
-            pbxCerrar.Location = new Point(769, 9);
+            pbxCerrar.Location = new Point(601, 9);
             pbxCerrar.Name = "pbxCerrar";
             pbxCerrar.Size = new Size(40, 36);
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -152,7 +152,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(483, 203);
+            dataGridView1.Location = new Point(386, 193);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(285, 181);
             dataGridView1.TabIndex = 50;
@@ -174,7 +174,7 @@
             gtbUsuario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             gtbUsuario.Font = new Font("Segoe UI", 9F);
             gtbUsuario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            gtbUsuario.Location = new Point(568, 147);
+            gtbUsuario.Location = new Point(471, 137);
             gtbUsuario.Name = "gtbUsuario";
             gtbUsuario.PlaceholderText = "";
             gtbUsuario.SelectedText = "";
@@ -196,7 +196,7 @@
             btnBuscar.FillColor2 = Color.FromArgb(11, 84, 144);
             btnBuscar.Font = new Font("Segoe UI", 9F);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(483, 147);
+            btnBuscar.Location = new Point(386, 137);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnBuscar.Size = new Size(63, 32);
@@ -340,7 +340,7 @@
             guna2TextBox2.PlaceholderText = "";
             guna2TextBox2.SelectedText = "";
             guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2TextBox2.Size = new Size(237, 32);
+            guna2TextBox2.Size = new Size(149, 32);
             guna2TextBox2.TabIndex = 58;
             // 
             // guna2TextBox1
@@ -365,7 +365,7 @@
             guna2TextBox1.PlaceholderText = "";
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2TextBox1.Size = new Size(238, 32);
+            guna2TextBox1.Size = new Size(150, 32);
             guna2TextBox1.TabIndex = 57;
             // 
             // label3
@@ -400,7 +400,7 @@
             guna2TextBox3.PlaceholderText = "";
             guna2TextBox3.SelectedText = "";
             guna2TextBox3.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2TextBox3.Size = new Size(237, 32);
+            guna2TextBox3.Size = new Size(149, 32);
             guna2TextBox3.TabIndex = 61;
             // 
             // guna2TextBox4
@@ -425,7 +425,7 @@
             guna2TextBox4.PlaceholderText = "";
             guna2TextBox4.SelectedText = "";
             guna2TextBox4.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2TextBox4.Size = new Size(238, 32);
+            guna2TextBox4.Size = new Size(150, 32);
             guna2TextBox4.TabIndex = 63;
             // 
             // label4
@@ -443,7 +443,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(829, 418);
+            ClientSize = new Size(726, 459);
             Controls.Add(guna2TextBox4);
             Controls.Add(label4);
             Controls.Add(guna2TextBox3);
