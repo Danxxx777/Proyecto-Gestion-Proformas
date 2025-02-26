@@ -57,24 +57,28 @@ namespace Proformas.Formularios
         {
 
         }
+        #region Clientes
         private void btnClientes_Click(object sender, EventArgs e)
         {
             showSubMenu(pnlSubmenuClientes);
         }
         private void btnAgregarQuitar_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmClientes());
             //codigo
             hideSubMenu();
         }
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
+            //openChildForm(new frmUsuarios());
             //codigo
             hideSubMenu();
         }
 
         private void btnVendedor_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmVendedor());
             //codigo
             hideSubMenu();
         }
@@ -84,7 +88,8 @@ namespace Proformas.Formularios
             //codigo
             hideSubMenu();
         }
-
+#endregion
+        #region Proformas
         private void btnProformas_Click(object sender, EventArgs e)
         {
             showSubMenu(pnlSubmenuProformas);
@@ -107,7 +112,8 @@ namespace Proformas.Formularios
             //codigo
             hideSubMenu();
         }
-
+#endregion
+        #region Productos
         private void btnProductos_Click(object sender, EventArgs e)
         {
             showSubMenu(pnlSubmenuProducto);
@@ -142,5 +148,20 @@ namespace Proformas.Formularios
             //codigo
             hideSubMenu();
         }
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            pnlForm.Controls.Add(childForm);
+            pnlForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
     }
 }
+#endregion

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            pnlPrincipal = new Panel();
             pnlSubmenuProductos = new Panel();
             button8 = new Button();
             button2 = new Button();
@@ -55,43 +55,46 @@
             btnCliente = new Button();
             btnUsuarios = new Button();
             panel2 = new Panel();
-            panel1.SuspendLayout();
+            pnlNose = new Panel();
+            pnlForm = new Panel();
+            pnlPrincipal.SuspendLayout();
             pnlSubmenuProductos.SuspendLayout();
             pnlSubmenuProducto.SuspendLayout();
             pnlSubmenuProformas.SuspendLayout();
             pnlSubmenuClientes.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pnlPrincipal
             // 
-            panel1.AutoScroll = true;
-            panel1.BackColor = Color.FromArgb(11, 7, 17);
-            panel1.Controls.Add(pnlSubmenuProductos);
-            panel1.Controls.Add(bntProductos);
-            panel1.Controls.Add(pnlSubmenuProducto);
-            panel1.Controls.Add(btnProductos);
-            panel1.Controls.Add(pnlSubmenuProformas);
-            panel1.Controls.Add(btnProformas);
-            panel1.Controls.Add(pnlSubmenuClientes);
-            panel1.Controls.Add(btnUsuarios);
-            panel1.Controls.Add(panel2);
-            panel1.Dock = DockStyle.Left;
-            panel1.ForeColor = Color.FromArgb(11, 7, 17);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(208, 749);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            pnlPrincipal.AutoScroll = true;
+            pnlPrincipal.BackColor = Color.FromArgb(11, 7, 17);
+            pnlPrincipal.Controls.Add(pnlSubmenuProductos);
+            pnlPrincipal.Controls.Add(bntProductos);
+            pnlPrincipal.Controls.Add(pnlSubmenuProducto);
+            pnlPrincipal.Controls.Add(btnProductos);
+            pnlPrincipal.Controls.Add(pnlSubmenuProformas);
+            pnlPrincipal.Controls.Add(btnProformas);
+            pnlPrincipal.Controls.Add(pnlSubmenuClientes);
+            pnlPrincipal.Controls.Add(btnUsuarios);
+            pnlPrincipal.Controls.Add(panel2);
+            pnlPrincipal.Dock = DockStyle.Left;
+            pnlPrincipal.ForeColor = Color.FromArgb(11, 7, 17);
+            pnlPrincipal.Location = new Point(0, 0);
+            pnlPrincipal.Name = "pnlPrincipal";
+            pnlPrincipal.Size = new Size(208, 749);
+            pnlPrincipal.TabIndex = 0;
+            pnlPrincipal.Paint += panel1_Paint;
             // 
             // pnlSubmenuProductos
             // 
+            pnlSubmenuProductos.AutoScroll = true;
             pnlSubmenuProductos.Controls.Add(button8);
             pnlSubmenuProductos.Controls.Add(button2);
             pnlSubmenuProductos.Controls.Add(button13);
             pnlSubmenuProductos.Controls.Add(button14);
             pnlSubmenuProductos.Controls.Add(button15);
             pnlSubmenuProductos.Dock = DockStyle.Top;
-            pnlSubmenuProductos.Location = new Point(0, 549);
+            pnlSubmenuProductos.Location = new Point(0, 522);
             pnlSubmenuProductos.Name = "pnlSubmenuProductos";
             pnlSubmenuProductos.Size = new Size(208, 139);
             pnlSubmenuProductos.TabIndex = 8;
@@ -194,7 +197,7 @@
             bntProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             bntProductos.FlatStyle = FlatStyle.Flat;
             bntProductos.ForeColor = Color.Gainsboro;
-            bntProductos.Location = new Point(0, 504);
+            bntProductos.Location = new Point(0, 477);
             bntProductos.Name = "bntProductos";
             bntProductos.Padding = new Padding(10, 0, 0, 0);
             bntProductos.Size = new Size(208, 45);
@@ -211,7 +214,7 @@
             pnlSubmenuProducto.Controls.Add(btnServicios);
             pnlSubmenuProducto.Controls.Add(btnAgregarProducto);
             pnlSubmenuProducto.Dock = DockStyle.Top;
-            pnlSubmenuProducto.Location = new Point(0, 369);
+            pnlSubmenuProducto.Location = new Point(0, 342);
             pnlSubmenuProducto.Name = "pnlSubmenuProducto";
             pnlSubmenuProducto.Size = new Size(208, 135);
             pnlSubmenuProducto.TabIndex = 6;
@@ -319,7 +322,7 @@
             btnProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnProductos.FlatStyle = FlatStyle.Flat;
             btnProductos.ForeColor = Color.Gainsboro;
-            btnProductos.Location = new Point(0, 324);
+            btnProductos.Location = new Point(0, 297);
             btnProductos.Name = "btnProductos";
             btnProductos.Padding = new Padding(10, 0, 0, 0);
             btnProductos.Size = new Size(208, 45);
@@ -335,7 +338,7 @@
             pnlSubmenuProformas.Controls.Add(btnEditar);
             pnlSubmenuProformas.Controls.Add(btnNProforma);
             pnlSubmenuProformas.Dock = DockStyle.Top;
-            pnlSubmenuProformas.Location = new Point(0, 241);
+            pnlSubmenuProformas.Location = new Point(0, 214);
             pnlSubmenuProformas.Name = "pnlSubmenuProformas";
             pnlSubmenuProformas.Size = new Size(208, 83);
             pnlSubmenuProformas.TabIndex = 4;
@@ -405,7 +408,7 @@
             btnProformas.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnProformas.FlatStyle = FlatStyle.Flat;
             btnProformas.ForeColor = Color.Gainsboro;
-            btnProformas.Location = new Point(0, 196);
+            btnProformas.Location = new Point(0, 169);
             btnProformas.Name = "btnProformas";
             btnProformas.Padding = new Padding(10, 0, 0, 0);
             btnProformas.Size = new Size(208, 45);
@@ -422,7 +425,7 @@
             pnlSubmenuClientes.Controls.Add(btnUsuario);
             pnlSubmenuClientes.Controls.Add(btnCliente);
             pnlSubmenuClientes.Dock = DockStyle.Top;
-            pnlSubmenuClientes.Location = new Point(0, 87);
+            pnlSubmenuClientes.Location = new Point(0, 60);
             pnlSubmenuClientes.Name = "pnlSubmenuClientes";
             pnlSubmenuClientes.Size = new Size(208, 109);
             pnlSubmenuClientes.TabIndex = 1;
@@ -511,7 +514,7 @@
             btnUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.ForeColor = Color.Gainsboro;
-            btnUsuarios.Location = new Point(0, 42);
+            btnUsuarios.Location = new Point(0, 15);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Padding = new Padding(10, 0, 0, 0);
             btnUsuarios.Size = new Size(208, 45);
@@ -527,19 +530,40 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(208, 42);
+            panel2.Size = new Size(208, 15);
             panel2.TabIndex = 2;
+            // 
+            // pnlNose
+            // 
+            pnlNose.BackColor = Color.FromArgb(32, 30, 50);
+            pnlNose.Dock = DockStyle.Bottom;
+            pnlNose.Location = new Point(208, 680);
+            pnlNose.Name = "pnlNose";
+            pnlNose.Size = new Size(726, 69);
+            pnlNose.TabIndex = 1;
+            // 
+            // pnlForm
+            // 
+            pnlForm.BackColor = Color.FromArgb(32, 30, 50);
+            pnlForm.Dock = DockStyle.Fill;
+            pnlForm.Location = new Point(208, 0);
+            pnlForm.Name = "pnlForm";
+            pnlForm.Size = new Size(726, 680);
+            pnlForm.TabIndex = 2;
             // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(934, 749);
-            Controls.Add(panel1);
+            Controls.Add(pnlForm);
+            Controls.Add(pnlNose);
+            Controls.Add(pnlPrincipal);
             MinimumSize = new Size(950, 600);
             Name = "frmMenu";
             Text = "frmMenu";
-            panel1.ResumeLayout(false);
+            pnlPrincipal.ResumeLayout(false);
             pnlSubmenuProductos.ResumeLayout(false);
             pnlSubmenuProducto.ResumeLayout(false);
             pnlSubmenuProformas.ResumeLayout(false);
@@ -549,7 +573,7 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel pnlPrincipal;
         private Panel pnlSubmenuClientes;
         private Button btnUsuarios;
         private Panel panel2;
@@ -576,5 +600,7 @@
         private Button btnBodegas;
         private Button button8;
         private Button button2;
+        private Panel pnlNose;
+        private Panel pnlForm;
     }
 }

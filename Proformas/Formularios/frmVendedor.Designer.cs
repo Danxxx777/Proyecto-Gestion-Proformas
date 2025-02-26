@@ -398,7 +398,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(640, 527);
+            ClientSize = new Size(726, 680);
             Controls.Add(label1);
             Controls.Add(guna2DateTimePicker2);
             Controls.Add(guna2TextBox4);
