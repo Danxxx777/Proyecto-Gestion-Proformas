@@ -21,7 +21,7 @@ namespace Proformas.Formularios
         {
             pnlSubmenuClientes.Visible = false;
             pnlSubmenuProformas.Visible = false;
-            pnlSubmenuOrdenVenta.Visible = false;
+            pnlSubmenuProducto.Visible = false;
             pnlSubmenuProductos.Visible = false;
 
         }
@@ -31,8 +31,8 @@ namespace Proformas.Formularios
                 pnlSubmenuClientes.Visible = false;
             if (pnlSubmenuProformas.Visible == true)
                 pnlSubmenuProformas.Visible = false;
-            if (pnlSubmenuOrdenVenta.Visible == true)
-                pnlSubmenuOrdenVenta.Visible = false;
+            if (pnlSubmenuProducto.Visible == true)
+                pnlSubmenuProducto.Visible = false;
             if (pnlSubmenuProductos.Visible == true)
                 pnlSubmenuProductos.Visible = false;
         }
@@ -62,6 +62,82 @@ namespace Proformas.Formularios
             showSubMenu(pnlSubmenuClientes);
         }
         private void btnAgregarQuitar_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnVendedor_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnProformas_Click(object sender, EventArgs e)
+        {
+            showSubMenu(pnlSubmenuProformas);
+        }
+
+        private void btnNProforma_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnOV_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            showSubMenu(pnlSubmenuProducto);
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnServicios_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnTipos_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnBodegas_Click(object sender, EventArgs e)
+        {
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnSucursales_Click(object sender, EventArgs e)
         {
             //codigo
             hideSubMenu();
