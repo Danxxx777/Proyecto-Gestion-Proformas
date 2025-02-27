@@ -240,5 +240,10 @@ namespace Proformas.Formularios
 
             txtTotal.Text = totalVenta.ToString("0.00");
         }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
