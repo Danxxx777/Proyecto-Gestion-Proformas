@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace Proformas.Formularios
 {
-    public partial class frmMenu : Form
+    public partial class GestiónProformas : Form
     {
-        public frmMenu()
+        public GestiónProformas()
         {
             InitializeComponent();
             customizeDesing();
@@ -20,21 +21,23 @@ namespace Proformas.Formularios
         private void customizeDesing()
         {
             pnlSubmenuClientes.Visible = false;
-            pnlSubmenuProformas.Visible = false;
             pnlSubmenuProducto.Visible = false;
-            pnlSubmenuProductos.Visible = false;
+            pnlSubmenuProducto.Visible = false;
+            pnlconfiguracion.Visible = false;
 
         }
         private void hideSubMenu()
         {
             if (pnlSubmenuClientes.Visible == true)
                 pnlSubmenuClientes.Visible = false;
-            if (pnlSubmenuProformas.Visible == true)
-                pnlSubmenuProformas.Visible = false;
+            //if (pnlSubmenuProformas.Visible == true)
+            //    pnlSubmenuProformas.Visible = false;
             if (pnlSubmenuProducto.Visible == true)
                 pnlSubmenuProducto.Visible = false;
-            if (pnlSubmenuProductos.Visible == true)
-                pnlSubmenuProductos.Visible = false;
+            if (pnlSubmenuProducto.Visible == true)
+                pnlSubmenuProducto.Visible = false;
+            if (pnlconfiguracion.Visible == true)
+                pnlconfiguracion.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -87,7 +90,7 @@ namespace Proformas.Formularios
         #region Proformas
         private void btnProformas_Click(object sender, EventArgs e)
         {
-            showSubMenu(pnlSubmenuProformas);
+            hideSubMenu();
         }
 
         private void btnNProforma_Click(object sender, EventArgs e)
@@ -99,9 +102,7 @@ namespace Proformas.Formularios
 
         private void btnOV_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmOrdenVenta());
-            //codigo
-            hideSubMenu();
+
         }
         #endregion
         #region Productos
@@ -123,11 +124,6 @@ namespace Proformas.Formularios
             pnlForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-        }
-
-        private void pnlNose_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnAgregarP_Click(object sender, EventArgs e)
@@ -166,6 +162,30 @@ namespace Proformas.Formularios
             hideSubMenu();
         }
 
+        private void bntProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+        }
+
+        private void btnCFn_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+        }
+
+        private void btncfn2_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+        }
+
+        private void btnConfiguracioon_Click(object sender, EventArgs e)
+        {
+            showSubMenu(pnlconfiguracion);
+        }
     }
 }
 #endregion
