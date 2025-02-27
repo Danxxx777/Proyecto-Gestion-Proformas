@@ -110,12 +110,6 @@ namespace Proformas.Formularios
             showSubMenu(pnlSubmenuProducto);
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmProductos());
-            //codigo
-            hideSubMenu();
-        }
 
         private void btnServicios_Click(object sender, EventArgs e)
         {
@@ -165,6 +159,12 @@ namespace Proformas.Formularios
 
         }
 
+        private void btnAgregarP_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmProductos());
+            //codigo
+            hideSubMenu();
+        }
     }
 }
 #endregion

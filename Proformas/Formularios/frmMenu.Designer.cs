@@ -37,11 +37,11 @@
             button15 = new Button();
             bntProductos = new Button();
             pnlSubmenuProducto = new Panel();
+            btnAgregarP = new FontAwesome.Sharp.IconButton();
             btnSucursales = new Button();
             btnBodegas = new Button();
             btnTipos = new Button();
             btnServicios = new Button();
-            btnAgregarProducto = new Button();
             btnProductos = new Button();
             pnlSubmenuProformas = new Panel();
             btnOV = new Button();
@@ -92,7 +92,7 @@
             pnlSubmenuProductos.Controls.Add(button14);
             pnlSubmenuProductos.Controls.Add(button15);
             pnlSubmenuProductos.Dock = DockStyle.Top;
-            pnlSubmenuProductos.Location = new Point(0, 519);
+            pnlSubmenuProductos.Location = new Point(0, 538);
             pnlSubmenuProductos.Name = "pnlSubmenuProductos";
             pnlSubmenuProductos.Size = new Size(191, 139);
             pnlSubmenuProductos.TabIndex = 8;
@@ -195,7 +195,7 @@
             bntProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             bntProductos.FlatStyle = FlatStyle.Flat;
             bntProductos.ForeColor = Color.Gainsboro;
-            bntProductos.Location = new Point(0, 474);
+            bntProductos.Location = new Point(0, 493);
             bntProductos.Name = "bntProductos";
             bntProductos.Padding = new Padding(10, 0, 0, 0);
             bntProductos.Size = new Size(191, 45);
@@ -206,16 +206,37 @@
             // 
             // pnlSubmenuProducto
             // 
+            pnlSubmenuProducto.Controls.Add(btnAgregarP);
             pnlSubmenuProducto.Controls.Add(btnSucursales);
             pnlSubmenuProducto.Controls.Add(btnBodegas);
             pnlSubmenuProducto.Controls.Add(btnTipos);
             pnlSubmenuProducto.Controls.Add(btnServicios);
-            pnlSubmenuProducto.Controls.Add(btnAgregarProducto);
             pnlSubmenuProducto.Dock = DockStyle.Top;
             pnlSubmenuProducto.Location = new Point(0, 339);
             pnlSubmenuProducto.Name = "pnlSubmenuProducto";
-            pnlSubmenuProducto.Size = new Size(191, 135);
+            pnlSubmenuProducto.Size = new Size(191, 154);
             pnlSubmenuProducto.TabIndex = 6;
+            // 
+            // btnAgregarP
+            // 
+            btnAgregarP.BackColor = Color.FromArgb(31, 30, 68);
+            btnAgregarP.Dock = DockStyle.Top;
+            btnAgregarP.ForeColor = Color.Gainsboro;
+            btnAgregarP.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            btnAgregarP.IconColor = Color.Black;
+            btnAgregarP.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAgregarP.IconSize = 30;
+            btnAgregarP.Location = new Point(0, 100);
+            btnAgregarP.Margin = new Padding(4, 3, 10, 3);
+            btnAgregarP.Name = "btnAgregarP";
+            btnAgregarP.Size = new Size(191, 35);
+            btnAgregarP.TabIndex = 8;
+            btnAgregarP.Text = "Agregar/Editar";
+            btnAgregarP.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregarP.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnAgregarP.UseMnemonic = false;
+            btnAgregarP.UseVisualStyleBackColor = false;
+            btnAgregarP.Click += btnAgregarP_Click;
             // 
             // btnSucursales
             // 
@@ -226,7 +247,7 @@
             btnSucursales.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnSucursales.FlatStyle = FlatStyle.Flat;
             btnSucursales.ForeColor = Color.Gainsboro;
-            btnSucursales.Location = new Point(0, 100);
+            btnSucursales.Location = new Point(0, 75);
             btnSucursales.Name = "btnSucursales";
             btnSucursales.Padding = new Padding(35, 0, 0, 0);
             btnSucursales.Size = new Size(191, 25);
@@ -245,7 +266,7 @@
             btnBodegas.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnBodegas.FlatStyle = FlatStyle.Flat;
             btnBodegas.ForeColor = Color.Gainsboro;
-            btnBodegas.Location = new Point(0, 75);
+            btnBodegas.Location = new Point(0, 50);
             btnBodegas.Name = "btnBodegas";
             btnBodegas.Padding = new Padding(35, 0, 0, 0);
             btnBodegas.Size = new Size(191, 25);
@@ -264,7 +285,7 @@
             btnTipos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnTipos.FlatStyle = FlatStyle.Flat;
             btnTipos.ForeColor = Color.Gainsboro;
-            btnTipos.Location = new Point(0, 50);
+            btnTipos.Location = new Point(0, 25);
             btnTipos.Name = "btnTipos";
             btnTipos.Padding = new Padding(35, 0, 0, 0);
             btnTipos.Size = new Size(191, 25);
@@ -283,7 +304,7 @@
             btnServicios.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             btnServicios.FlatStyle = FlatStyle.Flat;
             btnServicios.ForeColor = Color.Gainsboro;
-            btnServicios.Location = new Point(0, 25);
+            btnServicios.Location = new Point(0, 0);
             btnServicios.Name = "btnServicios";
             btnServicios.Padding = new Padding(35, 0, 0, 0);
             btnServicios.Size = new Size(191, 25);
@@ -292,25 +313,6 @@
             btnServicios.TextAlign = ContentAlignment.MiddleLeft;
             btnServicios.UseVisualStyleBackColor = false;
             btnServicios.Click += btnServicios_Click;
-            // 
-            // btnAgregarProducto
-            // 
-            btnAgregarProducto.BackColor = Color.FromArgb(36, 33, 40);
-            btnAgregarProducto.Dock = DockStyle.Top;
-            btnAgregarProducto.FlatAppearance.BorderSize = 0;
-            btnAgregarProducto.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnAgregarProducto.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnAgregarProducto.FlatStyle = FlatStyle.Flat;
-            btnAgregarProducto.ForeColor = Color.Gainsboro;
-            btnAgregarProducto.Location = new Point(0, 0);
-            btnAgregarProducto.Name = "btnAgregarProducto";
-            btnAgregarProducto.Padding = new Padding(35, 0, 0, 0);
-            btnAgregarProducto.Size = new Size(191, 25);
-            btnAgregarProducto.TabIndex = 1;
-            btnAgregarProducto.Text = "Agregar/Editar";
-            btnAgregarProducto.TextAlign = ContentAlignment.MiddleLeft;
-            btnAgregarProducto.UseVisualStyleBackColor = false;
-            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // btnProductos
             // 
@@ -551,7 +553,6 @@
         private Panel pnlSubmenuProducto;
         private Button btnTipos;
         private Button btnServicios;
-        private Button btnAgregarProducto;
         private Button btnProductos;
         private Button btnProformas;
         private Panel pnlSubmenuProformas;
@@ -566,5 +567,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton btnUsuario;
         private FontAwesome.Sharp.IconButton btnProveedor;
+        private FontAwesome.Sharp.IconButton btnAgregarP;
     }
 }
