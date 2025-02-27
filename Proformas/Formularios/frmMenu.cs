@@ -110,35 +110,6 @@ namespace Proformas.Formularios
             showSubMenu(pnlSubmenuProducto);
         }
 
-
-        private void btnServicios_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmTiposPS());
-            //codigo
-            hideSubMenu();
-        }
-
-        private void btnTipos_Click(object sender, EventArgs e)
-        {
-            //nuevo formulario por crear
-            //codigo
-            hideSubMenu();
-        }
-
-        private void btnBodegas_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmBodegas());
-            //codigo
-            hideSubMenu();
-        }
-
-        private void btnSucursales_Click(object sender, EventArgs e)
-        {
-            //por hacer
-            //openChildForm(new frmSucursales());
-            //codigo
-            hideSubMenu();
-        }
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
@@ -165,6 +136,36 @@ namespace Proformas.Formularios
             //codigo
             hideSubMenu();
         }
+
+        private void btnServicio_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmTiposPS());
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnTipo_Click(object sender, EventArgs e)
+        {
+            //nuevo formulario por crear
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnBodegas_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new frmBodegas());
+            //codigo
+            hideSubMenu();
+        }
+
+        private void btnSucursal_Click(object sender, EventArgs e)
+        {
+            //por hacer
+            //openChildForm(new frmSucursales());
+            //codigo
+            hideSubMenu();
+        }
+
     }
 }
 #endregion

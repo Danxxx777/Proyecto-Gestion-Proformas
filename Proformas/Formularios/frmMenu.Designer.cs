@@ -29,19 +29,13 @@
         private void InitializeComponent()
         {
             pnlPrincipal = new Panel();
-            pnlSubmenuProductos = new Panel();
-            button8 = new Button();
-            button2 = new Button();
-            button13 = new Button();
-            button14 = new Button();
-            button15 = new Button();
             bntProductos = new Button();
             pnlSubmenuProducto = new Panel();
+            btnSucursal = new FontAwesome.Sharp.IconButton();
+            btnBodegas = new FontAwesome.Sharp.IconButton();
+            btnTipo = new FontAwesome.Sharp.IconButton();
+            btnServicio = new FontAwesome.Sharp.IconButton();
             btnAgregarP = new FontAwesome.Sharp.IconButton();
-            btnSucursales = new Button();
-            btnBodegas = new Button();
-            btnTipos = new Button();
-            btnServicios = new Button();
             btnProductos = new Button();
             pnlSubmenuProformas = new Panel();
             btnOV = new Button();
@@ -55,18 +49,24 @@
             panel2 = new Panel();
             pnlNose = new Panel();
             pnlForm = new Panel();
+            panel1 = new Panel();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            iconButton3 = new FontAwesome.Sharp.IconButton();
+            iconButton4 = new FontAwesome.Sharp.IconButton();
+            iconButton5 = new FontAwesome.Sharp.IconButton();
+            iconButton6 = new FontAwesome.Sharp.IconButton();
             pnlPrincipal.SuspendLayout();
-            pnlSubmenuProductos.SuspendLayout();
             pnlSubmenuProducto.SuspendLayout();
             pnlSubmenuProformas.SuspendLayout();
             pnlSubmenuClientes.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlPrincipal
             // 
             pnlPrincipal.AutoScroll = true;
             pnlPrincipal.BackColor = Color.FromArgb(11, 7, 17);
-            pnlPrincipal.Controls.Add(pnlSubmenuProductos);
+            pnlPrincipal.Controls.Add(panel1);
             pnlPrincipal.Controls.Add(bntProductos);
             pnlPrincipal.Controls.Add(pnlSubmenuProducto);
             pnlPrincipal.Controls.Add(btnProductos);
@@ -83,110 +83,6 @@
             pnlPrincipal.TabIndex = 0;
             pnlPrincipal.Paint += panel1_Paint;
             // 
-            // pnlSubmenuProductos
-            // 
-            pnlSubmenuProductos.AutoScroll = true;
-            pnlSubmenuProductos.Controls.Add(button8);
-            pnlSubmenuProductos.Controls.Add(button2);
-            pnlSubmenuProductos.Controls.Add(button13);
-            pnlSubmenuProductos.Controls.Add(button14);
-            pnlSubmenuProductos.Controls.Add(button15);
-            pnlSubmenuProductos.Dock = DockStyle.Top;
-            pnlSubmenuProductos.Location = new Point(0, 538);
-            pnlSubmenuProductos.Name = "pnlSubmenuProductos";
-            pnlSubmenuProductos.Size = new Size(191, 139);
-            pnlSubmenuProductos.TabIndex = 8;
-            // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(36, 33, 40);
-            button8.Dock = DockStyle.Top;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.ForeColor = Color.Gainsboro;
-            button8.Location = new Point(0, 100);
-            button8.Name = "button8";
-            button8.Padding = new Padding(35, 0, 0, 0);
-            button8.Size = new Size(191, 25);
-            button8.TabIndex = 5;
-            button8.Text = "x3";
-            button8.TextAlign = ContentAlignment.MiddleLeft;
-            button8.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(36, 33, 40);
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.Gainsboro;
-            button2.Location = new Point(0, 75);
-            button2.Name = "button2";
-            button2.Padding = new Padding(35, 0, 0, 0);
-            button2.Size = new Size(191, 25);
-            button2.TabIndex = 4;
-            button2.Text = "x3";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            button13.BackColor = Color.FromArgb(36, 33, 40);
-            button13.Dock = DockStyle.Top;
-            button13.FlatAppearance.BorderSize = 0;
-            button13.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            button13.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            button13.FlatStyle = FlatStyle.Flat;
-            button13.ForeColor = Color.Gainsboro;
-            button13.Location = new Point(0, 50);
-            button13.Name = "button13";
-            button13.Padding = new Padding(35, 0, 0, 0);
-            button13.Size = new Size(191, 25);
-            button13.TabIndex = 3;
-            button13.Text = "x3";
-            button13.TextAlign = ContentAlignment.MiddleLeft;
-            button13.UseVisualStyleBackColor = false;
-            // 
-            // button14
-            // 
-            button14.BackColor = Color.FromArgb(36, 33, 40);
-            button14.Dock = DockStyle.Top;
-            button14.FlatAppearance.BorderSize = 0;
-            button14.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            button14.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            button14.FlatStyle = FlatStyle.Flat;
-            button14.ForeColor = Color.Gainsboro;
-            button14.Location = new Point(0, 25);
-            button14.Name = "button14";
-            button14.Padding = new Padding(35, 0, 0, 0);
-            button14.Size = new Size(191, 25);
-            button14.TabIndex = 2;
-            button14.Text = "x2";
-            button14.TextAlign = ContentAlignment.MiddleLeft;
-            button14.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            button15.BackColor = Color.FromArgb(36, 33, 40);
-            button15.Dock = DockStyle.Top;
-            button15.FlatAppearance.BorderSize = 0;
-            button15.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            button15.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            button15.FlatStyle = FlatStyle.Flat;
-            button15.ForeColor = Color.Gainsboro;
-            button15.Location = new Point(0, 0);
-            button15.Name = "button15";
-            button15.Padding = new Padding(35, 0, 0, 0);
-            button15.Size = new Size(191, 25);
-            button15.TabIndex = 1;
-            button15.Text = "YA VEO";
-            button15.TextAlign = ContentAlignment.MiddleLeft;
-            button15.UseVisualStyleBackColor = false;
-            // 
             // bntProductos
             // 
             bntProductos.Dock = DockStyle.Top;
@@ -195,7 +91,7 @@
             bntProductos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
             bntProductos.FlatStyle = FlatStyle.Flat;
             bntProductos.ForeColor = Color.Gainsboro;
-            bntProductos.Location = new Point(0, 493);
+            bntProductos.Location = new Point(0, 530);
             bntProductos.Name = "bntProductos";
             bntProductos.Padding = new Padding(10, 0, 0, 0);
             bntProductos.Size = new Size(191, 45);
@@ -206,16 +102,100 @@
             // 
             // pnlSubmenuProducto
             // 
-            pnlSubmenuProducto.Controls.Add(btnAgregarP);
-            pnlSubmenuProducto.Controls.Add(btnSucursales);
+            pnlSubmenuProducto.Controls.Add(btnSucursal);
             pnlSubmenuProducto.Controls.Add(btnBodegas);
-            pnlSubmenuProducto.Controls.Add(btnTipos);
-            pnlSubmenuProducto.Controls.Add(btnServicios);
+            pnlSubmenuProducto.Controls.Add(btnTipo);
+            pnlSubmenuProducto.Controls.Add(btnServicio);
+            pnlSubmenuProducto.Controls.Add(btnAgregarP);
             pnlSubmenuProducto.Dock = DockStyle.Top;
             pnlSubmenuProducto.Location = new Point(0, 339);
             pnlSubmenuProducto.Name = "pnlSubmenuProducto";
-            pnlSubmenuProducto.Size = new Size(191, 154);
+            pnlSubmenuProducto.Size = new Size(191, 191);
             pnlSubmenuProducto.TabIndex = 6;
+            // 
+            // btnSucursal
+            // 
+            btnSucursal.BackColor = Color.FromArgb(31, 30, 68);
+            btnSucursal.Dock = DockStyle.Top;
+            btnSucursal.ForeColor = Color.Gainsboro;
+            btnSucursal.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            btnSucursal.IconColor = Color.Black;
+            btnSucursal.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSucursal.IconSize = 30;
+            btnSucursal.Location = new Point(0, 140);
+            btnSucursal.Margin = new Padding(4, 3, 10, 3);
+            btnSucursal.Name = "btnSucursal";
+            btnSucursal.Size = new Size(191, 35);
+            btnSucursal.TabIndex = 12;
+            btnSucursal.Text = "Sucursales";
+            btnSucursal.TextAlign = ContentAlignment.MiddleRight;
+            btnSucursal.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnSucursal.UseMnemonic = false;
+            btnSucursal.UseVisualStyleBackColor = false;
+            btnSucursal.Click += btnSucursal_Click;
+            // 
+            // btnBodegas
+            // 
+            btnBodegas.BackColor = Color.FromArgb(31, 30, 68);
+            btnBodegas.Dock = DockStyle.Top;
+            btnBodegas.ForeColor = Color.Gainsboro;
+            btnBodegas.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            btnBodegas.IconColor = Color.Black;
+            btnBodegas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBodegas.IconSize = 30;
+            btnBodegas.Location = new Point(0, 105);
+            btnBodegas.Margin = new Padding(4, 3, 10, 3);
+            btnBodegas.Name = "btnBodegas";
+            btnBodegas.Size = new Size(191, 35);
+            btnBodegas.TabIndex = 11;
+            btnBodegas.Text = "Bodegas ";
+            btnBodegas.TextAlign = ContentAlignment.MiddleRight;
+            btnBodegas.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnBodegas.UseMnemonic = false;
+            btnBodegas.UseVisualStyleBackColor = false;
+            btnBodegas.Click += btnBodegas_Click_1;
+            // 
+            // btnTipo
+            // 
+            btnTipo.BackColor = Color.FromArgb(31, 30, 68);
+            btnTipo.Dock = DockStyle.Top;
+            btnTipo.ForeColor = Color.Gainsboro;
+            btnTipo.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            btnTipo.IconColor = Color.Black;
+            btnTipo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnTipo.IconSize = 30;
+            btnTipo.Location = new Point(0, 70);
+            btnTipo.Margin = new Padding(4, 3, 10, 3);
+            btnTipo.Name = "btnTipo";
+            btnTipo.Size = new Size(191, 35);
+            btnTipo.TabIndex = 10;
+            btnTipo.Text = "Tipos";
+            btnTipo.TextAlign = ContentAlignment.MiddleRight;
+            btnTipo.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnTipo.UseMnemonic = false;
+            btnTipo.UseVisualStyleBackColor = false;
+            btnTipo.Click += btnTipo_Click;
+            // 
+            // btnServicio
+            // 
+            btnServicio.BackColor = Color.FromArgb(31, 30, 68);
+            btnServicio.Dock = DockStyle.Top;
+            btnServicio.ForeColor = Color.Gainsboro;
+            btnServicio.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            btnServicio.IconColor = Color.Black;
+            btnServicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnServicio.IconSize = 30;
+            btnServicio.Location = new Point(0, 35);
+            btnServicio.Margin = new Padding(4, 3, 10, 3);
+            btnServicio.Name = "btnServicio";
+            btnServicio.Size = new Size(191, 35);
+            btnServicio.TabIndex = 9;
+            btnServicio.Text = "Servicios";
+            btnServicio.TextAlign = ContentAlignment.MiddleRight;
+            btnServicio.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnServicio.UseMnemonic = false;
+            btnServicio.UseVisualStyleBackColor = false;
+            btnServicio.Click += btnServicio_Click;
             // 
             // btnAgregarP
             // 
@@ -226,7 +206,7 @@
             btnAgregarP.IconColor = Color.Black;
             btnAgregarP.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregarP.IconSize = 30;
-            btnAgregarP.Location = new Point(0, 100);
+            btnAgregarP.Location = new Point(0, 0);
             btnAgregarP.Margin = new Padding(4, 3, 10, 3);
             btnAgregarP.Name = "btnAgregarP";
             btnAgregarP.Size = new Size(191, 35);
@@ -237,82 +217,6 @@
             btnAgregarP.UseMnemonic = false;
             btnAgregarP.UseVisualStyleBackColor = false;
             btnAgregarP.Click += btnAgregarP_Click;
-            // 
-            // btnSucursales
-            // 
-            btnSucursales.BackColor = Color.FromArgb(36, 33, 40);
-            btnSucursales.Dock = DockStyle.Top;
-            btnSucursales.FlatAppearance.BorderSize = 0;
-            btnSucursales.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnSucursales.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnSucursales.FlatStyle = FlatStyle.Flat;
-            btnSucursales.ForeColor = Color.Gainsboro;
-            btnSucursales.Location = new Point(0, 75);
-            btnSucursales.Name = "btnSucursales";
-            btnSucursales.Padding = new Padding(35, 0, 0, 0);
-            btnSucursales.Size = new Size(191, 25);
-            btnSucursales.TabIndex = 7;
-            btnSucursales.Text = "Sucursales";
-            btnSucursales.TextAlign = ContentAlignment.MiddleLeft;
-            btnSucursales.UseVisualStyleBackColor = false;
-            btnSucursales.Click += btnSucursales_Click;
-            // 
-            // btnBodegas
-            // 
-            btnBodegas.BackColor = Color.FromArgb(36, 33, 40);
-            btnBodegas.Dock = DockStyle.Top;
-            btnBodegas.FlatAppearance.BorderSize = 0;
-            btnBodegas.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnBodegas.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnBodegas.FlatStyle = FlatStyle.Flat;
-            btnBodegas.ForeColor = Color.Gainsboro;
-            btnBodegas.Location = new Point(0, 50);
-            btnBodegas.Name = "btnBodegas";
-            btnBodegas.Padding = new Padding(35, 0, 0, 0);
-            btnBodegas.Size = new Size(191, 25);
-            btnBodegas.TabIndex = 6;
-            btnBodegas.Text = "Bodegas";
-            btnBodegas.TextAlign = ContentAlignment.MiddleLeft;
-            btnBodegas.UseVisualStyleBackColor = false;
-            btnBodegas.Click += btnBodegas_Click;
-            // 
-            // btnTipos
-            // 
-            btnTipos.BackColor = Color.FromArgb(36, 33, 40);
-            btnTipos.Dock = DockStyle.Top;
-            btnTipos.FlatAppearance.BorderSize = 0;
-            btnTipos.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnTipos.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnTipos.FlatStyle = FlatStyle.Flat;
-            btnTipos.ForeColor = Color.Gainsboro;
-            btnTipos.Location = new Point(0, 25);
-            btnTipos.Name = "btnTipos";
-            btnTipos.Padding = new Padding(35, 0, 0, 0);
-            btnTipos.Size = new Size(191, 25);
-            btnTipos.TabIndex = 3;
-            btnTipos.Text = "Tipos";
-            btnTipos.TextAlign = ContentAlignment.MiddleLeft;
-            btnTipos.UseVisualStyleBackColor = false;
-            btnTipos.Click += btnTipos_Click;
-            // 
-            // btnServicios
-            // 
-            btnServicios.BackColor = Color.FromArgb(36, 33, 40);
-            btnServicios.Dock = DockStyle.Top;
-            btnServicios.FlatAppearance.BorderSize = 0;
-            btnServicios.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnServicios.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnServicios.FlatStyle = FlatStyle.Flat;
-            btnServicios.ForeColor = Color.Gainsboro;
-            btnServicios.Location = new Point(0, 0);
-            btnServicios.Name = "btnServicios";
-            btnServicios.Padding = new Padding(35, 0, 0, 0);
-            btnServicios.Size = new Size(191, 25);
-            btnServicios.TabIndex = 2;
-            btnServicios.Text = "Servicios";
-            btnServicios.TextAlign = ContentAlignment.MiddleLeft;
-            btnServicios.UseVisualStyleBackColor = false;
-            btnServicios.Click += btnServicios_Click;
             // 
             // btnProductos
             // 
@@ -519,6 +423,119 @@
             pnlForm.Size = new Size(726, 459);
             pnlForm.TabIndex = 2;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(iconButton1);
+            panel1.Controls.Add(iconButton3);
+            panel1.Controls.Add(iconButton4);
+            panel1.Controls.Add(iconButton5);
+            panel1.Controls.Add(iconButton6);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 575);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(191, 191);
+            panel1.TabIndex = 8;
+            // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.FromArgb(31, 30, 68);
+            iconButton1.Dock = DockStyle.Top;
+            iconButton1.ForeColor = Color.Gainsboro;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 30;
+            iconButton1.Location = new Point(0, 140);
+            iconButton1.Margin = new Padding(4, 3, 10, 3);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(191, 35);
+            iconButton1.TabIndex = 12;
+            iconButton1.Text = "Sucursales";
+            iconButton1.TextAlign = ContentAlignment.MiddleRight;
+            iconButton1.TextImageRelation = TextImageRelation.TextBeforeImage;
+            iconButton1.UseMnemonic = false;
+            iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // iconButton3
+            // 
+            iconButton3.BackColor = Color.FromArgb(31, 30, 68);
+            iconButton3.Dock = DockStyle.Top;
+            iconButton3.ForeColor = Color.Gainsboro;
+            iconButton3.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            iconButton3.IconColor = Color.Black;
+            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton3.IconSize = 30;
+            iconButton3.Location = new Point(0, 105);
+            iconButton3.Margin = new Padding(4, 3, 10, 3);
+            iconButton3.Name = "iconButton3";
+            iconButton3.Size = new Size(191, 35);
+            iconButton3.TabIndex = 11;
+            iconButton3.Text = "Bodegas ";
+            iconButton3.TextAlign = ContentAlignment.MiddleRight;
+            iconButton3.TextImageRelation = TextImageRelation.TextBeforeImage;
+            iconButton3.UseMnemonic = false;
+            iconButton3.UseVisualStyleBackColor = false;
+            // 
+            // iconButton4
+            // 
+            iconButton4.BackColor = Color.FromArgb(31, 30, 68);
+            iconButton4.Dock = DockStyle.Top;
+            iconButton4.ForeColor = Color.Gainsboro;
+            iconButton4.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            iconButton4.IconColor = Color.Black;
+            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton4.IconSize = 30;
+            iconButton4.Location = new Point(0, 70);
+            iconButton4.Margin = new Padding(4, 3, 10, 3);
+            iconButton4.Name = "iconButton4";
+            iconButton4.Size = new Size(191, 35);
+            iconButton4.TabIndex = 10;
+            iconButton4.Text = "Tipos";
+            iconButton4.TextAlign = ContentAlignment.MiddleRight;
+            iconButton4.TextImageRelation = TextImageRelation.TextBeforeImage;
+            iconButton4.UseMnemonic = false;
+            iconButton4.UseVisualStyleBackColor = false;
+            // 
+            // iconButton5
+            // 
+            iconButton5.BackColor = Color.FromArgb(31, 30, 68);
+            iconButton5.Dock = DockStyle.Top;
+            iconButton5.ForeColor = Color.Gainsboro;
+            iconButton5.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            iconButton5.IconColor = Color.Black;
+            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton5.IconSize = 30;
+            iconButton5.Location = new Point(0, 35);
+            iconButton5.Margin = new Padding(4, 3, 10, 3);
+            iconButton5.Name = "iconButton5";
+            iconButton5.Size = new Size(191, 35);
+            iconButton5.TabIndex = 9;
+            iconButton5.Text = "Servicios";
+            iconButton5.TextAlign = ContentAlignment.MiddleRight;
+            iconButton5.TextImageRelation = TextImageRelation.TextBeforeImage;
+            iconButton5.UseMnemonic = false;
+            iconButton5.UseVisualStyleBackColor = false;
+            // 
+            // iconButton6
+            // 
+            iconButton6.BackColor = Color.FromArgb(31, 30, 68);
+            iconButton6.Dock = DockStyle.Top;
+            iconButton6.ForeColor = Color.Gainsboro;
+            iconButton6.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            iconButton6.IconColor = Color.Black;
+            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton6.IconSize = 30;
+            iconButton6.Location = new Point(0, 0);
+            iconButton6.Margin = new Padding(4, 3, 10, 3);
+            iconButton6.Name = "iconButton6";
+            iconButton6.Size = new Size(191, 35);
+            iconButton6.TabIndex = 8;
+            iconButton6.Text = "Agregar/Editar";
+            iconButton6.TextAlign = ContentAlignment.MiddleRight;
+            iconButton6.TextImageRelation = TextImageRelation.TextBeforeImage;
+            iconButton6.UseMnemonic = false;
+            iconButton6.UseVisualStyleBackColor = false;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -532,10 +549,10 @@
             Name = "frmMenu";
             Text = "frmMenu";
             pnlPrincipal.ResumeLayout(false);
-            pnlSubmenuProductos.ResumeLayout(false);
             pnlSubmenuProducto.ResumeLayout(false);
             pnlSubmenuProformas.ResumeLayout(false);
             pnlSubmenuClientes.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -545,22 +562,12 @@
         private Panel pnlSubmenuClientes;
         private Button btnUsuarios;
         private Panel panel2;
-        private Panel pnlSubmenuProductos;
-        private Button button13;
-        private Button button14;
-        private Button button15;
         private Button bntProductos;
         private Panel pnlSubmenuProducto;
-        private Button btnTipos;
-        private Button btnServicios;
         private Button btnProductos;
         private Button btnProformas;
         private Panel pnlSubmenuProformas;
         private Button btnOV;
-        private Button btnSucursales;
-        private Button btnBodegas;
-        private Button button8;
-        private Button button2;
         private Panel pnlNose;
         private Panel pnlForm;
         private FontAwesome.Sharp.IconButton btnClientes;
@@ -568,5 +575,15 @@
         private FontAwesome.Sharp.IconButton btnUsuario;
         private FontAwesome.Sharp.IconButton btnProveedor;
         private FontAwesome.Sharp.IconButton btnAgregarP;
+        private FontAwesome.Sharp.IconButton btnServicio;
+        private FontAwesome.Sharp.IconButton btnTipo;
+        private FontAwesome.Sharp.IconButton btnBodegas;
+        private FontAwesome.Sharp.IconButton btnSucursal;
+        private Panel panel1;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton iconButton6;
     }
 }
