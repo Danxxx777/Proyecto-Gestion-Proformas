@@ -9,16 +9,19 @@ using System.Threading.Tasks;
 //using System.Windows.Controls;
 using System.Windows.Forms;
 
-
-
 namespace Proformas.Formularios
 {
     public partial class GestiónProformas : Form
     {
+        private string nombreUsuario;
+        private int vendedorID;
         public GestiónProformas(string nombreUsuario, int vendedorID)
         {
             InitializeComponent();
             customizeDesing();
+            this.nombreUsuario = nombreUsuario;
+            this.vendedorID = vendedorID;
+
 
         }
         private void customizeDesing()
@@ -93,6 +96,25 @@ namespace Proformas.Formularios
         #region Proformas
         private void btnProformas_Click(object sender, EventArgs e)
         {
+            pnlForm.Controls.Clear();
+
+            // Verificar que los valores no sean nulos o incorrectos
+            if (string.IsNullOrEmpty(nombreUsuario) || vendedorID <= 0)
+            {
+                MessageBox.Show("No hay usuario autenticado. Inicia sesión primero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Crear instancia del formulario y pasarle los valores correctos
+            frmProformas frm = new frmProformas(nombreUsuario, vendedorID);
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlForm.Controls.Add(frm);
+            frm.Show();
+
             hideSubMenu();
         }
 
@@ -160,8 +182,7 @@ namespace Proformas.Formularios
 
         private void btnORVenta_Click(object sender, EventArgs e)
         {
-
-            splitContainer1.Panel2.Controls.Clear();
+            pnlForm.Controls.Clear();
 
 
             frmOrdenVenta frm = new frmOrdenVenta();
@@ -172,7 +193,7 @@ namespace Proformas.Formularios
             frm.Dock = DockStyle.Fill;
 
 
-            splitContainer1.Panel2.Controls.Add(frm);
+            pnlForm.Controls.Add(frm);
 
 
             frm.Show();
