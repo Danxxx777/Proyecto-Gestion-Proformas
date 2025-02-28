@@ -8,7 +8,8 @@ namespace Proformas.Formularios
     public partial class frmOrdenVenta : Form
     {
         private Conexion conexion = new Conexion();
-        private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=proformas2.0;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        private string connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+
 
         public frmOrdenVenta()
         {
@@ -23,26 +24,41 @@ namespace Proformas.Formularios
 
         private void frmOrdenVenta_Load(object sender, EventArgs e)
         {
+           
             dgvDetalleProforma.CellValueChanged += dgvDetalle_CellValueChanged;
-            CargarProformasEnComboBox();
+            //CargarProformasEnComboBox();
             cmbProformas.SelectedIndexChanged += cmbProformas_SelectedIndexChanged;
+           
 
         }
         private void cmbProformas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbProformas.SelectedIndex != -1 && cmbProformas.SelectedValue != null)
             {
-                if (int.TryParse(cmbProformas.SelectedValue.ToString(), out int idProforma))
+                object selectedValue = cmbProformas.SelectedValue;
+
+                // Si el valor seleccionado es un DataRowView, extraer el ProformaID
+                if (selectedValue is DataRowView rowView)
                 {
-                    MessageBox.Show($"Seleccionaste la ProformaID: {idProforma}", "Debug");
-                    CargarDetalleProforma(idProforma);
+                    selectedValue = rowView["ProformaID"];
                 }
-                else
+
+                // Evitar errores con DBNull o la opción vacía (-1)
+                if (selectedValue == DBNull.Value || selectedValue.ToString() == "-1")
                 {
-                    MessageBox.Show("Error: No se pudo convertir el valor seleccionado en un ID válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // No hacer nada si el valor no es válido
+                }
+
+                // Intentar convertir el valor a entero y cargar el detalle de la proforma
+                if (int.TryParse(selectedValue.ToString(), out int idProforma))
+                {
+                    cmbProformas.SelectedIndexChanged -= cmbProformas_SelectedIndexChanged; // Desactivar evento
+                    CargarDetalleProforma(idProforma); // ✅ Carga directo sin mensajes
+                    cmbProformas.SelectedIndexChanged += cmbProformas_SelectedIndexChanged; // Reactivar evento
                 }
             }
         }
+        
 
 
 
@@ -86,13 +102,13 @@ namespace Proformas.Formularios
 
         private void pbxCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
-        private async void BuscarClientePorCedula()
+        private async Task BuscarClientePorCedula()
         {
             string cedula = txtCedula.Text.Trim();
-            string query = "SELECT Nombre, Correo, FechaRegistro, Estado FROM Clientes WHERE NumeroIdentificacion = @cedula";
+            string query = "SELECT ClienteID, Nombre, Correo, FechaRegistro, Estado FROM Clientes WHERE NumeroIdentificacion = @cedula";
 
             try
             {
@@ -106,13 +122,15 @@ namespace Proformas.Formularios
                         {
                             if (await reader.ReadAsync())
                             {
+                                int clienteID = reader.GetInt32(0); // Obtener ClienteID como entero
                                 txtCedula.Text = cedula;
                                 txtNombre.Text = reader["Nombre"].ToString();
                                 txtCorreo.Text = reader["Correo"].ToString();
                                 txtTelefono.Text = Convert.ToDateTime(reader["FechaRegistro"]).ToString("yyyy-MM-dd");
                                 txtEstado1.Text = reader["Estado"].ToString();
 
-                                await CargarProformasAsync(cedula);
+                                // ✅ Pasar clienteID en lugar de cedula (error corregido)
+                                await CargarProformasAsync(clienteID);
                             }
                             else
                             {
@@ -129,61 +147,47 @@ namespace Proformas.Formularios
             }
         }
 
-        private async Task CargarProformasAsync(string cedula)
+        private async Task CargarProformasAsync(int clienteID)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(conexion.ConnectionString))
                 {
                     await conn.OpenAsync();
-                    string queryClienteID = "SELECT ClienteID FROM Clientes WHERE NumeroIdentificacion = @cedula";
-                    int clienteID = -1;
-
-                    using (SqlCommand cmdCliente = new SqlCommand(queryClienteID, conn))
-                    {
-                        cmdCliente.Parameters.AddWithValue("@cedula", cedula);
-                        object result = await cmdCliente.ExecuteScalarAsync();
-
-                        if (result != null)
-                        {
-                            clienteID = Convert.ToInt32(result);
-                        }
-                        else
-                        {
-                            cmbProformas.DataSource = null;
-                            MessageBox.Show("⚠ No se encontró ClienteID para esta cédula.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
-                        }
-                    }
 
                     string queryProformas = "SELECT ProformaID FROM Proformas WHERE ClienteID = @ClienteID";
                     using (SqlCommand cmdProformas = new SqlCommand(queryProformas, conn))
                     {
                         cmdProformas.Parameters.AddWithValue("@ClienteID", clienteID);
-                        SqlDataAdapter da = new SqlDataAdapter(cmdProformas);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmdProformas))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
 
-                        if (dt.Rows.Count > 0)
-                        {
-                            cmbProformas.DataSource = dt;
-                            cmbProformas.DisplayMember = "ProformaID";
-                            cmbProformas.ValueMember = "ProformaID";
-                            cmbProformas.SelectedIndex = -1; // No seleccionar nada por defecto
-                        }
-                        else
-                        {
-                            cmbProformas.DataSource = null;
-                            MessageBox.Show("⚠ El cliente no tiene proformas registradas.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (dt.Rows.Count > 0)
+                            {
+                                cmbProformas.DataSource = dt;
+                                cmbProformas.DisplayMember = "ProformaID";
+                                cmbProformas.ValueMember = "ProformaID";
+                                cmbProformas.SelectedIndex = -1; // No seleccionar nada por defecto
+                            }
+                            else
+                            {
+                                MessageBox.Show("⚠ El cliente no tiene proformas registradas.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cmbProformas.DataSource = null;
+                            }
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Error al cargar proformas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"❌ Error al cargar proformas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
 
 
 
@@ -195,22 +199,19 @@ namespace Proformas.Formularios
                 {
                     await conn.OpenAsync();
 
-                    // Depuración: Mostrar el ID de la Proforma que se está buscando.
-                    MessageBox.Show($"🔍 Buscando detalles para ProformaID: {idProforma}", "Depuración");
-
                     string query = @"
-                SELECT 
-                    dp.DetalleID,
-                    dp.ProformaID,
-                    dp.ProductoID,
-                    p.Nombre AS Producto, 
-                    dp.Cantidad, 
-                    dp.PrecioUnitario, 
-                    dp.Descuento,
-                    dp.Total AS Subtotal 
-                FROM DetalleProforma dp
-                LEFT JOIN Productos p ON dp.ProductoID = p.ProductoID
-                WHERE dp.ProformaID = @idProforma";
+            SELECT 
+                dp.DetalleID,
+                dp.ProformaID,
+                dp.ProductoID,
+                p.Nombre AS Producto, 
+                dp.Cantidad, 
+                dp.PrecioUnitario, 
+                dp.Descuento,
+                dp.Total AS Subtotal 
+            FROM DetalleProforma dp
+            LEFT JOIN Productos p ON dp.ProductoID = p.ProductoID
+            WHERE dp.ProformaID = @idProforma";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -219,25 +220,18 @@ namespace Proformas.Formularios
                         DataTable dt = new DataTable();
                         da.Fill(dt);
 
-                        // Depuración: Verificar si la consulta devolvió registros
-                        if (dt.Rows.Count > 0)
-                        {
-                            MessageBox.Show($"✅ Se encontraron {dt.Rows.Count} registros de detalles.", "Depuración");
-                            dgvDetalleProforma.DataSource = dt;
-                        }
-                        else
-                        {
-                            MessageBox.Show($"⚠ No hay detalles para la Proforma {idProforma}.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            dgvDetalleProforma.DataSource = null;
-                        }
+                        // Cargar datos en el DataGridView sin mostrar mensajes
+                        dgvDetalleProforma.DataSource = dt.Rows.Count > 0 ? dt : null;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("❌ Error al cargar los detalles de la proforma: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Si necesitas loggear el error sin mostrar un MessageBox, puedes escribirlo en la consola.
+                    Console.WriteLine("Error al cargar los detalles de la proforma: " + ex.Message);
                 }
             }
         }
+
 
 
 
@@ -321,10 +315,10 @@ namespace Proformas.Formularios
         }
 
 
-       
-          
 
-        
+
+
+
         private void CargarProformasEnComboBox()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -337,12 +331,21 @@ namespace Proformas.Formularios
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    // Agregar una fila vacía al DataTable para la opción "Selecciona una opción"
-                    DataRow filaVacia = dt.NewRow();
-                    filaVacia["ProformaID"] = DBNull.Value;  // O un valor como 0 si no permite nulos
-                    dt.Rows.InsertAt(filaVacia, 0);  // Insertar al inicio
+                    // Evitar valores NULL en el DataTable
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row["ProformaID"] == DBNull.Value)
+                        {
+                            row["ProformaID"] = -1;  // Se usa -1 en lugar de NULL
+                        }
+                    }
 
-                    // Asignar DataSource al ComboBox
+                    // Agregar una fila vacía con -1 para evitar problemas de conversión
+                    DataRow filaVacia = dt.NewRow();
+                    filaVacia["ProformaID"] = -1;  // Identificador de opción vacía
+                    dt.Rows.InsertAt(filaVacia, 0);
+
+                    // Asignar al ComboBox
                     cmbProformas.DataSource = dt;
                     cmbProformas.DisplayMember = "ProformaID";
                     cmbProformas.ValueMember = "ProformaID";
@@ -354,6 +357,9 @@ namespace Proformas.Formularios
                 }
             }
         }
+
+
+
 
         //private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         //{
