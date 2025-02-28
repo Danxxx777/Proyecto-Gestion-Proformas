@@ -122,6 +122,7 @@
             btnORVenta.Text = "Orden de Venta";
             btnORVenta.TextAlign = ContentAlignment.MiddleLeft;
             btnORVenta.UseVisualStyleBackColor = false;
+            btnORVenta.Click += btnORVenta_Click;
             // 
             // pnlconfiguracion
             // 

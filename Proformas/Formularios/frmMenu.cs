@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 //using System.Windows.Controls;
 using System.Windows.Forms;
 
+
+
 namespace Proformas.Formularios
 {
     public partial class GestiónProformas : Form
@@ -145,7 +147,7 @@ namespace Proformas.Formularios
 
         private void btnCFn_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmBodegas());   
+            openChildForm(new frmBodegas());
             hideSubMenu();
         }
 
@@ -154,6 +156,26 @@ namespace Proformas.Formularios
             //por crear
             //openChildForm(new frmSucursales());
             hideSubMenu();
+        }
+
+        private void btnORVenta_Click(object sender, EventArgs e)
+        {
+
+            splitContainer1.Panel2.Controls.Clear();
+
+
+            frmOrdenVenta frm = new frmOrdenVenta();
+
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+
+            splitContainer1.Panel2.Controls.Add(frm);
+
+
+            frm.Show();
         }
     }
 }
