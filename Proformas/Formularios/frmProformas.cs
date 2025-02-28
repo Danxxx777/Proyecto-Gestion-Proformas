@@ -386,14 +386,21 @@ namespace Proformas.Formularios
 
                 try
                 {
-                    // 🔹 Verificar si el Cliente ya existe en la base de datos
+                    // 🔹 Obtener la Sucursal seleccionada
+                    if (cboSucursales.SelectedValue == null)
+                    {
+                        MessageBox.Show("Seleccione una sucursal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    int sucursalID = Convert.ToInt32(cboSucursales.SelectedValue);
+
+                    // 🔹 Verificar si el Cliente existe
                     string queryClienteExistente = "SELECT COUNT(*) FROM Clientes WHERE NumeroIdentificacion = @Cedula";
                     using (SqlCommand cmdCheckCliente = new SqlCommand(queryClienteExistente, conn, transaction))
                     {
                         cmdCheckCliente.Parameters.AddWithValue("@Cedula", txtNcedula.Text);
                         int existe = (int)await cmdCheckCliente.ExecuteScalarAsync();
 
-                        // 🔹 Si no existe, insertarlo en la base de datos
                         if (existe == 0)
                         {
                             string queryInsertCliente = "INSERT INTO Clientes (NumeroIdentificacion, Nombre, Correo, TipoCliente, Estado) " +
@@ -410,7 +417,7 @@ namespace Proformas.Formularios
                         }
                     }
 
-                    // 🔹 Obtener el ClienteID recién insertado o existente
+                    // 🔹 Obtener el ClienteID
                     string queryObtenerClienteID = "SELECT ClienteID FROM Clientes WHERE NumeroIdentificacion = @Cedula";
                     int clienteID;
                     using (SqlCommand cmdObtenerCliente = new SqlCommand(queryObtenerClienteID, conn, transaction))
@@ -419,11 +426,20 @@ namespace Proformas.Formularios
                         clienteID = Convert.ToInt32(await cmdObtenerCliente.ExecuteScalarAsync());
                     }
 
-                    // 🔹 Obtener el VendedorID desde el Label
+                    // 🔹 Obtener el VendedorID
                     if (!int.TryParse(lblVendedorID.Text, out int vendedorID))
                     {
                         MessageBox.Show("Error: VendedorID debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
+                    }
+
+                    // 🔹 Obtener el nuevo número de proforma y actualizarlo en la sucursal
+                    string queryNumeroProforma = "SELECT UltimoNumeroProforma FROM Sucursales WHERE SucursalID = @SucursalID";
+                    int nuevoNumeroProforma;
+                    using (SqlCommand cmdNumeroProforma = new SqlCommand(queryNumeroProforma, conn, transaction))
+                    {
+                        cmdNumeroProforma.Parameters.AddWithValue("@SucursalID", sucursalID);
+                        nuevoNumeroProforma = Convert.ToInt32(await cmdNumeroProforma.ExecuteScalarAsync()) + 1;
                     }
 
                     // 🔹 Insertar la Proforma
@@ -440,27 +456,56 @@ namespace Proformas.Formularios
                         proformaID = Convert.ToInt32(await cmdProforma.ExecuteScalarAsync());
                     }
 
-                    // 🔹 Insertar los detalles de la Proforma
+                    // 🔹 Insertar los detalles de la Proforma y actualizar el stock
                     foreach (DataGridViewRow row in dgvDproductos.Rows)
                     {
                         if (row.Cells["ProductoID"].Value != null)
                         {
+                            int productoID = Convert.ToInt32(row.Cells["ProductoID"].Value);
+                            int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                            decimal precioUnitario = Convert.ToDecimal(row.Cells["PrecioUnitario"].Value);
+                            decimal total = Convert.ToDecimal(row.Cells["Total"].Value);
+                            decimal descuento = Convert.ToDecimal(txtDescuento1.Text);
+
+                            // Insertar en DetalleProforma
                             string queryDetalle = "INSERT INTO DetalleProforma (ProformaID, ProductoID, Cantidad, PrecioUnitario, Total, Descuento) " +
                                                   "VALUES (@ProformaID, @ProductoID, @Cantidad, @PrecioUnitario, @Total, @Descuento)";
                             using (SqlCommand cmdDetalle = new SqlCommand(queryDetalle, conn, transaction))
                             {
                                 cmdDetalle.Parameters.AddWithValue("@ProformaID", proformaID);
-                                cmdDetalle.Parameters.AddWithValue("@ProductoID", row.Cells["ProductoID"].Value);
-                                cmdDetalle.Parameters.AddWithValue("@Cantidad", row.Cells["Cantidad"].Value);
-                                cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", row.Cells["PrecioUnitario"].Value);
-                                cmdDetalle.Parameters.AddWithValue("@Total", row.Cells["Total"].Value);
-                                cmdDetalle.Parameters.AddWithValue("@Descuento", Convert.ToDecimal(txtDescuento1.Text));
+                                cmdDetalle.Parameters.AddWithValue("@ProductoID", productoID);
+                                cmdDetalle.Parameters.AddWithValue("@Cantidad", cantidad);
+                                cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", precioUnitario);
+                                cmdDetalle.Parameters.AddWithValue("@Total", total);
+                                cmdDetalle.Parameters.AddWithValue("@Descuento", descuento);
                                 await cmdDetalle.ExecuteNonQueryAsync();
+                            }
+
+                            // 🔹 Descontar stock en SucursalProducto
+                            string queryActualizarStock = "UPDATE SucursalProducto SET Stock = Stock - @Cantidad " +
+                                                          "WHERE ProductoID = @ProductoID AND SucursalID = @SucursalID";
+                            using (SqlCommand cmdActualizarStock = new SqlCommand(queryActualizarStock, conn, transaction))
+                            {
+                                cmdActualizarStock.Parameters.AddWithValue("@Cantidad", cantidad);
+                                cmdActualizarStock.Parameters.AddWithValue("@ProductoID", productoID);
+                                cmdActualizarStock.Parameters.AddWithValue("@SucursalID", sucursalID);
+                                await cmdActualizarStock.ExecuteNonQueryAsync();
                             }
                         }
                     }
 
+                    // 🔹 Actualizar el número de proforma en la sucursal
+                    string queryActualizarProforma = "UPDATE Sucursales SET UltimoNumeroProforma = @UltimoNumero WHERE SucursalID = @SucursalID";
+                    using (SqlCommand cmdActualizarProforma = new SqlCommand(queryActualizarProforma, conn, transaction))
+                    {
+                        cmdActualizarProforma.Parameters.AddWithValue("@UltimoNumero", nuevoNumeroProforma);
+                        cmdActualizarProforma.Parameters.AddWithValue("@SucursalID", sucursalID);
+                        await cmdActualizarProforma.ExecuteNonQueryAsync();
+                    }
+
+                    // 🔹 Confirmar la transacción
                     transaction.Commit();
+
                     MessageBox.Show("Proforma registrada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
                 }
