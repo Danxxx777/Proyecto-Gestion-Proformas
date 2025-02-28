@@ -101,11 +101,11 @@
             guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtTotal = new Guna.UI2.WinForms.Guna2TextBox();
             btnBuscar = new Guna.UI2.WinForms.Guna2GradientButton();
-            dgvDetalle = new Guna.UI2.WinForms.Guna2DataGridView();
+            dgvDetalleProforma = new Guna.UI2.WinForms.Guna2DataGridView();
             lblVendedorID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)dgvDetalleProfroma).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalleProforma).BeginInit();
             SuspendLayout();
             // 
             // dgvDetalleProfroma
@@ -359,11 +359,12 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel5.Location = new Point(392, 66);
+            guna2HtmlLabel5.Location = new Point(334, 66);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(65, 22);
+            guna2HtmlLabel5.Size = new Size(123, 22);
             guna2HtmlLabel5.TabIndex = 13;
-            guna2HtmlLabel5.Text = "Telefono";
+            guna2HtmlLabel5.Text = "Fecha de registro";
+            guna2HtmlLabel5.Click += guna2HtmlLabel5_Click;
             // 
             // guna2HtmlLabel6
             // 
@@ -622,10 +623,10 @@
             btnBuscar.Text = "Buscar";
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // dgvDetalle
+            // dgvDetalleProforma
             // 
             dataGridViewCellStyle6.BackColor = Color.White;
-            dgvDetalle.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dgvDetalleProforma.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
@@ -633,9 +634,9 @@
             dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dgvDetalle.ColumnHeadersHeight = 21;
-            dgvDetalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvDetalleProforma.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvDetalleProforma.ColumnHeadersHeight = 21;
+            dgvDetalleProforma.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = Color.White;
             dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
@@ -643,34 +644,34 @@
             dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvDetalle.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvDetalle.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDetalle.Location = new Point(22, 354);
-            dgvDetalle.Name = "dgvDetalle";
-            dgvDetalle.RowHeadersVisible = false;
-            dgvDetalle.Size = new Size(533, 155);
-            dgvDetalle.TabIndex = 31;
-            dgvDetalle.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            dgvDetalle.ThemeStyle.AlternatingRowsStyle.Font = null;
-            dgvDetalle.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            dgvDetalle.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            dgvDetalle.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            dgvDetalle.ThemeStyle.BackColor = Color.White;
-            dgvDetalle.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDetalle.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dgvDetalle.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvDetalle.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            dgvDetalle.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvDetalle.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvDetalle.ThemeStyle.HeaderStyle.Height = 21;
-            dgvDetalle.ThemeStyle.ReadOnly = false;
-            dgvDetalle.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dgvDetalle.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvDetalle.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dgvDetalle.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            dgvDetalle.ThemeStyle.RowsStyle.Height = 25;
-            dgvDetalle.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dgvDetalle.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvDetalleProforma.DefaultCellStyle = dataGridViewCellStyle8;
+            dgvDetalleProforma.GridColor = Color.FromArgb(231, 229, 255);
+            dgvDetalleProforma.Location = new Point(22, 354);
+            dgvDetalleProforma.Name = "dgvDetalleProforma";
+            dgvDetalleProforma.RowHeadersVisible = false;
+            dgvDetalleProforma.Size = new Size(599, 188);
+            dgvDetalleProforma.TabIndex = 31;
+            dgvDetalleProforma.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvDetalleProforma.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvDetalleProforma.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvDetalleProforma.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvDetalleProforma.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvDetalleProforma.ThemeStyle.BackColor = Color.White;
+            dgvDetalleProforma.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvDetalleProforma.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvDetalleProforma.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvDetalleProforma.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dgvDetalleProforma.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDetalleProforma.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvDetalleProforma.ThemeStyle.HeaderStyle.Height = 21;
+            dgvDetalleProforma.ThemeStyle.ReadOnly = false;
+            dgvDetalleProforma.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvDetalleProforma.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDetalleProforma.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dgvDetalleProforma.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvDetalleProforma.ThemeStyle.RowsStyle.Height = 25;
+            dgvDetalleProforma.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvDetalleProforma.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // lblVendedorID
             // 
@@ -689,7 +690,7 @@
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1272, 727);
             Controls.Add(lblVendedorID);
-            Controls.Add(dgvDetalle);
+            Controls.Add(dgvDetalleProforma);
             Controls.Add(btnBuscar);
             Controls.Add(txtTotal);
             Controls.Add(guna2HtmlLabel12);
@@ -726,7 +727,7 @@
             Load += frmOrdenVenta_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDetalleProfroma).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxCerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalleProforma).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -767,7 +768,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2TextBox txtTotal;
         private Guna.UI2.WinForms.Guna2GradientButton btnBuscar;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDetalle;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvDetalleProforma;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblVendedorID;
     }
 }

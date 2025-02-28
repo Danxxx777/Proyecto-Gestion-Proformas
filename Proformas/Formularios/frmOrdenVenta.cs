@@ -8,16 +8,22 @@ namespace Proformas.Formularios
     public partial class frmOrdenVenta : Form
     {
         private Conexion conexion = new Conexion();
-
+        private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=proformas2.0;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        
         public frmOrdenVenta()
         {
             InitializeComponent();
             this.Load += frmOrdenVenta_Load;
+           // CargarClientes();
+            CargarDetalleProformas();
+            //cmbClientes_SelectedIndexChanged();
+            //cmbProformas.SelectedIndexChanged += cmbClientes_SelectedIndexChanged;
+
         }
 
         private void frmOrdenVenta_Load(object sender, EventArgs e)
         {
-            dgvDetalle.CellValueChanged += dgvDetalle_CellValueChanged;
+            dgvDetalleProforma.CellValueChanged += dgvDetalle_CellValueChanged;
         }
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -49,7 +55,7 @@ namespace Proformas.Formularios
             txtTelefono.Clear();
             txtEstado1.Clear();
             cmbProformas.Items.Clear(); // Limpiar el ComboBox de proformas
-            dgvDetalle.DataSource = null; // Limpiar el DataGridView de detalles
+            dgvDetalleProforma.DataSource = null; // Limpiar el DataGridView de detalles
             txtTotal.Clear();
         }
 
@@ -182,11 +188,11 @@ namespace Proformas.Formularios
                         {
                             DataTable dt = new DataTable();
                             da.Fill(dt);
-                            dgvDetalle.DataSource = dt;
+                            dgvDetalleProforma.DataSource = dt;
 
-                            if (dgvDetalle.Columns.Contains("Cantidad"))
+                            if (dgvDetalleProforma.Columns.Contains("Cantidad"))
                             {
-                                dgvDetalle.Columns["Cantidad"].ReadOnly = false;
+                                dgvDetalleProforma.Columns["Cantidad"].ReadOnly = false;
                             }
                         }
                     }
@@ -204,9 +210,9 @@ namespace Proformas.Formularios
             {
                 await CargarDetalleProforma(proformaID);
 
-                if (dgvDetalle.Columns.Contains("Cantidad"))
+                if (dgvDetalleProforma.Columns.Contains("Cantidad"))
                 {
-                    dgvDetalle.Columns["Cantidad"].ReadOnly = false;
+                    dgvDetalleProforma.Columns["Cantidad"].ReadOnly = false;
                 }
             }
             else
@@ -217,9 +223,9 @@ namespace Proformas.Formularios
 
         private void dgvDetalle_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvDetalle.Columns[e.ColumnIndex].Name == "Cantidad")
+            if (e.RowIndex >= 0 && dgvDetalleProforma.Columns[e.ColumnIndex].Name == "Cantidad")
             {
-                DataGridViewRow row = dgvDetalle.Rows[e.RowIndex];
+                DataGridViewRow row = dgvDetalleProforma.Rows[e.RowIndex];
                 if (row.Cells["Cantidad"].Value != null && int.TryParse(row.Cells["Cantidad"].Value.ToString(), out int cantidad))
                 {
                     decimal precioUnitario = Convert.ToDecimal(row.Cells["PrecioUnitario"].Value);
@@ -234,7 +240,7 @@ namespace Proformas.Formularios
 
         private void CalcularTotalVenta()
         {
-            decimal totalVenta = dgvDetalle.Rows.Cast<DataGridViewRow>()
+            decimal totalVenta = dgvDetalleProforma.Rows.Cast<DataGridViewRow>()
                 .Where(row => row.Cells["Total"].Value != null)
                 .Sum(row => Convert.ToDecimal(row.Cells["Total"].Value));
 
@@ -245,5 +251,85 @@ namespace Proformas.Formularios
         {
 
         }
+
+        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+        //private void CargarClientes()
+        //{
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            string query = "SELECT ProformaID,ClienteID,FechaVencimiento,FechaCotizacion,TotalProforma,Estatus,VendedorID  FROM Proformas";
+        //            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+        //            DataTable dt = new DataTable();
+        //            da.Fill(dt);
+
+        //            cmbProformas.DataSource = dt;
+        //            cmbProformas.DisplayMember = "nombre";  // Mostrar el nombre del cliente
+        //            cmbProformas.ValueMember = "id_cliente"; // Guardar el ID del cliente
+        //            cmbProformas.SelectedIndex = -1; // No seleccionar ninguno por defecto
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Error al cargar clientes: " + ex.Message);
+        //        }
+        //    }
+        //}
+
+        private void CargarDetalleProformas()
+        {
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                //try
+                //{
+                //    conn.Open();
+                //    string query = "SELECT id_proforma, id_cliente, id_sucursal, fecha, total, estado FROM Proformas WHERE id_cliente = @idCliente";
+                //    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                //    da.SelectCommand.Parameters.AddWithValue("@idCliente", idCliente);
+                //    DataTable dt = new DataTable();
+                //    da.Fill(dt);
+                //    dgvDetalleProforma.DataSource = dt;
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("Error al filtrar proformas: " + ex.Message);
+                //}
+                string query = "SELECT ProformaID,ClienteID,FechaVencimiento,FechaCotizacion,TotalProforma,Estatus,VendedorID  FROM Proformas";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvDetalleProforma.DataSource = dt;
+            }
+          
+
+        }
+        //private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cmbProformas.SelectedIndex != -1) // Asegurar que se ha seleccionado un cliente
+        //    {
+        //        int idCliente = Convert.ToInt32(cmbProformas.SelectedValue);
+        //        CargarDetalleProformas(idCliente);
+        //    }
+        //}
+
+        //private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cmbClientes.SelectedIndex == -1) // Si no hay selección, mostrar todas las proformas
+        //    {
+        //        CargarProformas();
+        //    }
+        //    else
+        //    {
+        //        int idCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+        //        FiltrarProformasPorCliente(idCliente);
+        //    }
+        //}
+
+
     }
 }
