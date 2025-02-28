@@ -58,6 +58,7 @@ namespace Proformas
                 gtbcontraseña.Text = "Contraseña";
                 gtbcontraseña.PasswordChar = '\0';
             }
+            
         }
 
         private void pbxCerrar_Click(object sender, EventArgs e)
@@ -83,11 +84,13 @@ namespace Proformas
             {
                 MessageBox.Show("Login exitoso", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                
                 // 🔹 Crear una instancia de frmPrincipal y pasarle los datos del usuario
-                frmPrincipal principal = new frmPrincipal(nombreUsuario, vendedorID);
+                GestiónProformas principal = new GestiónProformas(nombreUsuario, vendedorID);
                 principal.Show(); // Abrir el formulario principal
                 this.Hide(); // Ocultar el formulario de login
             }
+            
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

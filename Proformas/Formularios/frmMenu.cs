@@ -13,10 +13,11 @@ namespace Proformas.Formularios
 {
     public partial class GestiónProformas : Form
     {
-        public GestiónProformas()
+        public GestiónProformas(string nombreUsuario, int vendedorID)
         {
             InitializeComponent();
             customizeDesing();
+
         }
         private void customizeDesing()
         {
