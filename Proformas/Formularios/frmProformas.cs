@@ -13,8 +13,8 @@ namespace Proformas.Formularios
 {
     public partial class frmProformas : Form
     {
-        private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=proformas2.0;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
-       
+        //private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=proformas2.0;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        private string connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
         private string nombreUsuario;
         private int vendedorID;
         public frmProformas(string nombreUsuario, int vendedorID)
@@ -77,7 +77,8 @@ namespace Proformas.Formularios
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT ProductoID, Nombre, PrecioUnitario FROM Productos";
+                string query = "SELECT p.ProductoID, p.Nombre, sp.PrecioUnitario FROM Productos p " +
+                               "INNER JOIN SucursalProducto sp ON p.ProductoID = sp.ProductoID";
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -90,17 +91,23 @@ namespace Proformas.Formularios
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvProductos.Rows[e.RowIndex];
+
                 int productoID = Convert.ToInt32(row.Cells["ProductoID"].Value);
                 string nombre = row.Cells["Nombre"].Value.ToString();
-                decimal precio = Convert.ToDecimal(row.Cells["PrecioUnitario"].Value);
+                decimal precio = row.Cells["PrecioUnitario"].Value != DBNull.Value
+                    ? Convert.ToDecimal(row.Cells["PrecioUnitario"].Value)
+                    : 0;
 
-                // Verificar si el producto ya está en el DataGridView de detalles
+                // Verificar si el producto ya está en dgvDproductos
                 foreach (DataGridViewRow detalleRow in dgvDproductos.Rows)
                 {
-                    if (Convert.ToInt32(detalleRow.Cells["ProductoID"].Value) == productoID)
+                    if (detalleRow.Cells["ProductoID"].Value != null &&
+                        Convert.ToInt32(detalleRow.Cells["ProductoID"].Value) == productoID)
                     {
-                        // Si ya existe, solo sumamos la cantidad
-                        int cantidadActual = Convert.ToInt32(detalleRow.Cells["Cantidad"].Value);
+                        int cantidadActual = detalleRow.Cells["Cantidad"].Value != null
+                            ? Convert.ToInt32(detalleRow.Cells["Cantidad"].Value)
+                            : 0;
+
                         detalleRow.Cells["Cantidad"].Value = cantidadActual + 1;
                         detalleRow.Cells["Total"].Value = (cantidadActual + 1) * precio;
                         CalcularTotales();
@@ -108,7 +115,7 @@ namespace Proformas.Formularios
                     }
                 }
 
-                // Si no existe, agregarlo con cantidad 1
+                // Agregar nuevo producto con cantidad 1
                 dgvDproductos.Rows.Add(productoID, nombre, 1, precio, precio);
                 CalcularTotales();
             }
@@ -206,6 +213,7 @@ namespace Proformas.Formularios
                     int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
                     decimal precioUnitario = Convert.ToDecimal(row.Cells["PrecioUnitario"].Value);
                     decimal total = cantidad * precioUnitario;
+
                     row.Cells["Total"].Value = total;
                     subtotal += total;
                 }
@@ -217,26 +225,21 @@ namespace Proformas.Formularios
             decimal iva = subtotal * 0.15m;
             txtIva.Text = iva.ToString("0.00");
 
-            // Obtener el descuento en porcentaje desde txtDescuento1
-            decimal porcentajeDescuento = 0;
+            // Obtener el porcentaje de descuento sin modificar txtDescuento1
+            decimal porcentajeDescuento;
             if (!decimal.TryParse(txtDescuento1.Text, out porcentajeDescuento) || porcentajeDescuento < 0)
             {
                 porcentajeDescuento = 0;
-                txtDescuento1.Text = "0";
             }
 
-            // Verificar que el porcentaje no sea mayor a 50%
             if (porcentajeDescuento > 50)
             {
-                MessageBox.Show("El descuento no puede ser mayor al 50% del subtotal.", "Descuento Excesivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 porcentajeDescuento = 50;
-                txtDescuento1.Text = "50";
             }
 
             // Calcular el descuento en valor monetario
             decimal descuento = subtotal * (porcentajeDescuento / 100);
             lblinfoDescuento.Text = $": {descuento:C2} ({porcentajeDescuento}%)";
-            txtDescuento1.Text = descuento.ToString("0.00");
 
             // Calcular total final después del descuento
             decimal totalFinal = subtotal + iva - descuento;
@@ -245,9 +248,10 @@ namespace Proformas.Formularios
 
 
 
+
         private void frmProformas_Load(object sender, EventArgs e)
         {
-            // Definir columnas del DataGridView si no están definidas
+            // Configuración de columnas para dgvDproductos
             dgvDproductos.ColumnCount = 5;
             dgvDproductos.Columns[0].Name = "ProductoID";
             dgvDproductos.Columns[1].Name = "Nombre";
@@ -255,14 +259,20 @@ namespace Proformas.Formularios
             dgvDproductos.Columns[3].Name = "PrecioUnitario";
             dgvDproductos.Columns[4].Name = "Total";
 
-            // Opcional: Formato para PrecioUnitario y Total
+            // Formatear columnas de precios
             dgvDproductos.Columns[3].DefaultCellStyle.Format = "C2";
             dgvDproductos.Columns[4].DefaultCellStyle.Format = "C2";
+
+            CargarSucursales(); // Carga las sucursales en el ComboBox
+            if (cboSucursales.Items.Count > 0)
+            {
+                cboSucursales.SelectedIndex = 0; // Selecciona la primera sucursal por defecto
+            }
         }
 
         private void pbxCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void txtDescuento1_TextChanged(object sender, EventArgs e)
@@ -301,31 +311,35 @@ namespace Proformas.Formularios
             if (!decimal.TryParse(txtDescuento1.Text, out decimal porcentajeDescuento) || porcentajeDescuento < 0)
             {
                 MessageBox.Show("Ingrese un porcentaje de descuento válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtDescuento1.Text = "0";
                 return;
             }
 
             if (porcentajeDescuento > 50)
             {
                 MessageBox.Show("El descuento no puede ser mayor al 50% del subtotal.", "Descuento Excesivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtDescuento1.Text = "50";
+                txtDescuento1.Text = "50"; // Mantener el porcentaje dentro del límite permitido
             }
 
-            // Aplicar el cálculo y refrescar el total
+            // Recalcular los totales sin modificar el txtDescuento1
             CalcularTotales();
-            MessageBox.Show("", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            MessageBox.Show("Descuento aplicado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void dgvDproductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvDproductos.Columns["Cantidad"].Index) // Verifica si es la columna de cantidad
+            if (e.ColumnIndex == dgvDproductos.Columns["Cantidad"].Index) // Si la celda editada es la de cantidad
             {
                 try
                 {
+                    if (dgvDproductos.Rows[e.RowIndex].Cells["Cantidad"].Value == null)
+                        dgvDproductos.Rows[e.RowIndex].Cells["Cantidad"].Value = 1;
+
                     int nuevaCantidad = Convert.ToInt32(dgvDproductos.Rows[e.RowIndex].Cells["Cantidad"].Value);
+
                     if (nuevaCantidad <= 0)
                     {
                         MessageBox.Show("La cantidad debe ser mayor a 0.", "Cantidad inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        dgvDproductos.Rows[e.RowIndex].Cells["Cantidad"].Value = 1; // Restablece a 1 si es inválido
+                        dgvDproductos.Rows[e.RowIndex].Cells["Cantidad"].Value = 1;
                     }
 
                     // Recalcular el total de la fila
@@ -338,13 +352,13 @@ namespace Proformas.Formularios
                 catch
                 {
                     MessageBox.Show("Ingrese un valor numérico válido para la cantidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    dgvDproductos.Rows[e.RowIndex].Cells["Cantidad"].Value = 1; // Evita valores inválidos
+                    dgvDproductos.Rows[e.RowIndex].Cells["Cantidad"].Value = 1;
                 }
             }
         }
         private void dgvDproductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (dgvDproductos.CurrentCell.ColumnIndex == dgvDproductos.Columns["Cantidad"].Index) // Si es la columna de cantidad
+            if (dgvDproductos.CurrentCell.ColumnIndex == dgvDproductos.Columns["Cantidad"].Index)
             {
                 TextBox txtCantidad = e.Control as TextBox;
                 if (txtCantidad != null)
@@ -515,5 +529,51 @@ namespace Proformas.Formularios
             return existe;
         }
 
+        private void CargarSucursales()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT SucursalID, NombreSucursal FROM Sucursales WHERE Estado = 'Act'";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cboSucursales.DisplayMember = "NombreSucursal"; // Lo que se mostrará en el ComboBox
+                cboSucursales.ValueMember = "SucursalID"; // El ID que se usará internamente
+                cboSucursales.DataSource = dt;
+            }
+        }
+
+        private void cboSucursales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboSucursales.SelectedValue != null)
+            {
+                int sucursalID = Convert.ToInt32(cboSucursales.SelectedValue);
+                CargarProductosPorSucursal(sucursalID);
+            }
+        }
+        private void CargarProductosPorSucursal(int sucursalID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"SELECT p.ProductoID, p.Nombre, sp.Stock, sp.PrecioUnitario
+                         FROM Productos p
+                         INNER JOIN SucursalProducto sp ON p.ProductoID = sp.ProductoID
+                         WHERE sp.SucursalID = @SucursalID AND sp.Stock > 0"; // Solo productos con stock disponible
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                da.SelectCommand.Parameters.AddWithValue("@SucursalID", sucursalID);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvProductos.DataSource = dt;
+            }
+        }
+
+        private void btnLimpiarProductos_Click(object sender, EventArgs e)
+        {
+            dgvDproductos.Rows.Clear();
+            CalcularTotales(); // Recalcular totales después de limpiar
+        }
     }
 }
