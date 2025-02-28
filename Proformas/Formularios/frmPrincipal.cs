@@ -14,6 +14,7 @@ using System.Windows.Forms;
 namespace Proformas.Formularios
 {
     //marlon
+    //gomez
     public partial class frmPrincipal : Form
     {
         private string nombreUsuario;
