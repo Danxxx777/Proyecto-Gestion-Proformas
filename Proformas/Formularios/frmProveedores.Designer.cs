@@ -443,7 +443,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(726, 459);
+            ClientSize = new Size(721, 561);
             Controls.Add(guna2TextBox4);
             Controls.Add(label4);
             Controls.Add(guna2TextBox3);

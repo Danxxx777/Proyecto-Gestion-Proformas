@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestiónProformas));
             pnlPrincipal = new Panel();
-            btnConfiguracioon = new Button();
+            btnReport = new Button();
+            btnORVenta = new Button();
             pnlconfiguracion = new Panel();
             btncfnSucursales = new FontAwesome.Sharp.IconButton();
             btnCFnBodegas = new FontAwesome.Sharp.IconButton();
-            btnOrdenVenta = new Button();
-            btnReportes = new Button();
+            btnConfi = new Button();
             pnlSubmenuProducto = new Panel();
             btnTipo = new FontAwesome.Sharp.IconButton();
             btnServicio = new FontAwesome.Sharp.IconButton();
@@ -67,10 +67,10 @@
             // 
             pnlPrincipal.AutoScroll = true;
             pnlPrincipal.BackColor = Color.FromArgb(49, 64, 95);
-            pnlPrincipal.Controls.Add(btnConfiguracioon);
+            pnlPrincipal.Controls.Add(btnReport);
+            pnlPrincipal.Controls.Add(btnORVenta);
             pnlPrincipal.Controls.Add(pnlconfiguracion);
-            pnlPrincipal.Controls.Add(btnOrdenVenta);
-            pnlPrincipal.Controls.Add(btnReportes);
+            pnlPrincipal.Controls.Add(btnConfi);
             pnlPrincipal.Controls.Add(pnlSubmenuProducto);
             pnlPrincipal.Controls.Add(btnProductos);
             pnlPrincipal.Controls.Add(btnProformas);
@@ -81,37 +81,55 @@
             pnlPrincipal.ForeColor = Color.FromArgb(11, 7, 17);
             pnlPrincipal.Location = new Point(0, 0);
             pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(213, 600);
+            pnlPrincipal.Size = new Size(213, 561);
             pnlPrincipal.TabIndex = 0;
             pnlPrincipal.Paint += panel1_Paint;
             // 
-            // btnConfiguracioon
+            // btnReport
             // 
-            btnConfiguracioon.BackColor = Color.FromArgb(49, 64, 95);
-            btnConfiguracioon.Dock = DockStyle.Top;
-            btnConfiguracioon.FlatAppearance.BorderSize = 0;
-            btnConfiguracioon.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnConfiguracioon.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnConfiguracioon.FlatStyle = FlatStyle.Flat;
-            btnConfiguracioon.Font = new Font("Mongolian Baiti", 9F, FontStyle.Bold);
-            btnConfiguracioon.ForeColor = Color.Gainsboro;
-            btnConfiguracioon.Location = new Point(0, 523);
-            btnConfiguracioon.Name = "btnConfiguracioon";
-            btnConfiguracioon.Padding = new Padding(10, 0, 0, 0);
-            btnConfiguracioon.Size = new Size(196, 40);
-            btnConfiguracioon.TabIndex = 4;
-            btnConfiguracioon.Text = "Configuración";
-            btnConfiguracioon.TextAlign = ContentAlignment.MiddleLeft;
-            btnConfiguracioon.UseVisualStyleBackColor = false;
-            btnConfiguracioon.Click += btnConfiguracioon_Click;
+            btnReport.BackColor = Color.FromArgb(49, 64, 95);
+            btnReport.Dock = DockStyle.Top;
+            btnReport.FlatAppearance.BorderSize = 0;
+            btnReport.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
+            btnReport.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
+            btnReport.FlatStyle = FlatStyle.Flat;
+            btnReport.Font = new Font("Mongolian Baiti", 9F, FontStyle.Bold);
+            btnReport.ForeColor = Color.Gainsboro;
+            btnReport.Location = new Point(0, 599);
+            btnReport.Name = "btnReport";
+            btnReport.Padding = new Padding(10, 0, 0, 0);
+            btnReport.Size = new Size(196, 40);
+            btnReport.TabIndex = 10;
+            btnReport.Text = "Reportes";
+            btnReport.TextAlign = ContentAlignment.MiddleLeft;
+            btnReport.UseVisualStyleBackColor = false;
+            // 
+            // btnORVenta
+            // 
+            btnORVenta.BackColor = Color.FromArgb(49, 64, 95);
+            btnORVenta.Dock = DockStyle.Top;
+            btnORVenta.FlatAppearance.BorderSize = 0;
+            btnORVenta.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
+            btnORVenta.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
+            btnORVenta.FlatStyle = FlatStyle.Flat;
+            btnORVenta.Font = new Font("Mongolian Baiti", 9F, FontStyle.Bold);
+            btnORVenta.ForeColor = Color.Gainsboro;
+            btnORVenta.Location = new Point(0, 559);
+            btnORVenta.Name = "btnORVenta";
+            btnORVenta.Padding = new Padding(10, 0, 0, 0);
+            btnORVenta.Size = new Size(196, 40);
+            btnORVenta.TabIndex = 9;
+            btnORVenta.Text = "Orden de Venta";
+            btnORVenta.TextAlign = ContentAlignment.MiddleLeft;
+            btnORVenta.UseVisualStyleBackColor = false;
             // 
             // pnlconfiguracion
             // 
             pnlconfiguracion.BackColor = Color.FromArgb(49, 64, 95);
             pnlconfiguracion.Controls.Add(btncfnSucursales);
             pnlconfiguracion.Controls.Add(btnCFnBodegas);
-            pnlconfiguracion.Dock = DockStyle.Bottom;
-            pnlconfiguracion.Location = new Point(0, 563);
+            pnlconfiguracion.Dock = DockStyle.Top;
+            pnlconfiguracion.Location = new Point(0, 483);
             pnlconfiguracion.Name = "pnlconfiguracion";
             pnlconfiguracion.Size = new Size(196, 76);
             pnlconfiguracion.TabIndex = 8;
@@ -131,7 +149,7 @@
             btncfnSucursales.Name = "btncfnSucursales";
             btncfnSucursales.Size = new Size(196, 35);
             btncfnSucursales.TabIndex = 9;
-            btncfnSucursales.Text = "Servicios";
+            btncfnSucursales.Text = "Sucursales";
             btncfnSucursales.TextAlign = ContentAlignment.MiddleRight;
             btncfnSucursales.TextImageRelation = TextImageRelation.TextBeforeImage;
             btncfnSucursales.UseMnemonic = false;
@@ -160,45 +178,25 @@
             btnCFnBodegas.UseVisualStyleBackColor = false;
             btnCFnBodegas.Click += btnCFn_Click;
             // 
-            // btnOrdenVenta
+            // btnConfi
             // 
-            btnOrdenVenta.BackColor = Color.FromArgb(49, 64, 95);
-            btnOrdenVenta.Dock = DockStyle.Top;
-            btnOrdenVenta.FlatAppearance.BorderSize = 0;
-            btnOrdenVenta.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnOrdenVenta.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnOrdenVenta.FlatStyle = FlatStyle.Flat;
-            btnOrdenVenta.Font = new Font("Mongolian Baiti", 9F, FontStyle.Bold);
-            btnOrdenVenta.ForeColor = Color.Gainsboro;
-            btnOrdenVenta.Location = new Point(0, 483);
-            btnOrdenVenta.Name = "btnOrdenVenta";
-            btnOrdenVenta.Padding = new Padding(10, 0, 0, 0);
-            btnOrdenVenta.Size = new Size(196, 40);
-            btnOrdenVenta.TabIndex = 8;
-            btnOrdenVenta.Text = "Orden de Venta";
-            btnOrdenVenta.TextAlign = ContentAlignment.MiddleLeft;
-            btnOrdenVenta.UseVisualStyleBackColor = false;
-            btnOrdenVenta.Click += btnConfiguracion_Click;
-            // 
-            // btnReportes
-            // 
-            btnReportes.BackColor = Color.FromArgb(49, 64, 95);
-            btnReportes.Dock = DockStyle.Top;
-            btnReportes.FlatAppearance.BorderSize = 0;
-            btnReportes.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
-            btnReportes.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
-            btnReportes.FlatStyle = FlatStyle.Flat;
-            btnReportes.Font = new Font("Mongolian Baiti", 9F, FontStyle.Bold);
-            btnReportes.ForeColor = Color.Gainsboro;
-            btnReportes.Location = new Point(0, 443);
-            btnReportes.Name = "btnReportes";
-            btnReportes.Padding = new Padding(10, 0, 0, 0);
-            btnReportes.Size = new Size(196, 40);
-            btnReportes.TabIndex = 7;
-            btnReportes.Text = "Reportes";
-            btnReportes.TextAlign = ContentAlignment.MiddleLeft;
-            btnReportes.UseVisualStyleBackColor = false;
-            btnReportes.Click += bntProductos_Click;
+            btnConfi.BackColor = Color.FromArgb(49, 64, 95);
+            btnConfi.Dock = DockStyle.Top;
+            btnConfi.FlatAppearance.BorderSize = 0;
+            btnConfi.FlatAppearance.MouseDownBackColor = Color.FromArgb(37, 37, 37);
+            btnConfi.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 37, 37);
+            btnConfi.FlatStyle = FlatStyle.Flat;
+            btnConfi.Font = new Font("Mongolian Baiti", 9F, FontStyle.Bold);
+            btnConfi.ForeColor = Color.Gainsboro;
+            btnConfi.Location = new Point(0, 443);
+            btnConfi.Name = "btnConfi";
+            btnConfi.Padding = new Padding(10, 0, 0, 0);
+            btnConfi.Size = new Size(196, 40);
+            btnConfi.TabIndex = 7;
+            btnConfi.Text = "Configuración";
+            btnConfi.TextAlign = ContentAlignment.MiddleLeft;
+            btnConfi.UseVisualStyleBackColor = false;
+            btnConfi.Click += bntProductos_Click;
             // 
             // pnlSubmenuProducto
             // 
@@ -478,7 +476,7 @@
             pnlForm.Dock = DockStyle.Fill;
             pnlForm.Location = new Point(213, 0);
             pnlForm.Name = "pnlForm";
-            pnlForm.Size = new Size(737, 600);
+            pnlForm.Size = new Size(721, 561);
             pnlForm.TabIndex = 2;
             // 
             // pictureBox1
@@ -496,10 +494,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(950, 600);
+            ClientSize = new Size(934, 561);
             Controls.Add(pnlForm);
             Controls.Add(pnlPrincipal);
-            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(950, 600);
             Name = "GestiónProformas";
@@ -522,7 +519,6 @@
         private Panel pnlPrincipal;
         private Panel pnlSubmenuClientes;
         private Button btnUsuarios;
-        private Button btnReportes;
         private Panel pnlSubmenuProducto;
         private Button btnProductos;
         private Button btnProformas;
@@ -546,5 +542,8 @@
         private PictureBox pictureBox2;
         private Label label1;
         private Button btnConfiguracioon;
+        private Button btnConfi;
+        private Button btnReport;
+        private Button btnORVenta;
     }
 }

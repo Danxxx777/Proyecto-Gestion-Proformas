@@ -72,7 +72,6 @@
             // guna2CustomGradientPanel1
             // 
             guna2CustomGradientPanel1.Controls.Add(lblClientes);
-            guna2CustomGradientPanel1.Controls.Add(pbxCerrar);
             guna2CustomGradientPanel1.CustomizableEdges = customizableEdges1;
             guna2CustomGradientPanel1.FillColor = Color.Indigo;
             guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(64, 0, 64);
@@ -81,7 +80,7 @@
             guna2CustomGradientPanel1.Location = new Point(-1, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel1.Size = new Size(521, 53);
+            guna2CustomGradientPanel1.Size = new Size(707, 53);
             guna2CustomGradientPanel1.TabIndex = 19;
             // 
             // lblClientes
@@ -98,7 +97,7 @@
             // 
             pbxCerrar.BackColor = Color.Transparent;
             pbxCerrar.Image = (Image)resources.GetObject("pbxCerrar.Image");
-            pbxCerrar.Location = new Point(475, 3);
+            pbxCerrar.Location = new Point(653, 74);
             pbxCerrar.Name = "pbxCerrar";
             pbxCerrar.Size = new Size(40, 36);
             pbxCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -328,8 +327,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(520, 511);
+            ClientSize = new Size(705, 522);
             Controls.Add(label1);
+            Controls.Add(pbxCerrar);
             Controls.Add(label2);
             Controls.Add(guna2TextBox2);
             Controls.Add(guna2TextBox1);
@@ -343,7 +343,6 @@
             Controls.Add(Editar);
             Controls.Add(btnEliminar);
             Controls.Add(btnAgregar);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "frmBodegas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmBodegas";

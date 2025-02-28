@@ -97,7 +97,7 @@
             guna2CustomGradientPanel1.Location = new Point(0, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel1.Size = new Size(840, 53);
+            guna2CustomGradientPanel1.Size = new Size(722, 53);
             guna2CustomGradientPanel1.TabIndex = 6;
             // 
             // lblClientes
@@ -155,9 +155,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(419, 143);
+            dataGridView1.Location = new Point(429, 155);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(372, 181);
+            dataGridView1.Size = new Size(259, 181);
             dataGridView1.TabIndex = 24;
             // 
             // gtbUsuario
@@ -474,7 +474,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(832, 471);
+            ClientSize = new Size(721, 561);
             Controls.Add(guna2ComboBox1);
             Controls.Add(label6);
             Controls.Add(guna2TextBox2);

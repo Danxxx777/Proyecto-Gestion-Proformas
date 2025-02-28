@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+//using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace Proformas.Formularios
@@ -93,17 +93,7 @@ namespace Proformas.Formularios
             hideSubMenu();
         }
 
-        private void btnNProforma_Click(object sender, EventArgs e)
-        {
-            //openChildForm(new frmProformas());
-            //codigo
-            hideSubMenu();
-        }
 
-        private void btnOV_Click(object sender, EventArgs e)
-        {
-
-        }
         #endregion
         #region Productos
         private void btnProductos_Click(object sender, EventArgs e)
@@ -147,44 +137,22 @@ namespace Proformas.Formularios
             hideSubMenu();
         }
 
-        private void btnBodegas_Click_1(object sender, EventArgs e)
-        {
-            openChildForm(new frmBodegas());
-            //codigo
-            hideSubMenu();
-        }
-
-        private void btnSucursal_Click(object sender, EventArgs e)
-        {
-            //por hacer
-            //openChildForm(new frmSucursales());
-            //codigo
-            hideSubMenu();
-        }
-
         private void bntProductos_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnConfiguracion_Click(object sender, EventArgs e)
-        {
-            hideSubMenu();
+            showSubMenu(pnlconfiguracion);
         }
 
         private void btnCFn_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmBodegas());   
             hideSubMenu();
         }
 
         private void btncfn2_Click(object sender, EventArgs e)
         {
+            //por crear
+            //openChildForm(new frmSucursales());
             hideSubMenu();
-        }
-
-        private void btnConfiguracioon_Click(object sender, EventArgs e)
-        {
-            showSubMenu(pnlconfiguracion);
         }
     }
 }
