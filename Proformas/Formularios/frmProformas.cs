@@ -13,8 +13,8 @@ namespace Proformas.Formularios
 {
     public partial class frmProformas : Form
     {
-        //private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=proformas2.0;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
-        private string connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Trust Server Certificate=True";
+      //  private string connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
         private string nombreUsuario;
         private int vendedorID;
         public frmProformas(string nombreUsuario, int vendedorID)

@@ -9,13 +9,13 @@ namespace Proformas.Formularios
     {
         private Conexion conexion = new Conexion();
         private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=proformas2.0;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
-        
+
         public frmOrdenVenta()
         {
             InitializeComponent();
             this.Load += frmOrdenVenta_Load;
-           // CargarClientes();
-            CargarDetalleProformas();
+            // CargarClientes();
+            //CargarDetalleProformas();
             //cmbClientes_SelectedIndexChanged();
             //cmbProformas.SelectedIndexChanged += cmbClientes_SelectedIndexChanged;
 
@@ -24,7 +24,27 @@ namespace Proformas.Formularios
         private void frmOrdenVenta_Load(object sender, EventArgs e)
         {
             dgvDetalleProforma.CellValueChanged += dgvDetalle_CellValueChanged;
+            CargarProformasEnComboBox();
+            cmbProformas.SelectedIndexChanged += cmbProformas_SelectedIndexChanged;
+
         }
+        private void cmbProformas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbProformas.SelectedIndex != -1 && cmbProformas.SelectedValue != null)
+            {
+                if (int.TryParse(cmbProformas.SelectedValue.ToString(), out int idProforma))
+                {
+                    MessageBox.Show($"Seleccionaste la ProformaID: {idProforma}", "Debug");
+                    CargarDetalleProforma(idProforma);
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se pudo convertir el valor seleccionado en un ID válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -130,8 +150,8 @@ namespace Proformas.Formularios
                         }
                         else
                         {
-                            cmbProformas.Items.Clear();
-                            MessageBox.Show("No se encontró ClienteID para esta cédula.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cmbProformas.DataSource = null;
+                            MessageBox.Show("⚠ No se encontró ClienteID para esta cédula.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
                     }
@@ -140,69 +160,88 @@ namespace Proformas.Formularios
                     using (SqlCommand cmdProformas = new SqlCommand(queryProformas, conn))
                     {
                         cmdProformas.Parameters.AddWithValue("@ClienteID", clienteID);
-                        using (SqlDataReader reader = await cmdProformas.ExecuteReaderAsync())
-                        {
-                            cmbProformas.Items.Clear();
-                            while (await reader.ReadAsync())
-                            {
-                                cmbProformas.Items.Add(reader["ProformaID"].ToString());
-                            }
+                        SqlDataAdapter da = new SqlDataAdapter(cmdProformas);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                            if (cmbProformas.Items.Count == 0)
-                            {
-                                MessageBox.Show("El cliente no tiene proformas registradas.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
+                        if (dt.Rows.Count > 0)
+                        {
+                            cmbProformas.DataSource = dt;
+                            cmbProformas.DisplayMember = "ProformaID";
+                            cmbProformas.ValueMember = "ProformaID";
+                            cmbProformas.SelectedIndex = -1; // No seleccionar nada por defecto
+                        }
+                        else
+                        {
+                            cmbProformas.DataSource = null;
+                            MessageBox.Show("⚠ El cliente no tiene proformas registradas.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar proformas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("❌ Error al cargar proformas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private async Task CargarDetalleProforma(int proformaID)
+
+
+        private async Task CargarDetalleProforma(int idProforma)
         {
-            try
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(conexion.ConnectionString))
+                try
                 {
                     await conn.OpenAsync();
 
-                    string query = @"SELECT 
-                                dp.ProductoID, 
-                                p.Nombre AS Producto,
-                                dp.Cantidad, 
-                                dp.PrecioUnitario, 
-                                dp.Descuento, 
-                                dp.Total 
-                             FROM DetalleProforma dp
-                             INNER JOIN Productos p ON dp.ProductoID = p.ProductoID
-                             WHERE dp.ProformaID = @ProformaID";
+                    // Depuración: Mostrar el ID de la Proforma que se está buscando.
+                    MessageBox.Show($"🔍 Buscando detalles para ProformaID: {idProforma}", "Depuración");
+
+                    string query = @"
+                SELECT 
+                    dp.DetalleID,
+                    dp.ProformaID,
+                    dp.ProductoID,
+                    p.Nombre AS Producto, 
+                    dp.Cantidad, 
+                    dp.PrecioUnitario, 
+                    dp.Descuento,
+                    dp.Total AS Subtotal 
+                FROM DetalleProforma dp
+                LEFT JOIN Productos p ON dp.ProductoID = p.ProductoID
+                WHERE dp.ProformaID = @idProforma";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@ProformaID", proformaID);
-                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dgvDetalleProforma.DataSource = dt;
+                        cmd.Parameters.AddWithValue("@idProforma", idProforma);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                            if (dgvDetalleProforma.Columns.Contains("Cantidad"))
-                            {
-                                dgvDetalleProforma.Columns["Cantidad"].ReadOnly = false;
-                            }
+                        // Depuración: Verificar si la consulta devolvió registros
+                        if (dt.Rows.Count > 0)
+                        {
+                            MessageBox.Show($"✅ Se encontraron {dt.Rows.Count} registros de detalles.", "Depuración");
+                            dgvDetalleProforma.DataSource = dt;
+                        }
+                        else
+                        {
+                            MessageBox.Show($"⚠ No hay detalles para la Proforma {idProforma}.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            dgvDetalleProforma.DataSource = null;
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar el detalle de la proforma: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("❌ Error al cargar los detalles de la proforma: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
+
+
+
+
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -256,58 +295,66 @@ namespace Proformas.Formularios
         {
 
         }
-        //private void CargarClientes()
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            conn.Open();
-        //            string query = "SELECT ProformaID,ClienteID,FechaVencimiento,FechaCotizacion,TotalProforma,Estatus,VendedorID  FROM Proformas";
-        //            SqlDataAdapter da = new SqlDataAdapter(query, conn);
-        //            DataTable dt = new DataTable();
-        //            da.Fill(dt);
-
-        //            cmbProformas.DataSource = dt;
-        //            cmbProformas.DisplayMember = "nombre";  // Mostrar el nombre del cliente
-        //            cmbProformas.ValueMember = "id_cliente"; // Guardar el ID del cliente
-        //            cmbProformas.SelectedIndex = -1; // No seleccionar ninguno por defecto
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Error al cargar clientes: " + ex.Message);
-        //        }
-        //    }
-        //}
-
-        private void CargarDetalleProformas()
+        private void CargarProformasPorCliente(int idCliente)
         {
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                //try
-                //{
-                //    conn.Open();
-                //    string query = "SELECT id_proforma, id_cliente, id_sucursal, fecha, total, estado FROM Proformas WHERE id_cliente = @idCliente";
-                //    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                //    da.SelectCommand.Parameters.AddWithValue("@idCliente", idCliente);
-                //    DataTable dt = new DataTable();
-                //    da.Fill(dt);
-                //    dgvDetalleProforma.DataSource = dt;
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show("Error al filtrar proformas: " + ex.Message);
-                //}
-                string query = "SELECT ProformaID,ClienteID,FechaVencimiento,FechaCotizacion,TotalProforma,Estatus,VendedorID  FROM Proformas";
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvDetalleProforma.DataSource = dt;
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT ProformaID FROM Proformas WHERE ClienteID = @idCliente";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    da.SelectCommand.Parameters.AddWithValue("@idCliente", idCliente);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    cmbProformas.DataSource = dt;
+                    cmbProformas.DisplayMember = "ProformaID"; // Mostrar los IDs en el ComboBox
+                    cmbProformas.ValueMember = "ProformaID"; // Guardar el ID real
+                    cmbProformas.SelectedIndex = -1; // No seleccionar nada al inicio
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar proformas del cliente: " + ex.Message);
+                }
             }
+        }
+
+
+       
           
 
+        
+        private void CargarProformasEnComboBox()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT ProformaID FROM Proformas";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Agregar una fila vacía al DataTable para la opción "Selecciona una opción"
+                    DataRow filaVacia = dt.NewRow();
+                    filaVacia["ProformaID"] = DBNull.Value;  // O un valor como 0 si no permite nulos
+                    dt.Rows.InsertAt(filaVacia, 0);  // Insertar al inicio
+
+                    // Asignar DataSource al ComboBox
+                    cmbProformas.DataSource = dt;
+                    cmbProformas.DisplayMember = "ProformaID";
+                    cmbProformas.ValueMember = "ProformaID";
+                    cmbProformas.SelectedIndex = 0; // Seleccionar la opción vacía al inicio
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar proformas: " + ex.Message);
+                }
+            }
         }
+
         //private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         //{
         //    if (cmbProformas.SelectedIndex != -1) // Asegurar que se ha seleccionado un cliente
