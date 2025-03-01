@@ -67,7 +67,7 @@ namespace Proformas.Formularios
         }
         private void btnClientes_Click_1(object sender, EventArgs e)
         {
-            usinopenChildForm(new frmClientes());
+            //usinopenChildForm(new frmClientes());
             //codigo
             hideSubMenu();
         }
