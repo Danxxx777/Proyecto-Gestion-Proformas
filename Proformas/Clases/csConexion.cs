@@ -22,8 +22,8 @@ namespace Proformas
 
         //Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True
         //Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True
-        //private string _connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Trust Server Certificate=True";
-        private string _connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        private string _connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        //private string _connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
         //private string _connectionString = "Data Source=DESKTOP-I3081F1\\SQLEXPRESS;Initial Catalog=Proformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
 
 
@@ -32,9 +32,9 @@ namespace Proformas
         public Conexion()
         {
 
-            //Conectar = new SqlConnection("Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Encrypt=False");
+            Conectar = new SqlConnection("Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Encrypt=False");
             //Conectar = new SqlConnection("Data Source=DESKTOP-I3081F1\\SQLEXPRESS;Initial Catalog=Proformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");
-            Conectar = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False");
+            //Conectar = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False");
             Conectar = new SqlConnection(_connectionString);
             Conectar.Open();
 
@@ -91,8 +91,8 @@ namespace Proformas
                 INNER JOIN Vendedor v ON u.UsuarioID = v.UsuarioID 
                 WHERE u.Usuario = @Usuario AND u.Contraseña = @Contraseña";
 
-            //using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Encrypt=False"))
-            using (SqlConnection con = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Encrypt=False"))
+           // using (SqlConnection con = new SqlConnection("Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False"))
             {
                 try
                 {

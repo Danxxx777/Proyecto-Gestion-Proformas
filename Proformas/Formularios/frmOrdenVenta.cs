@@ -33,6 +33,7 @@ namespace Proformas.Formularios
         }
         private void cmbProformas_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (cmbProformas.SelectedIndex != -1 && cmbProformas.SelectedValue != null)
             {
                 object selectedValue = cmbProformas.SelectedValue;
@@ -58,6 +59,7 @@ namespace Proformas.Formularios
                 }
             }
         }
+        
         
 
 
@@ -147,6 +149,8 @@ namespace Proformas.Formularios
             }
         }
 
+
+
         private async Task CargarProformasAsync(int clienteID)
         {
             try
@@ -185,6 +189,7 @@ namespace Proformas.Formularios
                 MessageBox.Show($"❌ Error al cargar proformas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 
