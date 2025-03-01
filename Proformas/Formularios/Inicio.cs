@@ -86,7 +86,7 @@ namespace Proformas
 
                 
                 // 🔹 Crear una instancia de frmPrincipal y pasarle los datos del usuario
-                GestiónProformas principal = new GestiónProformas(nombreUsuario, vendedorID);
+                frmMenu principal = new frmMenu(nombreUsuario, vendedorID);
                 principal.Show(); // Abrir el formulario principal
                 this.Hide(); // Ocultar el formulario de login
             }

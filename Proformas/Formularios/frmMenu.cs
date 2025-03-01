@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Proformas.Formularios
 {
-    public partial class GestiónProformas : Form
+    public partial class frmMenu : Form
     {
         private string nombreUsuario;
         private int vendedorID;
-        public GestiónProformas(string nombreUsuario, int vendedorID)
+        public frmMenu(string nombreUsuario, int vendedorID)
         {
             InitializeComponent();
             customizeDesing();
@@ -67,7 +67,7 @@ namespace Proformas.Formularios
         }
         private void btnClientes_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new frmClientes());
+            usinopenChildForm(new frmClientes());
             //codigo
             hideSubMenu();
         }

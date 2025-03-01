@@ -1,6 +1,6 @@
 ﻿namespace Proformas.Formularios
 {
-    partial class GestiónProformas
+    partial class frmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestiónProformas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             pnlPrincipal = new Panel();
             btnReport = new Button();
             btnORVenta = new Button();
@@ -483,14 +483,14 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(283, 64);
+            pictureBox1.Location = new Point(273, 115);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(178, 244);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // GestiónProformas
+            // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -500,7 +500,7 @@
             Controls.Add(pnlPrincipal);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(950, 600);
-            Name = "GestiónProformas";
+            Name = "frmMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMenu";
             pnlPrincipal.ResumeLayout(false);
