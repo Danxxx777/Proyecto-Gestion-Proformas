@@ -8,7 +8,7 @@ namespace Proformas.Formularios
     public partial class frmOrdenVenta : Form
     {
         private Conexion conexion = new Conexion();
-        private string connectionString = "Data Source=Ryzen7\\SQLEXPRESS;Initial Catalog=BDProformas;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        private string connectionString = "Data Source=DESKTOP-VK5KHQR;Initial Catalog=BaseAct;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
 
 
         public frmOrdenVenta()
@@ -28,7 +28,9 @@ namespace Proformas.Formularios
             dgvDetalleProforma.CellValueChanged += dgvDetalle_CellValueChanged;
             //CargarProformasEnComboBox();
             cmbProformas.SelectedIndexChanged += cmbProformas_SelectedIndexChanged;
-           
+            CargarEstados();
+            cmbEstado.SelectedIndexChanged += cmbEstado_SelectedIndexChanged;
+
 
         }
         private void cmbProformas_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,7 +151,132 @@ namespace Proformas.Formularios
             }
         }
 
+        private void CargarEstados()
+        {
+            cmbEstado.Items.Clear();
+            cmbEstado.Items.Add("Aprobado");
+            cmbEstado.Items.Add("Pendiente");
+            cmbEstado.SelectedIndex = -1; // Para que no seleccione nada por defecto
+        }
+        private async Task CargarEstadoProforma(int idProforma)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    await conn.OpenAsync();
 
+                    string query = "SELECT Estatus FROM Proformas WHERE ProformaID = @idProforma";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@idProforma", idProforma);
+                        object result = await cmd.ExecuteScalarAsync();
+
+                        if (result != null)
+                        {
+                            string estado = result.ToString();
+                            cmbEstado.SelectedItem = estado; // Seleccionar el estado actual
+                        }
+                        else
+                        {
+                            cmbEstado.SelectedIndex = -1; // Si no hay estado, dejar vacío
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar el estado de la proforma: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        //private async Task CargarDetalleProforma(int idProforma)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        try
+        //        {
+        //            await conn.OpenAsync();
+
+        //            string query = @"
+        //    SELECT 
+        //        dp.DetalleID,
+        //        dp.ProformaID,
+        //        dp.ProductoID,
+        //        p.Nombre AS Producto, 
+        //        dp.Cantidad, 
+        //        dp.PrecioUnitario, 
+        //        dp.Descuento,
+        //        dp.Total AS Subtotal 
+        //    FROM DetalleProforma dp
+        //    LEFT JOIN Productos p ON dp.ProductoID = p.ProductoID
+        //    WHERE dp.ProformaID = @idProforma";
+
+        //            using (SqlCommand cmd = new SqlCommand(query, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@idProforma", idProforma);
+        //                SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //                DataTable dt = new DataTable();
+        //                da.Fill(dt);
+
+        //                if (dt.Rows.Count > 0)
+        //                {
+        //                    dgvDetalleProforma.DataSource = dt;
+        //                }
+        //                else
+        //                {
+        //                    dgvDetalleProforma.DataSource = null;
+        //                    MessageBox.Show($"⚠ No hay detalles para la Proforma {idProforma}.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                }
+        //            }
+
+        //            await CargarEstadoProforma(idProforma); // 🔹 Cargar estado después de cargar los detalles
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"❌ Error al cargar los detalles de la proforma: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
+        private async void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEstado.SelectedItem != null && cmbProformas.SelectedValue != null)
+            {
+                if (int.TryParse(cmbProformas.SelectedValue.ToString(), out int idProforma))
+                {
+                    string nuevoEstado = cmbEstado.SelectedItem.ToString();
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            await conn.OpenAsync();
+
+                            string query = "UPDATE Proformas SET Estatus = @estatus WHERE ProformaID = @idProforma";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@estatus", nuevoEstado);
+                                cmd.Parameters.AddWithValue("@idProforma", idProforma);
+
+                                int filasAfectadas = await cmd.ExecuteNonQueryAsync();
+                                if (filasAfectadas > 0)
+                                {
+                                    MessageBox.Show("✅ Estado actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("⚠ No se pudo actualizar el estado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"❌ Error al actualizar el estado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
 
         private async Task CargarProformasAsync(int clienteID)
         {
@@ -244,6 +371,81 @@ namespace Proformas.Formularios
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
+            //if (cmbProformas.SelectedItem == null || !int.TryParse(cmbProformas.SelectedValue.ToString(), out int idProforma))
+            //{
+            //    MessageBox.Show("Por favor, seleccione una proforma antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+
+            //using (SqlConnection conn = new SqlConnection(connectionString))
+            //{
+            //    try
+            //    {
+            //        await conn.OpenAsync();
+            //        using (SqlTransaction transaction = conn.BeginTransaction()) // Se usa una transacción para evitar datos inconsistentes
+            //        {
+            //            try
+            //            {
+            //                // 🔹 1. Guardar cambios en DetalleProforma
+            //                foreach (DataGridViewRow row in dgvDetalleProforma.Rows)
+            //                {
+            //                    if (row.Cells["ProductoID"].Value == null) continue; // Evitar filas vacías
+
+            //                    int productoID = Convert.ToInt32(row.Cells["ProductoID"].Value);
+            //                    int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+            //                    decimal precioUnitario = Convert.ToDecimal(row.Cells["PrecioUnitario"].Value);
+            //                    decimal descuento = Convert.ToDecimal(row.Cells["Descuento"].Value);
+            //                    decimal total = Convert.ToDecimal(row.Cells["Total"].Value);
+
+            //                    string queryUpdateDetalle = @"
+            //                UPDATE DetalleProforma
+            //                SET Cantidad = @Cantidad, PrecioUnitario = @PrecioUnitario, 
+            //                    Descuento = @Descuento, Total = @Total
+            //                WHERE ProformaID = @ProformaID AND ProductoID = @ProductoID";
+
+            //                    using (SqlCommand cmd = new SqlCommand(queryUpdateDetalle, conn, transaction))
+            //                    {
+            //                        cmd.Parameters.AddWithValue("@Cantidad", cantidad);
+            //                        cmd.Parameters.AddWithValue("@PrecioUnitario", precioUnitario);
+            //                        cmd.Parameters.AddWithValue("@Descuento", descuento);
+            //                        cmd.Parameters.AddWithValue("@Total", total);
+            //                        cmd.Parameters.AddWithValue("@ProformaID", idProforma);
+            //                        cmd.Parameters.AddWithValue("@ProductoID", productoID);
+
+            //                        await cmd.ExecuteNonQueryAsync();
+            //                    }
+            //                }
+
+            //                // 🔹 2. Guardar el estado de la proforma si ha cambiado
+            //                if (cmbEstado.SelectedItem != null)
+            //                {
+            //                    string nuevoEstado = cmbEstado.SelectedItem.ToString();
+
+            //                    string queryUpdateEstado = "UPDATE Proformas SET Estatus = @Estatus WHERE ProformaID = @ProformaID";
+            //                    using (SqlCommand cmdEstado = new SqlCommand(queryUpdateEstado, conn, transaction))
+            //                    {
+            //                        cmdEstado.Parameters.AddWithValue("@Estatus", nuevoEstado);
+            //                        cmdEstado.Parameters.AddWithValue("@ProformaID", idProforma);
+            //                        await cmdEstado.ExecuteNonQueryAsync();
+            //                    }
+            //                }
+
+            //                // 🔹 3. Confirmar cambios
+            //                transaction.Commit();
+            //                MessageBox.Show("✅ Datos guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                transaction.Rollback(); // Revertir cambios si hay un error
+            //                MessageBox.Show($"❌ Error al guardar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show($"❌ Error de conexión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
             if (cmbProformas.SelectedItem != null && int.TryParse(cmbProformas.SelectedItem.ToString(), out int proformaID))
             {
                 await CargarDetalleProforma(proformaID);
